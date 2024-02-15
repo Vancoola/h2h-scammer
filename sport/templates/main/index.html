@@ -1,0 +1,670 @@
+{% extends 'main/header.html' %}
+{% load static %}
+{% load i18n %}
+{% load filter %}
+{% block content%}
+
+<section class="indexTop-section">
+    <div class="container">
+        <div class="indexTop">
+            <h1 class="indexTop-title">
+                {% translate  'Upcoming_matches' %}
+            </h1>
+            <h2 class="subtitle-indexTop">
+                Виды спорта
+            </h2>
+            <div class="indexTop-container">
+                <div class="indexTop-container-block">
+                    Футбол
+                    <img src="{% static 'main/img/Football.png' %}" alt="">
+                </div>
+                <div class="indexTop-container-block">
+                    Бокс
+                    <img src="{% static 'main/img/Boxing.png' %}" alt="">
+                </div>
+                <div class="indexTop-container-block">
+                    Баскетбол
+                    <img src="{%static 'main/img/Basketball.png' %}" alt="">
+                </div>
+                <div class="indexTop-container-block">
+                    Теннис
+                    <img src="{% static 'main/img/Tennis.png' %}" alt="">
+                </div>
+                <div class="indexTop-container-block">
+                    Плавание
+                    <img src="{% static 'main/img/Swimming.png' %}" alt="">
+                </div>
+                <div class="indexTop-container-block">
+                    Бег
+                    <img src="{% static 'main/img/Stopwatch.png' %}" alt="">
+                </div>
+                <div class="indexTop-container-block">
+                    ...
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="bannerIndex">
+    <div class="container">
+        <div class="swiper mySwiper mySwiperBanner">
+            <div class="swiper-wrapper swiper-wrapperBanner">
+                <div class="swiper-slide swiper-slideBanner">
+                    <div class="textSlideBanner">
+                        <h1>
+                            Lorem ipsum dolor sit amet, 1:0 consectetur adipiscing elit.
+                        </h1>
+                        <p>
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                        <a href="#!" class="bntBanner">
+                            Смотреть таблицу
+                            <svg class="arrow__btn" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_77_49)">
+                                    <path d="M10 17L15 12L10 7" stroke="#0A40AA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_77_49">
+                                        <rect width="24" height="24" fill="white"/>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </a>
+                    </div>
+                    <img src="{% static 'main/img/Messi-600x708.png' %}" alt="" class="photoBanner">
+                </div>
+                <div class="swiper-slide swiper-slideBanner">
+                    <div class="textSlideBanner">
+                        <h1>
+                            Lorem ipsum dolor sit amet, 1:0 consectetur adipiscing elit.
+                        </h1>
+                        <p>
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                        <a href="#!" class="bntBanner">
+                            Смотреть таблицу
+                            <svg class="arrow__btn" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_77_49)">
+                                    <path d="M10 17L15 12L10 7" stroke="#0A40AA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_77_49">
+                                        <rect width="24" height="24" fill="white"/>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </a>
+                    </div>
+                    <img src="{% static 'main/img/Messi-600x708.png' %}" alt="" class="photoBanner">
+                </div>
+                <div class="swiper-slide swiper-slideBanner">
+                    <div class="textSlideBanner">
+                        <h1>
+                            Lorem ipsum dolor sit amet, 1:0 consectetur adipiscing elit.
+                        </h1>
+                        <p>
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                        <a href="#!" class="bntBanner">
+                            Смотреть таблицу
+                            <svg class="arrow__btn" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_77_49)">
+                                    <path d="M10 17L15 12L10 7" stroke="#0A40AA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_77_49">
+                                        <rect width="24" height="24" fill="white"/>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </a>
+                    </div>
+                    <img src="{% static 'main/img/Messi-600x708.png' %}" alt="" class="photoBanner">
+                </div>
+            </div>
+            <div class="swiper-pagination swiper-paginationBanner"></div>
+        </div>
+    </div>
+</section>
+<section class="upcomingMatches__index">
+    <div class="container">
+        <h1 class="titlePageSection">
+            Upcoming matches
+        </h1>
+        <div class="flex-upcomingMatches__index">
+            <div class="section-catalog-container-filters">
+                <h2>{% translate 'Filters' %}</h2>
+                <div class="section-catalog-container-filters-block">
+                    <p class="section-catalog-container-filters-block-title">
+                        {% translate 'In stock' %}
+                    </p>
+                    <div class="checkbox">
+                        <input class="custom-checkbox" type="checkbox" id="color-1" name="color-1" value="indigo">
+                        <label for="color-1">Есть</label>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17" viewBox="0 0 18 17" fill="none">
+                            <path d="M7.56055 6.81907C7.56055 5.9024 8.30129 5.16907 9.22721 5.16907C10.1531 5.16907 10.8939 5.9024 10.8939 6.81907C10.8939 7.46073 10.5235 7.91907 10.0605 8.28574C9.22721 8.83574 9.22721 9.29407 9.22721 9.7524" stroke="#7F8596" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="9.22754" cy="8.50244" r="7.5" stroke="#7F8596" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M9.22721 12.2524C9.45733 12.2524 9.64388 12.0659 9.64388 11.8357C9.64388 11.6056 9.45733 11.4191 9.22721 11.4191C8.9971 11.4191 8.81055 11.6056 8.81055 11.8357C8.81055 12.0659 8.9971 12.2524 9.22721 12.2524Z" fill="#7F8596" stroke="#7F8596" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="section-catalog-container-filters-block-accordion">
+                    <button class="accordion">Формат</button>
+                    <div class="panel">
+                        <div class="panel-checkboxes">
+                            <div class="checkbox">
+                                <input class="custom-checkbox" type="checkbox" id="color-2" name="color-1" value="indigo">
+                                <label for="color-2">Standard</label>
+                            </div>
+                            <div class="checkbox">
+                                <input class="custom-checkbox" type="checkbox" id="color-3" name="color-1" value="indigo">
+                                <label for="color-3">Pioneer</label>
+                            </div>
+                            <div class="checkbox">
+                                <input class="custom-checkbox" type="checkbox" id="color-4" name="color-1" value="indigo">
+                                <label for="color-4">Modern</label>
+                            </div>
+                            <div class="checkbox">
+                                <input class="custom-checkbox" type="checkbox" id="color-5" name="color-1" value="indigo">
+                                <label for="color-5">Legacy</label>
+                            </div>
+                            <div class="checkbox">
+                                <input class="custom-checkbox" type="checkbox" id="color-6" name="color-1" value="indigo">
+                                <label for="color-6">Pauper</label>
+                            </div>
+                            <div class="checkbox">
+                                <input class="custom-checkbox" type="checkbox" id="color-7" name="color-1" value="indigo">
+                                <label for="color-7">EDH</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-catalog-container-filters-block-accordion">
+                    <button class="accordion">Состояние</button>
+                    <div class="panel">
+                        <div class="panel-checkboxes">
+                            <div class="checkbox">
+                                <input class="custom-checkbox" type="checkbox" id="color-8" name="color-1" value="indigo">
+                                <label for="color-8">Standard</label>
+                            </div>
+                            <div class="checkbox">
+                                <input class="custom-checkbox" type="checkbox" id="color-9" name="color-1" value="indigo">
+                                <label for="color-9">Pioneer</label>
+                            </div>
+                            <div class="checkbox">
+                                <input class="custom-checkbox" type="checkbox" id="color-10" name="color-1" value="indigo">
+                                <label for="color-10">Modern</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-catalog-container-filters-block-accordion">
+                    <button class="accordion">Формат</button>
+                    <div class="panel">
+                        <div class="panel-checkboxes">
+                            <div class="checkbox">
+                                <input class="custom-checkbox" type="checkbox" id="color-11" name="color-1" value="indigo">
+                                <label for="color-11">Foil</label>
+                            </div>
+                            <div class="checkbox">
+                                <input class="custom-checkbox" type="checkbox" id="color-12" name="color-1" value="indigo">
+                                <label for="color-12">Non-foil</label>
+                            </div>
+                            <div class="checkbox">
+                                <input class="custom-checkbox" type="checkbox" id="color-13" name="color-1" value="indigo">
+                                <label for="color-13">Showcase</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-catalog-container-filters-block-select">
+                    <p>Издание</p>
+                    <div class="section-catalog-container-filters-block-select-part">
+                        <select>
+                            <option disabled selected>Выберите</option>
+                            <option>Издание</option>
+                            <option>Издание</option>
+                            <option>Издание</option>
+                        </select>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="8" viewBox="0 0 13 8" fill="none">
+                            <path d="M11.2275 1.50244L6.22754 6.50244L1.22754 1.50244" stroke="#494E5B" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="section-catalog-container-filters-block-accordion">
+                    <button class="accordion">Язык</button>
+                    <div class="panel">
+                        <div class="panel-checkboxes">
+                            <div class="checkbox">
+                                <input class="custom-checkbox" type="checkbox" id="color-14" name="color-1" value="indigo">
+                                <label for="color-14">Русский (RU)</label>
+                            </div>
+                            <div class="checkbox">
+                                <input class="custom-checkbox" type="checkbox" id="color-15" name="color-1" value="indigo">
+                                <label for="color-15">Английский (EN)</label>
+                            </div>
+                            <div class="checkbox">
+                                <input class="custom-checkbox" type="checkbox" id="color-16" name="color-1" value="indigo">
+                                <label for="color-16">Испанский (ES)</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-catalog-container-filters-block-accordion">
+                    <button class="accordion">Редкость</button>
+                    <div class="panel">
+                        <div class="panel-checkboxes">
+                            <div class="checkbox">
+                                <input class="custom-checkbox" type="checkbox" id="color-17" name="color-1" value="indigo">
+                                <label for="color-17">Обычная</label>
+                            </div>
+                            <div class="checkbox">
+                                <input class="custom-checkbox" type="checkbox" id="color-18" name="color-1" value="indigo">
+                                <label for="color-18">Необычная</label>
+                            </div>
+                            <div class="checkbox">
+                                <input class="custom-checkbox" type="checkbox" id="color-19" name="color-1" value="indigo">
+                                <label for="color-19">Редкая</label>
+                            </div>
+                            <div class="checkbox">
+                                <input class="custom-checkbox" type="checkbox" id="color-20" name="color-1" value="indigo">
+                                <label for="color-20">Эпическая</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-catalog-container-filters-block-accordion">
+                    <button class="accordion">Цвет</button>
+                    <div class="panel">
+                        <div class="panel-checkboxes">
+                            <div class="checkbox">
+                                <input class="custom-checkbox" type="checkbox" id="color-21" name="color-1" value="indigo">
+                                <label for="color-21">Бесцветные</label>
+                            </div>
+                            <div class="checkbox">
+                                <input class="custom-checkbox" type="checkbox" id="color-22" name="color-1" value="indigo">
+                                <label for="color-22">Белые</label>
+                            </div>
+                            <div class="checkbox">
+                                <input class="custom-checkbox" type="checkbox" id="color-23" name="color-1" value="indigo">
+                                <label for="color-23">Чёрный</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-catalog-container-filters-block-select">
+                    <p>Мана-стоимость</p>
+                    <div class="section-catalog-container-filters-block-select-part">
+                        <select>
+                            <option disabled selected>Выберите</option>
+                            <option>Издание</option>
+                            <option>Издание</option>
+                            <option>Издание</option>
+                        </select>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="8" viewBox="0 0 13 8" fill="none">
+                            <path d="M11.2275 1.50244L6.22754 6.50244L1.22754 1.50244" stroke="#494E5B" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="section-catalog-container-filters-block-select">
+                    <p>Художник</p>
+                    <div class="section-catalog-container-filters-block-select-part">
+                        <select>
+                            <option disabled selected>Выберите</option>
+                            <option>Издание</option>
+                            <option>Издание</option>
+                            <option>Издание</option>
+                        </select>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="8" viewBox="0 0 13 8" fill="none">
+                            <path d="M11.2275 1.50244L6.22754 6.50244L1.22754 1.50244" stroke="#494E5B" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="section-catalog-container-filters-range">
+                    <p>
+                        Цена
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17" viewBox="0 0 18 17" fill="none">
+                            <path d="M7.56055 6.81911C7.56055 5.90245 8.30129 5.16911 9.22721 5.16911C10.1531 5.16911 10.8939 5.90245 10.8939 6.81911C10.8939 7.46078 10.5235 7.91912 10.0605 8.28578C9.22721 8.83578 9.22721 9.29411 9.22721 9.75245" stroke="#31343F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="9.22754" cy="8.50244" r="7.5" stroke="#31343F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M9.22721 12.2524C9.45733 12.2524 9.64388 12.0659 9.64388 11.8358C9.64388 11.6057 9.45733 11.4191 9.22721 11.4191C8.9971 11.4191 8.81055 11.6057 8.81055 11.8358C8.81055 12.0659 8.9971 12.2524 9.22721 12.2524Z" fill="#31343F" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </p>
+                    <div class="range">
+                        <input type="range" min="0" max="50" value="0" id="range2" class="range-input" />
+                        <div class="value2" style="display: none">0</div>
+                    </div>
+                    <div class="section-catalog-container-filters-range-bottom">
+                        <span>291 ₽</span>
+                        <span>11,291 ₽</span>
+                    </div>
+                </div>
+            </div>
+            <div class="matches-upcomingMatches__index">
+                {% for league in leagues %}
+                <div class="matches-upcomingMatches-block__index">
+                    <a href="{{ league.get_absolute_url }}">
+                    <div class="matches-upcomingMatches-block-top__index">
+                        <div class="matches-upcomingMatches-block-top-left__index">
+                            <img src="https://flagsapi.com/{{league.country}}/flat/64.png" alt="" width="14px" height="11px">
+                            {{league.country.code_country}}: {{league.name}}
+                        </div>
+                        <p>{{league.games.update}}</p>
+                        <div class="matches-upcomingMatches-block-top-right__index">
+                            <span>1</span>
+                            <span>X</span>
+                            <span>2</span>
+                        </div>
+                    </div>
+                    <div class="matches-upcomingMatches-block-container__index">
+                        <div class="matches-upcomingMatches-block-container-left-parent__index">
+                            <div class="matches-upcomingMatches-block-container-left__index">
+                                <div class="matches-upcomingMatches-block-container-left-part__index">
+{#                                    {{ league.league_top.first }}#}
+                                    <span>{% top_list league=league team=league.games.first.home.team_id %}</span>
+                                    <img src="{{league.games.first.home.logo}}" alt="">
+                                    <p>{{league.games.first.home.name}}</p>
+                                </div>
+                                <div class="matches-upcomingMatches-block-container-left-part__index matches-upcomingMatches-block-container-left-part__index-mini">
+                                    <p>Form</p>
+                                    <span>
+                                        12
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="matches-upcomingMatches-block-container-left__index">
+                                <div class="matches-upcomingMatches-block-container-left-part__index">
+                                    <span>{% top_list league=league team=league.games.first.away.team_id %}</span>
+                                    <img src="{{league.games.first.away.logo}}" alt="">
+                                    <p>{{league.games.first.away.name}}</p>
+                                </div>
+                                <div class="matches-upcomingMatches-block-container-left-part__index matches-upcomingMatches-block-container-left-part__index-mini">
+                                    <p>Form</p>
+                                    <span>
+                                        12
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="matches-upcomingMatches-block-container-right__index">
+                            <div class="matches-upcomingMatches-block-container-right-block__index matches-upcomingMatches-block-container-right-block-red__index">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M11.7938 9.51874L8 13.3125L4.20625 9.51874" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M8 2.6875V13.2062" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                2.22
+                            </div>
+                            <div class="matches-upcomingMatches-block-container-right-block__index matches-upcomingMatches-block-container-right-block-green__index">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M11.7938 9.51874L8 13.3125L4.20625 9.51874" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M8 2.6875V13.2062" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                2.22
+                            </div>
+                            <div class="matches-upcomingMatches-block-container-right-block__index matches-upcomingMatches-block-container-right-block-red__index">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M11.7938 9.51874L8 13.3125L4.20625 9.51874" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M8 2.6875V13.2062" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                2.22
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                </div>
+                <!-- <div class="rating-container__index">
+                    <div class="rating-container-part__index">
+                        <span>123</span>
+                        <img src="{% static 'main/img/image121.png' %}" alt="">
+                        <p>1xBet</p>
+                    </div>
+                    <div class="rating-container-part__index">
+                        <span>123</span>
+                        <img src="{% static 'main/img/image121.png' %}" alt="">
+                        <p>1xBet</p>
+                    </div>
+                    <div class="rating-container-part__index">
+                        <span>123</span>
+                        <img src="{% static 'main/img/image121.png' %}" alt="">
+                        <p>1xBet</p>
+                    </div>
+                    <div class="rating-container-part__index">
+                        <span>123</span>
+                        <img src="{% static 'main/img/image121.png' %}" alt="">
+                        <p>1xBet</p>
+                    </div>
+                </div> -->
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<section class="news__index">
+    <div class="container">
+        <div class="news-top__index">
+            <h3>Our News</h3>
+            <a href="#!">Все новости</a>
+        </div>
+        <div class="news-container__index">
+            <div class="news-container-block__index news-container-block-big__index">
+                <img src="{% static 'main/img/1_Garrett-Rowland1.png' %}" alt="" class="news-container-block-img__index">
+                <div class="news-container-block-bg__index"></div>
+                <div class="news-container-block-text__index">
+                    <span>Название категории</span>
+                    <p>
+                        Как достичь успеха и построить карьеру в футболе?
+                    </p>
+                </div>
+            </div>
+            <div class="news-container-block__index news-container-block-small__index">
+                <img src="{% static 'main/img/1_Garrett-Rowland2.png' %}" alt="" class="news-container-block-img__index">
+                <div class="news-container-block-bg2__index"></div>
+                <div class="news-container-block-text2__index">
+                    <span>Название категории</span>
+                    <p>
+                        Как достичь успеха и построить карьеру в футболе?
+                    </p>
+                </div>
+            </div>
+            <div class="news-container-block__index news-container-block-small__index">
+                <img src="{% static 'main/img/1_Garrett-Rowland2.png' %}" alt="" class="news-container-block-img__index">
+                <div class="news-container-block-bg2__index"></div>
+                <div class="news-container-block-text2__index">
+                    <span>Название категории</span>
+                    <p>
+                        Как достичь успеха и построить карьеру в футболе?
+                    </p>
+                </div>
+            </div>
+            <div class="news-container-block__index news-container-block-big__index">
+                <img src="{% static 'main/img/1_Garrett-Rowland1.png' %}" alt="" class="news-container-block-img__index">
+                <div class="news-container-block-bg__index"></div>
+                <div class="news-container-block-text__index">
+                    <span>Название категории</span>
+                    <p>
+                        Как достичь успеха и построить карьеру в футболе?
+                    </p>
+                </div>
+            </div>
+            <div class="news-container-block__index news-container-block-big__index">
+                <img src="{% static 'main/img/1_Garrett-Rowland1.png' %}" alt="" class="news-container-block-img__index">
+                <div class="news-container-block-bg__index"></div>
+                <div class="news-container-block-text__index">
+                    <span>Название категории</span>
+                    <p>
+                        Как достичь успеха и построить карьеру в футболе?
+                    </p>
+                </div>
+            </div>
+            <div class="news-container-block__index news-container-block-small__index">
+                <img src="{% static 'main/img/1_Garrett-Rowland2.png' %}" alt="" class="news-container-block-img__index">
+                <div class="news-container-block-bg2__index"></div>
+                <div class="news-container-block-text2__index">
+                    <span>Название категории</span>
+                    <p>
+                        Как достичь успеха и построить карьеру в футболе?
+                    </p>
+                </div>
+            </div>
+            <div class="news-container-block__index news-container-block-small__index">
+                <img src="{% static 'main/img/1_Garrett-Rowland2.png' %}" alt="" class="news-container-block-img__index">
+                <div class="news-container-block-bg2__index"></div>
+                <div class="news-container-block-text2__index">
+                    <span>Название категории</span>
+                    <p>
+                        Как достичь успеха и построить карьеру в футболе?
+                    </p>
+                </div>
+            </div>
+            <div class="news-container-block__index news-container-block-small__index">
+                <img src="{% static 'main/img/1_Garrett-Rowland2.png' %}" alt="" class="news-container-block-img__index">
+                <div class="news-container-block-bg2__index"></div>
+                <div class="news-container-block-text2__index">
+                    <span>Название категории</span>
+                    <p>
+                        Как достичь успеха и построить карьеру в футболе?
+                    </p>
+                </div>
+            </div>
+            <div class="news-container-block__index news-container-block-small__index">
+                <img src="{% static 'main/img/1_Garrett-Rowland2.png' %}" alt="" class="news-container-block-img__index">
+                <div class="news-container-block-bg2__index"></div>
+                <div class="news-container-block-text2__index">
+                    <span>Название категории</span>
+                    <p>
+                        Как достичь успеха и построить карьеру в футболе?
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="seo-section__index">
+    <div class="container">
+        <div class="seo-section-block__index">
+            <h3>Блок для SEO текста</h3>
+            <p>
+                Равным образом постоянное информационно- пропагандистское обеспечение нашей деятельности позволяет выполнять важные задания по разработке направлений прогрессивного развития. Разнообразный и богатый опыт постоянный количественный рост и сфера нашей активности позволяет выполнять важные задания. Идейные соображения высшего порядка, а также реализация намеченных плановых заданий позволяет оценить значение дальнейших направлений развития. Таким образом реализация намеченных плановых заданий позволяет оценить. Таким образом постоянный количественный рост и сфера нашей активности позволяет выполнять важные задания по разработке направлений прогрессивного развития. С другой стороны начало повседневной работы по формированию позиции.
+            </p>
+            <div class="seo-section-container__index">
+                <div class="seo-section-container-block__index">
+                    <span>1</span>
+                    <p>
+                        Равным образом постоянное информационно- пропагандистское обеспечение нашей деятельности позволяет выполнять важные задания.
+                    </p>
+                </div>
+                <div class="seo-section-container-block__index">
+                    <span>1</span>
+                    <p>
+                        Равным образом постоянное информационно- пропагандистское обеспечение нашей деятельности позволяет выполнять важные задания.
+                    </p>
+                </div>
+                <div class="seo-section-container-block__index">
+                    <span>1</span>
+                    <p>
+                        Равным образом постоянное информационно- пропагандистское обеспечение нашей деятельности позволяет выполнять важные задания.
+                    </p>
+                </div>
+                <div class="seo-section-container-block__index">
+                    <span>1</span>
+                    <p>
+                        Равным образом постоянное информационно- пропагандистское обеспечение нашей деятельности позволяет выполнять важные задания.
+                    </p>
+                </div>
+                <div class="seo-section-container-block__index">
+                    <span>1</span>
+                    <p>
+                        Равным образом постоянное информационно- пропагандистское обеспечение нашей деятельности позволяет выполнять важные задания.
+                    </p>
+                </div>
+                <div class="seo-section-container-block__index">
+                    <span>1</span>
+                    <p>
+                        Равным образом постоянное информационно- пропагандистское обеспечение нашей деятельности позволяет выполнять важные задания.
+                    </p>
+                </div>
+            </div>
+            <a href="#!">Читать подробнее</a>
+        </div>
+    </div>
+</section>
+
+
+<div  id="modal__project" class="modal" data-modal="one">
+    <div class="modal-content">
+        <div class="close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+  <path d="M1 13L13 1" stroke="#FCFCF9" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M13 13L1 1" stroke="#FCFCF9" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+        </div>
+        <p class="titleModal">
+            {% translate 'Ask a question' %}
+            
+        </p>
+        <p class="subtitleModal">
+            {% translate 'Fill in all the necessary fields to send the question you are interested in.' %}
+        </p>
+        <form action="#!" method="post">
+            {% csrf_token %}
+            {{form.name}}
+            <!-- <input type="text" name="name" required placeholder="Ваше имя"> -->
+            <!-- <input type="tel" class="telInput" name="tel" required placeholder="Номер телефона" > -->
+            {{form.telenumber}}
+            <!-- <input type="email" placeholder="Ваша почта"> -->
+            {{form.email}}
+            <!-- <textarea name="text" style="resize: none" required placeholder="Сообщение"></textarea> -->
+            {{form.msg}}
+            <button type="submit">
+                {% translate 'Send' %}
+            </button>
+        </form>
+    </div>
+    <script>
+        let modal = document.getElementById("modal__project");
+        // Get the button that opens the modal
+        let btn = document.getElementsByClassName("openModal");
+        console.log()
+        // Get the <span> element that closes the modal
+        let span = document.getElementsByClassName("close")[0];
+        // When the user clicks the button, open the modal
+        for(let i = 0;i < btn.length; i++)
+        {
+            let v = btn[i]
+            v.onclick = function() {
+                modal.style.display = "flex";
+            }
+        }
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</div>
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="{% static 'main/scripts/scriptFilters.js' %}"></script>
+<script src="{% static 'main/scripts/app.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,257 @@
+@media(max-width: 1150px){
+    .container{
+        padding: 0 20px;
+    }
+    .header-input-block,.inputSearch,.flexRight-flexHeaderBottom {
+       display: none;
+    }
+    .section1-top__in-person-meeting-template{
+        flex-direction: column;
+        gap: 20px;
+    }
+    .indexTop-container{
+        flex-wrap: wrap;
+    }
+    .flex-headerTop{
+        display: none;
+    }
+    body{
+        padding-top: 140px;
+    }
+    header{
+        padding-top: 0;
+        border-top: none;
+    }
+    .photoBanner {
+        right: 0;
+    }
+    .textSlideBanner {
+        max-width: 70%;
+    }
+    .hamburger-menu{
+        display: block;
+    }
+    .flex-upcomingMatches__index{
+        gap: 30px;
+    }
+    .news-container__index{
+        justify-content: center;
+    }
+}
+@media(max-width: 1024px){
+    .listLinksHeader{
+        display: none;
+    }
+    .flex-upcomingMatches__index{
+        flex-direction: column;
+    }
+    .matches-upcomingMatches__index{
+        max-width: 100% ;
+    }
+    .section-catalog-container-filters-block,.section-catalog-container-filters{
+        width: 100%;
+    }
+}
+@media(max-width: 900px){
+    .table-form-td{
+        padding-left: 20px!important;
+    }
+    .section1-table1-teams-part__in-person-meeting-template {
+        width: 300px;
+    }
+    .section1-top-block__in-person-meeting-template{
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    .matches-upcomingMatches-block-container-right__index{
+        flex-direction: row;
+    }
+    .section1-top-block-part-text-reverse__in-person-meeting-template{
+        align-items: flex-start;
+    }
+        .textSlideBanner {
+        max-width: 60%;
+    }
+    .footer-container-bottom{
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .footer-container{
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 40px 30px;
+    }
+    .footer-container-logo{
+        width: 100%;
+    }
+}
+@media(max-width: 767px){
+    .swiper-slideBanner{
+        padding: 30px;
+        padding-bottom: 40px;
+    }
+    .footer-container-bottom-left{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .textSlideBanner h1 {
+        font-size: 30px;
+    }
+    .matches-upcomingMatches-block-container__index{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .matches-upcomingMatches-block-container-right__index{
+        flex-direction: row;
+    }
+    .textSlideBanner p{
+        font-size: 16px;
+    }
+    .photoBanner{
+        width: 250px;
+    }
+    .matches-upcomingMatches-block-container-right-text__index{
+        align-items: flex-start;
+    }
+    .section1-table1-teams-part-left__in-person-meeting-template img {
+        width: 35px;
+        height: 40px;
+    }
+    .section1-table1-teams-part-left__in-person-meeting-template {
+        gap: 10px;
+    }
+    .table-name-team,.table th, .table td,.section1-table1-top__in-person-meeting-template,   .count,.section1-table1-teams-part-left__in-person-meeting-template p,.section1-table1-part-city__in-person-meeting-template,.section1-table1-part-left__in-person-meeting-template{
+        font-size: 18px;
+    }
+    .section2-container__in-person-meeting-template{
+        overflow: hidden;
+    }
+    .table-parent{
+        overflow-x: scroll;
+    }
+    .table{
+        width: 700px;
+    }
+    .section1-table1-part-city__in-person-meeting-template img{
+        width: 50px;
+        height: 40px;
+    }
+    .matches-upcomingMatches-block-container-left__index{
+        gap: 15px;
+    }
+    .matches-upcomingMatches-block-top-right__index{
+        display: none;
+    }
+}
+@media(max-width: 600px){
+    .photoBanner{
+        display: none;
+    }
+    .search-page-top-container span{
+        width: 100%;
+        justify-content: center;
+    }
+    .btn-look-more-matches{
+        width: 250px;
+        margin: 0 auto;
+        position: relative;
+        left: -10px;
+    }
+    .section1-table1-teams-part__in-person-meeting-template {
+        width: 250px;
+    }
+    .textSlideBanner{
+        max-width: 100%;
+    }
+    .news-container-block-small__index{
+        width: 100%;
+    }
+    .news-container-block-text__index p{
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 150%;
+    }
+    .news-container-block-text__index{
+        padding: 20px;
+    }
+    .news-container-block-text__index span{
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%;
+    }
+    .section1-top-container__in-person-meeting-template{
+        flex-direction: column;
+    }
+    .section1-top-container__in-person-meeting-template,.section1-top-container__in-person-meeting-template span{
+        width: 100%;
+    }
+
+}
+@media(max-width: 520px){
+    .section1-table1-part__in-person-meeting-template {
+        width: 450px;
+    }
+    .section1-table1-partent__in-person-meeting-template{
+        overflow-x: scroll;
+    }
+    .section1-table1-content__in-person-meeting-template{
+        padding-right: 0;
+    }
+}
+@media(max-width: 475px){
+    .container{
+        padding: 0 10px;
+    }
+    .search-page-top h1,.section1-top__in-person-meeting-template h1,.news-container__news-page h1,.rating-title__index,.news-top__index h3,.seo-section-block__index h3,.titlePageSection{
+        font-size: 25px;
+    }
+    .section2-container-top__in-person-meeting-template button{
+        font-size: 16px;
+        height: 40px;
+    }
+    .table-name-team{
+        gap: 5px;
+    }
+    .section2-container-top__in-person-meeting-template{
+        gap: 8px;
+    }
+    .news-container-blue__news-page{
+        padding: 20px;
+    }
+    .news-container__news-page img{
+        height: 300px;
+        margin: 25px 0;
+    }
+    .news-top__index a{
+        width: 150px;
+    }
+    .rating-title__index{
+        padding-bottom: 20px;
+    }
+    .rating-container-part__index img{
+        width: 100px;
+    }
+    .rating-container__index{
+        padding: 25px 20px;
+    }
+    .textSlideBanner h1{
+        font-size: 25px;
+    }
+    .textSlideBanner{
+        gap: 20px;
+    }
+    .textSlideBanner p {
+        font-size: 14px;
+    }
+    .swiper-slideBanner{
+        padding: 15px;
+        padding-bottom: 40px;
+    }
+
+}

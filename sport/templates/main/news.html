@@ -1,0 +1,301 @@
+{% extends 'main/header.html' %}
+{% load static %}
+{% load i18n %}
+{% block content%}
+<section class="news__news">
+  <div class="container">
+    <div class="breadcrumbs">
+      <a href="{% url 'index' %}">{% translate 'Main' %}</a>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path d="M8.33333 14.1667L12.5 10.0001L8.33333 5.83341" stroke="#828B92" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <a href="{% url 'news' %}">
+        {% translate 'News' %}
+      </a>
+    </div>
+    <div class="news-top__index">
+      <h3>{% translate 'All the news' %}</h3>
+    </div>
+    <div class="news-container__index">
+    {% for new in news %}
+      <div class="news-container-block__index news-container-block-big__index">
+        <a href="{{new.get_absolute_url}}">
+        <img src="/media/{{new.logo}}" alt="" class="news-container-block-img__index">
+        <div class="news-container-block-bg__index"></div>
+        <div class="news-container-block-text__index">
+          <span>Название категории</span>
+          <p>
+            {{new.title}}
+          </p>
+        </div>
+      </a>
+      </div>
+      {% endfor %}
+    </div>
+    <!-- <div class="news-container__index">
+      <div class="news-container-block__index news-container-block-big__index">
+        <img src="/img/1_Garrett-Rowland1.png" alt="" class="news-container-block-img__index">
+        <div class="news-container-block-bg__index"></div>
+        <div class="news-container-block-text__index">
+          <span>Название категории</span>
+          <p>
+            Как достичь успеха и построить карьеру в футболе?
+          </p>
+        </div>
+      </div>
+      <div class="news-container-block__index news-container-block-small__index">
+        <img src="/img/1_Garrett-Rowland2.png" alt="" class="news-container-block-img__index">
+        <div class="news-container-block-bg2__index"></div>
+        <div class="news-container-block-text2__index">
+          <span>Название категории</span>
+          <p>
+            Как достичь успеха и построить карьеру в футболе?
+          </p>
+        </div>
+      </div>
+      <div class="news-container-block__index news-container-block-small__index">
+        <img src="/img/1_Garrett-Rowland2.png" alt="" class="news-container-block-img__index">
+        <div class="news-container-block-bg2__index"></div>
+        <div class="news-container-block-text2__index">
+          <span>Название категории</span>
+          <p>
+            Как достичь успеха и построить карьеру в футболе?
+          </p>
+        </div>
+      </div>
+      <div class="news-container-block__index news-container-block-big__index">
+        <img src="/img/1_Garrett-Rowland1.png" alt="" class="news-container-block-img__index">
+        <div class="news-container-block-bg__index"></div>
+        <div class="news-container-block-text__index">
+          <span>Название категории</span>
+          <p>
+            Как достичь успеха и построить карьеру в футболе?
+          </p>
+        </div>
+      </div>
+      <div class="news-container-block__index news-container-block-big__index">
+        <img src="/img/1_Garrett-Rowland1.png" alt="" class="news-container-block-img__index">
+        <div class="news-container-block-bg__index"></div>
+        <div class="news-container-block-text__index">
+          <span>Название категории</span>
+          <p>
+            Как достичь успеха и построить карьеру в футболе?
+          </p>
+        </div>
+      </div>
+      <div class="news-container-block__index news-container-block-small__index">
+        <img src="/img/1_Garrett-Rowland2.png" alt="" class="news-container-block-img__index">
+        <div class="news-container-block-bg2__index"></div>
+        <div class="news-container-block-text2__index">
+          <span>Название категории</span>
+          <p>
+            Как достичь успеха и построить карьеру в футболе?
+          </p>
+        </div>
+      </div>
+      <div class="news-container-block__index news-container-block-small__index">
+        <img src="/img/1_Garrett-Rowland2.png" alt="" class="news-container-block-img__index">
+        <div class="news-container-block-bg2__index"></div>
+        <div class="news-container-block-text2__index">
+          <span>Название категории</span>
+          <p>
+            Как достичь успеха и построить карьеру в футболе?
+          </p>
+        </div>
+      </div>
+      <div class="news-container-block__index news-container-block-small__index">
+        <img src="/img/1_Garrett-Rowland2.png" alt="" class="news-container-block-img__index">
+        <div class="news-container-block-bg2__index"></div>
+        <div class="news-container-block-text2__index">
+          <span>Название категории</span>
+          <p>
+            Как достичь успеха и построить карьеру в футболе?
+          </p>
+        </div>
+      </div>
+      <div class="news-container-block__index news-container-block-small__index">
+        <img src="/img/1_Garrett-Rowland2.png" alt="" class="news-container-block-img__index">
+        <div class="news-container-block-bg2__index"></div>
+        <div class="news-container-block-text2__index">
+          <span>Название категории</span>
+          <p>
+            Как достичь успеха и построить карьеру в футболе?
+          </p>
+        </div>
+      </div>
+      <div class="news-container-block__index news-container-block-big__index">
+        <img src="/img/1_Garrett-Rowland1.png" alt="" class="news-container-block-img__index">
+        <div class="news-container-block-bg__index"></div>
+        <div class="news-container-block-text__index">
+          <span>Название категории</span>
+          <p>
+            Как достичь успеха и построить карьеру в футболе?
+          </p>
+        </div>
+      </div>
+      <div class="news-container-block__index news-container-block-small__index">
+        <img src="/img/1_Garrett-Rowland2.png" alt="" class="news-container-block-img__index">
+        <div class="news-container-block-bg2__index"></div>
+        <div class="news-container-block-text2__index">
+          <span>Название категории</span>
+          <p>
+            Как достичь успеха и построить карьеру в футболе?
+          </p>
+        </div>
+      </div>
+      <div class="news-container-block__index news-container-block-small__index">
+        <img src="/img/1_Garrett-Rowland2.png" alt="" class="news-container-block-img__index">
+        <div class="news-container-block-bg2__index"></div>
+        <div class="news-container-block-text2__index">
+          <span>Название категории</span>
+          <p>
+            Как достичь успеха и построить карьеру в футболе?
+          </p>
+        </div>
+      </div>
+      <div class="news-container-block__index news-container-block-big__index">
+        <img src="/img/1_Garrett-Rowland1.png" alt="" class="news-container-block-img__index">
+        <div class="news-container-block-bg__index"></div>
+        <div class="news-container-block-text__index">
+          <span>Название категории</span>
+          <p>
+            Как достичь успеха и построить карьеру в футболе?
+          </p>
+        </div>-->
+      </div> 
+
+    </div>
+  </div>
+</section>
+<section class="seo-section__index">
+  <div class="container">
+    <div class="seo-section-block__index">
+      <h3>Блок для SEO текста</h3>
+      <p>
+        Равным образом постоянное информационно- пропагандистское обеспечение нашей деятельности позволяет выполнять важные задания по разработке направлений прогрессивного развития. Разнообразный и богатый опыт постоянный количественный рост и сфера нашей активности позволяет выполнять важные задания. Идейные соображения высшего порядка, а также реализация намеченных плановых заданий позволяет оценить значение дальнейших направлений развития. Таким образом реализация намеченных плановых заданий позволяет оценить. Таким образом постоянный количественный рост и сфера нашей активности позволяет выполнять важные задания по разработке направлений прогрессивного развития. С другой стороны начало повседневной работы по формированию позиции.
+      </p>
+      <div class="seo-section-container__index">
+        <div class="seo-section-container-block__index">
+          <span>1</span>
+          <p>
+            Равным образом постоянное информационно- пропагандистское обеспечение нашей деятельности позволяет выполнять важные задания.
+          </p>
+        </div>
+        <div class="seo-section-container-block__index">
+          <span>1</span>
+          <p>
+            Равным образом постоянное информационно- пропагандистское обеспечение нашей деятельности позволяет выполнять важные задания.
+          </p>
+        </div>
+        <div class="seo-section-container-block__index">
+          <span>1</span>
+          <p>
+            Равным образом постоянное информационно- пропагандистское обеспечение нашей деятельности позволяет выполнять важные задания.
+          </p>
+        </div>
+        <div class="seo-section-container-block__index">
+          <span>1</span>
+          <p>
+            Равным образом постоянное информационно- пропагандистское обеспечение нашей деятельности позволяет выполнять важные задания.
+          </p>
+        </div>
+        <div class="seo-section-container-block__index">
+          <span>1</span>
+          <p>
+            Равным образом постоянное информационно- пропагандистское обеспечение нашей деятельности позволяет выполнять важные задания.
+          </p>
+        </div>
+        <div class="seo-section-container-block__index">
+          <span>1</span>
+          <p>
+            Равным образом постоянное информационно- пропагандистское обеспечение нашей деятельности позволяет выполнять важные задания.
+          </p>
+        </div>
+      </div>
+      <a href="#!">Читать подробнее</a>
+    </div>
+  </div>
+</section>
+
+
+
+<script>
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      if (panel.style.maxHeight) {
+        panel.style.maxHeight = null;
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      }
+    });
+  }
+</script>
+<div  id="modal__project" class="modal" data-modal="one">
+  <div class="modal-content">
+      <div class="close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+<path d="M1 13L13 1" stroke="#FCFCF9" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M13 13L1 1" stroke="#FCFCF9" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+      </div>
+      <p class="titleModal">
+          {% translate 'Ask a question' %}
+          
+      </p>
+      <p class="subtitleModal">
+          {% translate 'Fill in all the necessary fields to send the question you are interested in.' %}
+      </p>
+      <form action="#!" method="post">
+          {% csrf_token %}
+          {{form.name}}
+          <!-- <input type="text" name="name" required placeholder="Ваше имя"> -->
+          <!-- <input type="tel" class="telInput" name="tel" required placeholder="Номер телефона" > -->
+          {{form.telenumber}}
+          <!-- <input type="email" placeholder="Ваша почта"> -->
+          {{form.email}}
+          <!-- <textarea name="text" style="resize: none" required placeholder="Сообщение"></textarea> -->
+          {{form.msg}}
+          <button type="submit">
+              {% translate 'Send' %}
+          </button>
+      </form>
+  </div>
+  <script>
+      let modal = document.getElementById("modal__project");
+      // Get the button that opens the modal
+      let btn = document.getElementsByClassName("openModal");
+      console.log()
+      // Get the <span> element that closes the modal
+      let span = document.getElementsByClassName("close")[0];
+      // When the user clicks the button, open the modal
+      for(let i = 0;i < btn.length; i++)
+      {
+          let v = btn[i]
+          v.onclick = function() {
+              modal.style.display = "flex";
+          }
+      }
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+          modal.style.display = "none";
+      }
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+          if (event.target == modal) {
+              modal.style.display = "none";
+          }
+      }
+  </script>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="{% static 'main/scripts/scriptFilters.js' %}"></script>
+<script src="{% static 'main/scripts/app.js' %}"></script>
+
+{% endblock %}
