@@ -75,12 +75,15 @@
             <a href="{% url 'index' %}" class="logoHeader">
                 <img src="{%static 'main/img/Logo.svg' %}" alt="">
             </a>
+            <form method="post">
+                {% csrf_token %}
             <div class="header-input-block">
-                <input class="inputSearch" type="search" placeholder="{% translate 'I want to find it' %}">  
+                <input class="inputSearch" type="search" name="search" placeholder="{% translate 'I want to find it' %}">
                 <button>
                     {% translate 'To find' %}
                 </button>
             </div>
+                </form>
             <div class="flexRight-flexHeaderBottom">
                 <a href="#!" class="openModalHeader openModal">
                     {% translate 'Ask a question' %}

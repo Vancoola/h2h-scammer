@@ -342,13 +342,15 @@
 </svg>
         </span>
         </div>
+          {% for league in leagues %}
+              <a href="{{ league.get_absolute_url }}">
         <div class="matches-upcomingMatches-block__index">
           <div class="matches-upcomingMatches-block-top__index">
             <div class="matches-upcomingMatches-block-top-left__index">
-              <img src="/img/image 3.png" alt="">
-              ENGLAND: Championship
+{#              <img src="{{ league.logo }}" alt="">#}
+              {{league.country.code_country}}: {{league.name}}
             </div>
-            <p>12.12.22 12:30</p>
+            <p>{{league.games.first.update}}</p>
             <div class="matches-upcomingMatches-block-top-right__index">
               <span>1</span>
               <span>X</span>
@@ -359,8 +361,8 @@
             <div class="matches-upcomingMatches-block-container-left-parent__index">
               <div class="matches-upcomingMatches-block-container-left__index">
                 <div class="matches-upcomingMatches-block-container-left-part__index">
-                  <img src="{% static 'main/img/image 1.png' %}" alt="">
-                  <p>Marcus Maraunder</p>
+                  <img src="{{league.games.first.home.logo}}" alt="">
+                  <p>{{league.games.first.home.name}}</p>
                 </div>
                 <div class="matches-upcomingMatches-block-container-left-part__index">
                   <p>12</p>
@@ -387,8 +389,8 @@
               </div>
               <div class="matches-upcomingMatches-block-container-left__index">
                 <div class="matches-upcomingMatches-block-container-left-part__index">
-                  <img src="{% static 'main/img/image 1.png' %}" alt="">
-                  <p>Marcus Maraunder</p>
+                  <img src="{{league.games.first.away.logo}}" alt="">
+                  <p>{{league.games.first.away.name}}</p>
                 </div>
                 <div class="matches-upcomingMatches-block-container-left-part__index">
                   <p>12</p>
@@ -439,513 +441,31 @@
             </div>
           </div>
         </div>
-        <div class="matches-upcomingMatches-block__index">
-          <div class="matches-upcomingMatches-block-top__index">
-            <div class="matches-upcomingMatches-block-top-left__index">
-              <img src="{% static 'main/img/image 3.png' %}" alt="">
-              ENGLAND: Championship
-            </div>
-            <p>12.12.22 12:30</p>
-            <div class="matches-upcomingMatches-block-top-right__index">
-              <span>1</span>
-              <span>X</span>
-              <span>2</span>
-            </div>
-          </div>
-          <div class="matches-upcomingMatches-block-container__index">
-            <div class="matches-upcomingMatches-block-container-left-parent__index">
-              <div class="matches-upcomingMatches-block-container-left__index">
-                <div class="matches-upcomingMatches-block-container-left-part__index">
-                  <img src="{% static 'main/img/image 1.png' %}" alt="">
-                  <p>Marcus Maraunder</p>
-                </div>
-                <div class="matches-upcomingMatches-block-container-left-part__index">
-                  <p>12</p>
-                  <div class="tooltip">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" fill="none">
-                      <path d="M5.35526 5.7375C5.35526 5.05 5.91081 4.5 6.60525 4.5C7.2997 4.5 7.85526 5.05 7.85526 5.7375C7.85526 6.21875 7.57748 6.5625 7.23025 6.8375C6.60526 7.25 6.60526 7.59375 6.60526 7.9375" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <circle cx="6.60526" cy="7" r="5.625" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M6.60526 9.8125C6.77784 9.8125 6.91776 9.67259 6.91776 9.5C6.91776 9.32741 6.77784 9.1875 6.60526 9.1875C6.43267 9.1875 6.29276 9.32741 6.29276 9.5C6.29276 9.67259 6.43267 9.8125 6.60526 9.8125Z" fill="#31343F" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span class="tooltiptext">победные очки</span>
-                  </div>
-                </div>
-                <div class="matches-upcomingMatches-block-container-left-part__index">
-                  <p>5</p>
-                  <div class="tooltip">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" fill="none">
-                      <path d="M5.35526 5.7375C5.35526 5.05 5.91081 4.5 6.60525 4.5C7.2997 4.5 7.85526 5.05 7.85526 5.7375C7.85526 6.21875 7.57748 6.5625 7.23025 6.8375C6.60526 7.25 6.60526 7.59375 6.60526 7.9375" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <circle cx="6.60526" cy="7" r="5.625" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M6.60526 9.8125C6.77784 9.8125 6.91776 9.67259 6.91776 9.5C6.91776 9.32741 6.77784 9.1875 6.60526 9.1875C6.43267 9.1875 6.29276 9.32741 6.29276 9.5C6.29276 9.67259 6.43267 9.8125 6.60526 9.8125Z" fill="#31343F" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span class="tooltiptext">победные очки</span>
-                  </div>
-                </div>
-              </div>
-              <div class="matches-upcomingMatches-block-container-left__index">
-                <div class="matches-upcomingMatches-block-container-left-part__index">
-                  <img src="{% static 'main/img/image 1.png' %}" alt="">
-                  <p>Marcus Maraunder</p>
-                </div>
-                <div class="matches-upcomingMatches-block-container-left-part__index">
-                  <p>12</p>
-                  <div class="tooltip">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" fill="none">
-                      <path d="M5.35526 5.7375C5.35526 5.05 5.91081 4.5 6.60525 4.5C7.2997 4.5 7.85526 5.05 7.85526 5.7375C7.85526 6.21875 7.57748 6.5625 7.23025 6.8375C6.60526 7.25 6.60526 7.59375 6.60526 7.9375" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <circle cx="6.60526" cy="7" r="5.625" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M6.60526 9.8125C6.77784 9.8125 6.91776 9.67259 6.91776 9.5C6.91776 9.32741 6.77784 9.1875 6.60526 9.1875C6.43267 9.1875 6.29276 9.32741 6.29276 9.5C6.29276 9.67259 6.43267 9.8125 6.60526 9.8125Z" fill="#31343F" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span class="tooltiptext">победные очки</span>
-                  </div>
-                </div>
-                <div class="matches-upcomingMatches-block-container-left-part__index">
-                  <p>5</p>
-                  <div class="tooltip">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" fill="none">
-                      <path d="M5.35526 5.7375C5.35526 5.05 5.91081 4.5 6.60525 4.5C7.2997 4.5 7.85526 5.05 7.85526 5.7375C7.85526 6.21875 7.57748 6.5625 7.23025 6.8375C6.60526 7.25 6.60526 7.59375 6.60526 7.9375" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <circle cx="6.60526" cy="7" r="5.625" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M6.60526 9.8125C6.77784 9.8125 6.91776 9.67259 6.91776 9.5C6.91776 9.32741 6.77784 9.1875 6.60526 9.1875C6.43267 9.1875 6.29276 9.32741 6.29276 9.5C6.29276 9.67259 6.43267 9.8125 6.60526 9.8125Z" fill="#31343F" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span class="tooltiptext">победные очки</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="matches-upcomingMatches-block-container-right__index">
-              <div class="matches-upcomingMatches-block-container-right-block__index matches-upcomingMatches-block-container-right-block-red__index">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M11.7938 9.51874L8 13.3125L4.20625 9.51874" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M8 2.6875V13.2062" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                2.22
-              </div>
-              <div class="matches-upcomingMatches-block-container-right-block__index matches-upcomingMatches-block-container-right-block-green__index">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M11.7938 9.51874L8 13.3125L4.20625 9.51874" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M8 2.6875V13.2062" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                2.22
-              </div>
-              <div class="matches-upcomingMatches-block-container-right-block__index matches-upcomingMatches-block-container-right-block-red__index">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M11.7938 9.51874L8 13.3125L4.20625 9.51874" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M8 2.6875V13.2062" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                2.22
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="matches-upcomingMatches-block__index">
-          <div class="matches-upcomingMatches-block-top__index">
-            <div class="matches-upcomingMatches-block-top-left__index">
-              <img src="{% static 'main/img/image 3.png' %}" alt="">
-              ENGLAND: Championship
-            </div>
-            <p>12.12.22 12:30</p>
-            <div class="matches-upcomingMatches-block-top-right__index">
-              <span>1</span>
-              <span>X</span>
-              <span>2</span>
-            </div>
-          </div>
-          <div class="matches-upcomingMatches-block-container__index">
-            <div class="matches-upcomingMatches-block-container-left-parent__index">
-              <div class="matches-upcomingMatches-block-container-left__index">
-                <div class="matches-upcomingMatches-block-container-left-part__index">
-                  <img src="{% static 'main/img/image 1.png' %}" alt="">
-                  <p>Marcus Maraunder</p>
-                </div>
-                <div class="matches-upcomingMatches-block-container-left-part__index">
-                  <p>12</p>
-                  <div class="tooltip">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" fill="none">
-                      <path d="M5.35526 5.7375C5.35526 5.05 5.91081 4.5 6.60525 4.5C7.2997 4.5 7.85526 5.05 7.85526 5.7375C7.85526 6.21875 7.57748 6.5625 7.23025 6.8375C6.60526 7.25 6.60526 7.59375 6.60526 7.9375" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <circle cx="6.60526" cy="7" r="5.625" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M6.60526 9.8125C6.77784 9.8125 6.91776 9.67259 6.91776 9.5C6.91776 9.32741 6.77784 9.1875 6.60526 9.1875C6.43267 9.1875 6.29276 9.32741 6.29276 9.5C6.29276 9.67259 6.43267 9.8125 6.60526 9.8125Z" fill="#31343F" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span class="tooltiptext">победные очки</span>
-                  </div>
-                </div>
-                <div class="matches-upcomingMatches-block-container-left-part__index">
-                  <p>5</p>
-                  <div class="tooltip">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" fill="none">
-                      <path d="M5.35526 5.7375C5.35526 5.05 5.91081 4.5 6.60525 4.5C7.2997 4.5 7.85526 5.05 7.85526 5.7375C7.85526 6.21875 7.57748 6.5625 7.23025 6.8375C6.60526 7.25 6.60526 7.59375 6.60526 7.9375" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <circle cx="6.60526" cy="7" r="5.625" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M6.60526 9.8125C6.77784 9.8125 6.91776 9.67259 6.91776 9.5C6.91776 9.32741 6.77784 9.1875 6.60526 9.1875C6.43267 9.1875 6.29276 9.32741 6.29276 9.5C6.29276 9.67259 6.43267 9.8125 6.60526 9.8125Z" fill="#31343F" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span class="tooltiptext">победные очки</span>
-                  </div>
-                </div>
-              </div>
-              <div class="matches-upcomingMatches-block-container-left__index">
-                <div class="matches-upcomingMatches-block-container-left-part__index">
-                  <img src="{% static 'main/img/image 1.png' %}" alt="">
-                  <p>Marcus Maraunder</p>
-                </div>
-                <div class="matches-upcomingMatches-block-container-left-part__index">
-                  <p>12</p>
-                  <div class="tooltip">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" fill="none">
-                      <path d="M5.35526 5.7375C5.35526 5.05 5.91081 4.5 6.60525 4.5C7.2997 4.5 7.85526 5.05 7.85526 5.7375C7.85526 6.21875 7.57748 6.5625 7.23025 6.8375C6.60526 7.25 6.60526 7.59375 6.60526 7.9375" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <circle cx="6.60526" cy="7" r="5.625" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M6.60526 9.8125C6.77784 9.8125 6.91776 9.67259 6.91776 9.5C6.91776 9.32741 6.77784 9.1875 6.60526 9.1875C6.43267 9.1875 6.29276 9.32741 6.29276 9.5C6.29276 9.67259 6.43267 9.8125 6.60526 9.8125Z" fill="#31343F" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span class="tooltiptext">победные очки</span>
-                  </div>
-                </div>
-                <div class="matches-upcomingMatches-block-container-left-part__index">
-                  <p>5</p>
-                  <div class="tooltip">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" fill="none">
-                      <path d="M5.35526 5.7375C5.35526 5.05 5.91081 4.5 6.60525 4.5C7.2997 4.5 7.85526 5.05 7.85526 5.7375C7.85526 6.21875 7.57748 6.5625 7.23025 6.8375C6.60526 7.25 6.60526 7.59375 6.60526 7.9375" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <circle cx="6.60526" cy="7" r="5.625" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M6.60526 9.8125C6.77784 9.8125 6.91776 9.67259 6.91776 9.5C6.91776 9.32741 6.77784 9.1875 6.60526 9.1875C6.43267 9.1875 6.29276 9.32741 6.29276 9.5C6.29276 9.67259 6.43267 9.8125 6.60526 9.8125Z" fill="#31343F" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span class="tooltiptext">победные очки</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="matches-upcomingMatches-block-container-right__index">
-              <div class="matches-upcomingMatches-block-container-right-block__index matches-upcomingMatches-block-container-right-block-red__index">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M11.7938 9.51874L8 13.3125L4.20625 9.51874" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M8 2.6875V13.2062" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                2.22
-              </div>
-              <div class="matches-upcomingMatches-block-container-right-block__index matches-upcomingMatches-block-container-right-block-green__index">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M11.7938 9.51874L8 13.3125L4.20625 9.51874" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M8 2.6875V13.2062" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                2.22
-              </div>
-              <div class="matches-upcomingMatches-block-container-right-block__index matches-upcomingMatches-block-container-right-block-red__index">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M11.7938 9.51874L8 13.3125L4.20625 9.51874" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M8 2.6875V13.2062" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                2.22
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="rating-container__index">
-          <div class="rating-container-part__index">
-            <span>123</span>
-            <img src="{% static 'main/img/image121.png' %}" alt="">
-            <p>1xBet</p>
-          </div>
-          <div class="rating-container-part__index">
-            <span>123</span>
-            <img src="{% static 'main/img/image121.png' %}" alt="">
-            <p>1xBet</p>
-          </div>
-          <div class="rating-container-part__index">
-            <span>123</span>
-            <img src="{% static 'main/img/image121.png' %}" alt="">
-            <p>1xBet</p>
-          </div>
-          <div class="rating-container-part__index">
-            <span>123</span>
-            <img src="{% static 'main/img/image121.png' %}" alt="">
-            <p>1xBet</p>
-          </div>
-        </div>
-        <div class="matches-upcomingMatches-block__index">
-          <div class="matches-upcomingMatches-block-top__index">
-            <div class="matches-upcomingMatches-block-top-left__index">
-              <img src="{% static 'main/img/image 3.png' %}" alt="">
-              ENGLAND: Championship
-            </div>
-            <p>12.12.22 12:30</p>
-            <div class="matches-upcomingMatches-block-top-right__index">
-              <span>1</span>
-              <span>X</span>
-              <span>2</span>
-            </div>
-          </div>
-          <div class="matches-upcomingMatches-block-container__index">
-            <div class="matches-upcomingMatches-block-container-left-parent__index">
-              <div class="matches-upcomingMatches-block-container-left__index">
-                <div class="matches-upcomingMatches-block-container-left-part__index">
-                  <img src="{% static 'main/img/image 1.png' %}" alt="">
-                  <p>Marcus Maraunder</p>
-                </div>
-                <div class="matches-upcomingMatches-block-container-left-part__index">
-                  <p>12</p>
-                  <div class="tooltip">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" fill="none">
-                      <path d="M5.35526 5.7375C5.35526 5.05 5.91081 4.5 6.60525 4.5C7.2997 4.5 7.85526 5.05 7.85526 5.7375C7.85526 6.21875 7.57748 6.5625 7.23025 6.8375C6.60526 7.25 6.60526 7.59375 6.60526 7.9375" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <circle cx="6.60526" cy="7" r="5.625" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M6.60526 9.8125C6.77784 9.8125 6.91776 9.67259 6.91776 9.5C6.91776 9.32741 6.77784 9.1875 6.60526 9.1875C6.43267 9.1875 6.29276 9.32741 6.29276 9.5C6.29276 9.67259 6.43267 9.8125 6.60526 9.8125Z" fill="#31343F" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span class="tooltiptext">победные очки</span>
-                  </div>
-                </div>
-                <div class="matches-upcomingMatches-block-container-left-part__index">
-                  <p>5</p>
-                  <div class="tooltip">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" fill="none">
-                      <path d="M5.35526 5.7375C5.35526 5.05 5.91081 4.5 6.60525 4.5C7.2997 4.5 7.85526 5.05 7.85526 5.7375C7.85526 6.21875 7.57748 6.5625 7.23025 6.8375C6.60526 7.25 6.60526 7.59375 6.60526 7.9375" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <circle cx="6.60526" cy="7" r="5.625" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M6.60526 9.8125C6.77784 9.8125 6.91776 9.67259 6.91776 9.5C6.91776 9.32741 6.77784 9.1875 6.60526 9.1875C6.43267 9.1875 6.29276 9.32741 6.29276 9.5C6.29276 9.67259 6.43267 9.8125 6.60526 9.8125Z" fill="#31343F" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span class="tooltiptext">победные очки</span>
-                  </div>
-                </div>
-              </div>
-              <div class="matches-upcomingMatches-block-container-left__index">
-                <div class="matches-upcomingMatches-block-container-left-part__index">
-                  <img src="{% static 'main/img/image 1.png' %}" alt="">
-                  <p>Marcus Maraunder</p>
-                </div>
-                <div class="matches-upcomingMatches-block-container-left-part__index">
-                  <p>12</p>
-                  <div class="tooltip">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" fill="none">
-                      <path d="M5.35526 5.7375C5.35526 5.05 5.91081 4.5 6.60525 4.5C7.2997 4.5 7.85526 5.05 7.85526 5.7375C7.85526 6.21875 7.57748 6.5625 7.23025 6.8375C6.60526 7.25 6.60526 7.59375 6.60526 7.9375" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <circle cx="6.60526" cy="7" r="5.625" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M6.60526 9.8125C6.77784 9.8125 6.91776 9.67259 6.91776 9.5C6.91776 9.32741 6.77784 9.1875 6.60526 9.1875C6.43267 9.1875 6.29276 9.32741 6.29276 9.5C6.29276 9.67259 6.43267 9.8125 6.60526 9.8125Z" fill="#31343F" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span class="tooltiptext">победные очки</span>
-                  </div>
-                </div>
-                <div class="matches-upcomingMatches-block-container-left-part__index">
-                  <p>5</p>
-                  <div class="tooltip">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" fill="none">
-                      <path d="M5.35526 5.7375C5.35526 5.05 5.91081 4.5 6.60525 4.5C7.2997 4.5 7.85526 5.05 7.85526 5.7375C7.85526 6.21875 7.57748 6.5625 7.23025 6.8375C6.60526 7.25 6.60526 7.59375 6.60526 7.9375" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <circle cx="6.60526" cy="7" r="5.625" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M6.60526 9.8125C6.77784 9.8125 6.91776 9.67259 6.91776 9.5C6.91776 9.32741 6.77784 9.1875 6.60526 9.1875C6.43267 9.1875 6.29276 9.32741 6.29276 9.5C6.29276 9.67259 6.43267 9.8125 6.60526 9.8125Z" fill="#31343F" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span class="tooltiptext">победные очки</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="matches-upcomingMatches-block-container-right__index">
-              <div class="matches-upcomingMatches-block-container-right-block__index matches-upcomingMatches-block-container-right-block-red__index">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M11.7938 9.51874L8 13.3125L4.20625 9.51874" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M8 2.6875V13.2062" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                2.22
-              </div>
-              <div class="matches-upcomingMatches-block-container-right-block__index matches-upcomingMatches-block-container-right-block-green__index">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M11.7938 9.51874L8 13.3125L4.20625 9.51874" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M8 2.6875V13.2062" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                2.22
-              </div>
-              <div class="matches-upcomingMatches-block-container-right-block__index matches-upcomingMatches-block-container-right-block-red__index">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M11.7938 9.51874L8 13.3125L4.20625 9.51874" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M8 2.6875V13.2062" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                2.22
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="matches-upcomingMatches-block__index">
-          <div class="matches-upcomingMatches-block-top__index">
-            <div class="matches-upcomingMatches-block-top-left__index">
-              <img src="{% static 'main/img/image 3.png' %}" alt="">
-              ENGLAND: Championship
-            </div>
-            <p>12.12.22 12:30</p>
-            <div class="matches-upcomingMatches-block-top-right__index">
-              <span>1</span>
-              <span>X</span>
-              <span>2</span>
-            </div>
-          </div>
-          <div class="matches-upcomingMatches-block-container__index">
-            <div class="matches-upcomingMatches-block-container-left-parent__index">
-              <div class="matches-upcomingMatches-block-container-left__index">
-                <div class="matches-upcomingMatches-block-container-left-part__index">
-                  <img src="{% static 'main/img/image 1.png' %}" alt="">
-                  <p>Marcus Maraunder</p>
-                </div>
-                <div class="matches-upcomingMatches-block-container-left-part__index">
-                  <p>12</p>
-                  <div class="tooltip">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" fill="none">
-                      <path d="M5.35526 5.7375C5.35526 5.05 5.91081 4.5 6.60525 4.5C7.2997 4.5 7.85526 5.05 7.85526 5.7375C7.85526 6.21875 7.57748 6.5625 7.23025 6.8375C6.60526 7.25 6.60526 7.59375 6.60526 7.9375" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <circle cx="6.60526" cy="7" r="5.625" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M6.60526 9.8125C6.77784 9.8125 6.91776 9.67259 6.91776 9.5C6.91776 9.32741 6.77784 9.1875 6.60526 9.1875C6.43267 9.1875 6.29276 9.32741 6.29276 9.5C6.29276 9.67259 6.43267 9.8125 6.60526 9.8125Z" fill="#31343F" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span class="tooltiptext">победные очки</span>
-                  </div>
-                </div>
-                <div class="matches-upcomingMatches-block-container-left-part__index">
-                  <p>5</p>
-                  <div class="tooltip">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" fill="none">
-                      <path d="M5.35526 5.7375C5.35526 5.05 5.91081 4.5 6.60525 4.5C7.2997 4.5 7.85526 5.05 7.85526 5.7375C7.85526 6.21875 7.57748 6.5625 7.23025 6.8375C6.60526 7.25 6.60526 7.59375 6.60526 7.9375" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <circle cx="6.60526" cy="7" r="5.625" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M6.60526 9.8125C6.77784 9.8125 6.91776 9.67259 6.91776 9.5C6.91776 9.32741 6.77784 9.1875 6.60526 9.1875C6.43267 9.1875 6.29276 9.32741 6.29276 9.5C6.29276 9.67259 6.43267 9.8125 6.60526 9.8125Z" fill="#31343F" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span class="tooltiptext">победные очки</span>
-                  </div>
-                </div>
-              </div>
-              <div class="matches-upcomingMatches-block-container-left__index">
-                <div class="matches-upcomingMatches-block-container-left-part__index">
-                  <img src="{% static 'main/img/image 1.png' %}" alt="">
-                  <p>Marcus Maraunder</p>
-                </div>
-                <div class="matches-upcomingMatches-block-container-left-part__index">
-                  <p>12</p>
-                  <div class="tooltip">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" fill="none">
-                      <path d="M5.35526 5.7375C5.35526 5.05 5.91081 4.5 6.60525 4.5C7.2997 4.5 7.85526 5.05 7.85526 5.7375C7.85526 6.21875 7.57748 6.5625 7.23025 6.8375C6.60526 7.25 6.60526 7.59375 6.60526 7.9375" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <circle cx="6.60526" cy="7" r="5.625" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M6.60526 9.8125C6.77784 9.8125 6.91776 9.67259 6.91776 9.5C6.91776 9.32741 6.77784 9.1875 6.60526 9.1875C6.43267 9.1875 6.29276 9.32741 6.29276 9.5C6.29276 9.67259 6.43267 9.8125 6.60526 9.8125Z" fill="#31343F" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span class="tooltiptext">победные очки</span>
-                  </div>
-                </div>
-                <div class="matches-upcomingMatches-block-container-left-part__index">
-                  <p>5</p>
-                  <div class="tooltip">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" fill="none">
-                      <path d="M5.35526 5.7375C5.35526 5.05 5.91081 4.5 6.60525 4.5C7.2997 4.5 7.85526 5.05 7.85526 5.7375C7.85526 6.21875 7.57748 6.5625 7.23025 6.8375C6.60526 7.25 6.60526 7.59375 6.60526 7.9375" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <circle cx="6.60526" cy="7" r="5.625" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M6.60526 9.8125C6.77784 9.8125 6.91776 9.67259 6.91776 9.5C6.91776 9.32741 6.77784 9.1875 6.60526 9.1875C6.43267 9.1875 6.29276 9.32741 6.29276 9.5C6.29276 9.67259 6.43267 9.8125 6.60526 9.8125Z" fill="#31343F" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span class="tooltiptext">победные очки</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="matches-upcomingMatches-block-container-right__index">
-              <div class="matches-upcomingMatches-block-container-right-block__index matches-upcomingMatches-block-container-right-block-red__index">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M11.7938 9.51874L8 13.3125L4.20625 9.51874" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M8 2.6875V13.2062" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                2.22
-              </div>
-              <div class="matches-upcomingMatches-block-container-right-block__index matches-upcomingMatches-block-container-right-block-green__index">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M11.7938 9.51874L8 13.3125L4.20625 9.51874" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M8 2.6875V13.2062" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                2.22
-              </div>
-              <div class="matches-upcomingMatches-block-container-right-block__index matches-upcomingMatches-block-container-right-block-red__index">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M11.7938 9.51874L8 13.3125L4.20625 9.51874" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M8 2.6875V13.2062" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                2.22
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="matches-upcomingMatches-block__index">
-          <div class="matches-upcomingMatches-block-top__index">
-            <div class="matches-upcomingMatches-block-top-left__index">
-              <img src="{% static 'main/img/image 3.png' %}" alt="">
-              ENGLAND: Championship
-            </div>
-            <p>12.12.22 12:30</p>
-            <div class="matches-upcomingMatches-block-top-right__index">
-              <span>1</span>
-              <span>X</span>
-              <span>2</span>
-            </div>
-          </div>
-          <div class="matches-upcomingMatches-block-container__index">
-            <div class="matches-upcomingMatches-block-container-left-parent__index">
-              <div class="matches-upcomingMatches-block-container-left__index">
-                <div class="matches-upcomingMatches-block-container-left-part__index">
-                  <img src="{% static 'main/img/image 1.png' %}" alt="">
-                  <p>Marcus Maraunder</p>
-                </div>
-                <div class="matches-upcomingMatches-block-container-left-part__index">
-                  <p>12</p>
-                  <div class="tooltip">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" fill="none">
-                      <path d="M5.35526 5.7375C5.35526 5.05 5.91081 4.5 6.60525 4.5C7.2997 4.5 7.85526 5.05 7.85526 5.7375C7.85526 6.21875 7.57748 6.5625 7.23025 6.8375C6.60526 7.25 6.60526 7.59375 6.60526 7.9375" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <circle cx="6.60526" cy="7" r="5.625" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M6.60526 9.8125C6.77784 9.8125 6.91776 9.67259 6.91776 9.5C6.91776 9.32741 6.77784 9.1875 6.60526 9.1875C6.43267 9.1875 6.29276 9.32741 6.29276 9.5C6.29276 9.67259 6.43267 9.8125 6.60526 9.8125Z" fill="#31343F" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span class="tooltiptext">победные очки</span>
-                  </div>
-                </div>
-                <div class="matches-upcomingMatches-block-container-left-part__index">
-                  <p>5</p>
-                  <div class="tooltip">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" fill="none">
-                      <path d="M5.35526 5.7375C5.35526 5.05 5.91081 4.5 6.60525 4.5C7.2997 4.5 7.85526 5.05 7.85526 5.7375C7.85526 6.21875 7.57748 6.5625 7.23025 6.8375C6.60526 7.25 6.60526 7.59375 6.60526 7.9375" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <circle cx="6.60526" cy="7" r="5.625" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M6.60526 9.8125C6.77784 9.8125 6.91776 9.67259 6.91776 9.5C6.91776 9.32741 6.77784 9.1875 6.60526 9.1875C6.43267 9.1875 6.29276 9.32741 6.29276 9.5C6.29276 9.67259 6.43267 9.8125 6.60526 9.8125Z" fill="#31343F" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span class="tooltiptext">победные очки</span>
-                  </div>
-                </div>
-              </div>
-              <div class="matches-upcomingMatches-block-container-left__index">
-                <div class="matches-upcomingMatches-block-container-left-part__index">
-                  <img src="{% static 'main/img/image 1.png' %}" alt="">
-                  <p>Marcus Maraunder</p>
-                </div>
-                <div class="matches-upcomingMatches-block-container-left-part__index">
-                  <p>12</p>
-                  <div class="tooltip">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" fill="none">
-                      <path d="M5.35526 5.7375C5.35526 5.05 5.91081 4.5 6.60525 4.5C7.2997 4.5 7.85526 5.05 7.85526 5.7375C7.85526 6.21875 7.57748 6.5625 7.23025 6.8375C6.60526 7.25 6.60526 7.59375 6.60526 7.9375" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <circle cx="6.60526" cy="7" r="5.625" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M6.60526 9.8125C6.77784 9.8125 6.91776 9.67259 6.91776 9.5C6.91776 9.32741 6.77784 9.1875 6.60526 9.1875C6.43267 9.1875 6.29276 9.32741 6.29276 9.5C6.29276 9.67259 6.43267 9.8125 6.60526 9.8125Z" fill="#31343F" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span class="tooltiptext">победные очки</span>
-                  </div>
-                </div>
-                <div class="matches-upcomingMatches-block-container-left-part__index">
-                  <p>5</p>
-                  <div class="tooltip">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" fill="none">
-                      <path d="M5.35526 5.7375C5.35526 5.05 5.91081 4.5 6.60525 4.5C7.2997 4.5 7.85526 5.05 7.85526 5.7375C7.85526 6.21875 7.57748 6.5625 7.23025 6.8375C6.60526 7.25 6.60526 7.59375 6.60526 7.9375" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <circle cx="6.60526" cy="7" r="5.625" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M6.60526 9.8125C6.77784 9.8125 6.91776 9.67259 6.91776 9.5C6.91776 9.32741 6.77784 9.1875 6.60526 9.1875C6.43267 9.1875 6.29276 9.32741 6.29276 9.5C6.29276 9.67259 6.43267 9.8125 6.60526 9.8125Z" fill="#31343F" stroke="#31343F" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span class="tooltiptext">победные очки</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="matches-upcomingMatches-block-container-right__index">
-              <div class="matches-upcomingMatches-block-container-right-block__index matches-upcomingMatches-block-container-right-block-red__index">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M11.7938 9.51874L8 13.3125L4.20625 9.51874" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M8 2.6875V13.2062" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                2.22
-              </div>
-              <div class="matches-upcomingMatches-block-container-right-block__index matches-upcomingMatches-block-container-right-block-green__index">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M11.7938 9.51874L8 13.3125L4.20625 9.51874" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M8 2.6875V13.2062" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                2.22
-              </div>
-              <div class="matches-upcomingMatches-block-container-right-block__index matches-upcomingMatches-block-container-right-block-red__index">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M11.7938 9.51874L8 13.3125L4.20625 9.51874" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M8 2.6875V13.2062" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                2.22
-              </div>
-            </div>
-          </div>
-        </div>
+              </a>
+          {% endfor %}
+{#        <div class="rating-container__index">#}
+{#          <div class="rating-container-part__index">#}
+{#            <span>123</span>#}
+{#            <img src="{% static 'main/img/image121.png' %}" alt="">#}
+{#            <p>1xBet</p>#}
+{#          </div>#}
+{#          <div class="rating-container-part__index">#}
+{#            <span>123</span>#}
+{#            <img src="{% static 'main/img/image121.png' %}" alt="">#}
+{#            <p>1xBet</p>#}
+{#          </div>#}
+{#          <div class="rating-container-part__index">#}
+{#            <span>123</span>#}
+{#            <img src="{% static 'main/img/image121.png' %}" alt="">#}
+{#            <p>1xBet</p>#}
+{#          </div>#}
+{#          <div class="rating-container-part__index">#}
+{#            <span>123</span>#}
+{#            <img src="{% static 'main/img/image121.png' %}" alt="">#}
+{#            <p>1xBet</p>#}
+{#          </div>#}
+{#        </div>#}
+
       </div>
     </div>
   </div>

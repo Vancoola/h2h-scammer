@@ -120,6 +120,9 @@ class GameModel(models.Model):
     blocked = models.BooleanField()
     finished = models.BooleanField()
     update = models.DateTimeField()
+    game_date = models.DateField(null=True, blank=True)
+    winner = models.ForeignKey(TeamModel, verbose_name='Победители', on_delete=models.CASCADE,
+                               related_name='winner_team', null=True, blank=True)
     # slug = models.SlugField(max_length=255, unique=True)
 
     def __str__(self):

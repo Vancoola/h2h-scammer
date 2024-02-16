@@ -251,182 +251,184 @@
       <div class="section1-table1-top__in-person-meeting-template">
         Head - To - Head Matches
       </div>
+    {% for game in games %}
       <div class="section1-table1-content__in-person-meeting-template">
         <div class="section1-table1-partent__in-person-meeting-template">
           <div class="section1-table1-part__in-person-meeting-template">
             <div class="section1-table1-part-left__in-person-meeting-template">
-              12.12.22
+              {{ game.game_date|date:"d M Y" }}
             </div>
             <div class="section1-table1-part-city__in-person-meeting-template">
-              <img src="/img/image 334.png" alt="">
-              GU
+              <img src="{{ game.winner.logo }}" alt="">
+              {{ game.winner.name }}
             </div>
             <div class="section1-table1-part-teams__in-person-meeting-template">
               <div class="section1-table1-teams-part__in-person-meeting-template">
                 <div class="section1-table1-teams-part-left__in-person-meeting-template">
-                  <img src="/img/image 1.png" alt="">
+                  <img src="{{ game.home.logo }}" alt="">
                   <p>
-                    Marcus Maraunder
+                    {{ game.home.name }}
                   </p>
                 </div>
                 <div class="count">
-                  0
+                  {{ game.home_goals }}
                 </div>
               </div>
               <div class="section1-table1-teams-part__in-person-meeting-template">
                 <div class="section1-table1-teams-part-left__in-person-meeting-template">
-                  <img src="/img/image 1.png" alt="">
+                  <img src="{{ game.away.logo }}" alt="">
                   <p>
-                    Marcus Maraunder
+                    {{ game.away.name }}
                   </p>
                 </div>
                 <div class="count">
-                  0
+                  {{ game.away_goals }}
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="section1-table1-partent__in-person-meeting-template">
-          <div class="section1-table1-part__in-person-meeting-template">
-            <div class="section1-table1-part-left__in-person-meeting-template">
-              12.12.22
-            </div>
-            <div class="section1-table1-part-city__in-person-meeting-template">
-              <img src="/img/image 334.png" alt="">
-              GU
-            </div>
-            <div class="section1-table1-part-teams__in-person-meeting-template">
-              <div class="section1-table1-teams-part__in-person-meeting-template">
-                <div class="section1-table1-teams-part-left__in-person-meeting-template">
-                  <img src="/img/image 1.png" alt="">
-                  <p>
-                    Marcus Maraunder
-                  </p>
-                </div>
-                <div class="count">
-                  0
-                </div>
-              </div>
-              <div class="section1-table1-teams-part__in-person-meeting-template">
-                <div class="section1-table1-teams-part-left__in-person-meeting-template">
-                  <img src="/img/image 1.png" alt="">
-                  <p>
-                    Marcus Maraunder
-                  </p>
-                </div>
-                <div class="count">
-                  0
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="section1-table1-partent__in-person-meeting-template">
-          <div class="section1-table1-part__in-person-meeting-template">
-            <div class="section1-table1-part-left__in-person-meeting-template">
-              12.12.22
-            </div>
-            <div class="section1-table1-part-city__in-person-meeting-template">
-              <img src="/img/image 334.png" alt="">
-              GU
-            </div>
-            <div class="section1-table1-part-teams__in-person-meeting-template">
-              <div class="section1-table1-teams-part__in-person-meeting-template">
-                <div class="section1-table1-teams-part-left__in-person-meeting-template">
-                  <img src="/img/image 1.png" alt="">
-                  <p>
-                    Marcus Maraunder
-                  </p>
-                </div>
-                <div class="count">
-                  0
-                </div>
-              </div>
-              <div class="section1-table1-teams-part__in-person-meeting-template">
-                <div class="section1-table1-teams-part-left__in-person-meeting-template">
-                  <img src="/img/image 1.png" alt="">
-                  <p>
-                    Marcus Maraunder
-                  </p>
-                </div>
-                <div class="count">
-                  0
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="section1-table1-partent__in-person-meeting-template">
-          <div class="section1-table1-part__in-person-meeting-template">
-            <div class="section1-table1-part-left__in-person-meeting-template">
-              12.12.22
-            </div>
-            <div class="section1-table1-part-city__in-person-meeting-template">
-              <img src="/img/image 334.png" alt="">
-              GU
-            </div>
-            <div class="section1-table1-part-teams__in-person-meeting-template">
-              <div class="section1-table1-teams-part__in-person-meeting-template">
-                <div class="section1-table1-teams-part-left__in-person-meeting-template">
-                  <img src="/img/image 1.png" alt="">
-                  <p>
-                    Marcus Maraunder
-                  </p>
-                </div>
-                <div class="count">
-                  0
-                </div>
-              </div>
-              <div class="section1-table1-teams-part__in-person-meeting-template">
-                <div class="section1-table1-teams-part-left__in-person-meeting-template">
-                  <img src="/img/image 1.png" alt="">
-                  <p>
-                    Marcus Maraunder
-                  </p>
-                </div>
-                <div class="count">
-                  0
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="section1-table1-partent__in-person-meeting-template">
-          <div class="section1-table1-part__in-person-meeting-template">
-            <div class="section1-table1-part-left__in-person-meeting-template">
-              12.12.22
-            </div>
-            <div class="section1-table1-part-city__in-person-meeting-template">
-              <img src="/img/image 334.png" alt="">
-              GU
-            </div>
-            <div class="section1-table1-part-teams__in-person-meeting-template">
-              <div class="section1-table1-teams-part__in-person-meeting-template">
-                <div class="section1-table1-teams-part-left__in-person-meeting-template">
-                  <img src="/img/image 1.png" alt="">
-                  <p>
-                    Marcus Maraunder
-                  </p>
-                </div>
-                <div class="count">
-                  0
-                </div>
-              </div>
-              <div class="section1-table1-teams-part__in-person-meeting-template">
-                <div class="section1-table1-teams-part-left__in-person-meeting-template">
-                  <img src="/img/image 1.png" alt="">
-                  <p>
-                    Marcus Maraunder
-                  </p>
-                </div>
-                <div class="count">
-                  0
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+          {% endfor %}
+{#        <div class="section1-table1-partent__in-person-meeting-template">#}
+{#          <div class="section1-table1-part__in-person-meeting-template">#}
+{#            <div class="section1-table1-part-left__in-person-meeting-template">#}
+{#              12.12.22#}
+{#            </div>#}
+{#            <div class="section1-table1-part-city__in-person-meeting-template">#}
+{#              <img src="/img/image 334.png" alt="">#}
+{#              GU#}
+{#            </div>#}
+{#            <div class="section1-table1-part-teams__in-person-meeting-template">#}
+{#              <div class="section1-table1-teams-part__in-person-meeting-template">#}
+{#                <div class="section1-table1-teams-part-left__in-person-meeting-template">#}
+{#                  <img src="/img/image 1.png" alt="">#}
+{#                  <p>#}
+{#                    Marcus Maraunder#}
+{#                  </p>#}
+{#                </div>#}
+{#                <div class="count">#}
+{#                  0#}
+{#                </div>#}
+{#              </div>#}
+{#              <div class="section1-table1-teams-part__in-person-meeting-template">#}
+{#                <div class="section1-table1-teams-part-left__in-person-meeting-template">#}
+{#                  <img src="/img/image 1.png" alt="">#}
+{#                  <p>#}
+{#                    Marcus Maraunder#}
+{#                  </p>#}
+{#                </div>#}
+{#                <div class="count">#}
+{#                  0#}
+{#                </div>#}
+{#              </div>#}
+{#            </div>#}
+{#          </div>#}
+{#        </div>#}
+{#        <div class="section1-table1-partent__in-person-meeting-template">#}
+{#          <div class="section1-table1-part__in-person-meeting-template">#}
+{#            <div class="section1-table1-part-left__in-person-meeting-template">#}
+{#              12.12.22#}
+{#            </div>#}
+{#            <div class="section1-table1-part-city__in-person-meeting-template">#}
+{#              <img src="/img/image 334.png" alt="">#}
+{#              GU#}
+{#            </div>#}
+{#            <div class="section1-table1-part-teams__in-person-meeting-template">#}
+{#              <div class="section1-table1-teams-part__in-person-meeting-template">#}
+{#                <div class="section1-table1-teams-part-left__in-person-meeting-template">#}
+{#                  <img src="/img/image 1.png" alt="">#}
+{#                  <p>#}
+{#                    Marcus Maraunder#}
+{#                  </p>#}
+{#                </div>#}
+{#                <div class="count">#}
+{#                  0#}
+{#                </div>#}
+{#              </div>#}
+{#              <div class="section1-table1-teams-part__in-person-meeting-template">#}
+{#                <div class="section1-table1-teams-part-left__in-person-meeting-template">#}
+{#                  <img src="/img/image 1.png" alt="">#}
+{#                  <p>#}
+{#                    Marcus Maraunder#}
+{#                  </p>#}
+{#                </div>#}
+{#                <div class="count">#}
+{#                  0#}
+{#                </div>#}
+{#              </div>#}
+{#            </div>#}
+{#          </div>#}
+{#        </div>#}
+{#        <div class="section1-table1-partent__in-person-meeting-template">#}
+{#          <div class="section1-table1-part__in-person-meeting-template">#}
+{#            <div class="section1-table1-part-left__in-person-meeting-template">#}
+{#              12.12.22#}
+{#            </div>#}
+{#            <div class="section1-table1-part-city__in-person-meeting-template">#}
+{#              <img src="/img/image 334.png" alt="">#}
+{#              GU#}
+{#            </div>#}
+{#            <div class="section1-table1-part-teams__in-person-meeting-template">#}
+{#              <div class="section1-table1-teams-part__in-person-meeting-template">#}
+{#                <div class="section1-table1-teams-part-left__in-person-meeting-template">#}
+{#                  <img src="/img/image 1.png" alt="">#}
+{#                  <p>#}
+{#                    Marcus Maraunder#}
+{#                  </p>#}
+{#                </div>#}
+{#                <div class="count">#}
+{#                  0#}
+{#                </div>#}
+{#              </div>#}
+{#              <div class="section1-table1-teams-part__in-person-meeting-template">#}
+{#                <div class="section1-table1-teams-part-left__in-person-meeting-template">#}
+{#                  <img src="/img/image 1.png" alt="">#}
+{#                  <p>#}
+{#                    Marcus Maraunder#}
+{#                  </p>#}
+{#                </div>#}
+{#                <div class="count">#}
+{#                  0#}
+{#                </div>#}
+{#              </div>#}
+{#            </div>#}
+{#          </div>#}
+{#        </div>#}
+{#        <div class="section1-table1-partent__in-person-meeting-template">#}
+{#          <div class="section1-table1-part__in-person-meeting-template">#}
+{#            <div class="section1-table1-part-left__in-person-meeting-template">#}
+{#              12.12.22#}
+{#            </div>#}
+{#            <div class="section1-table1-part-city__in-person-meeting-template">#}
+{#              <img src="/img/image 334.png" alt="">#}
+{#              GU#}
+{#            </div>#}
+{#            <div class="section1-table1-part-teams__in-person-meeting-template">#}
+{#              <div class="section1-table1-teams-part__in-person-meeting-template">#}
+{#                <div class="section1-table1-teams-part-left__in-person-meeting-template">#}
+{#                  <img src="/img/image 1.png" alt="">#}
+{#                  <p>#}
+{#                    Marcus Maraunder#}
+{#                  </p>#}
+{#                </div>#}
+{#                <div class="count">#}
+{#                  0#}
+{#                </div>#}
+{#              </div>#}
+{#              <div class="section1-table1-teams-part__in-person-meeting-template">#}
+{#                <div class="section1-table1-teams-part-left__in-person-meeting-template">#}
+{#                  <img src="/img/image 1.png" alt="">#}
+{#                  <p>#}
+{#                    Marcus Maraunder#}
+{#                  </p>#}
+{#                </div>#}
+{#                <div class="count">#}
+{#                  0#}
+{#                </div>#}
+{#              </div>#}
+{#            </div>#}
+{#          </div>#}
+{#        </div>#}
         <a href="" class="btn-look-more-matches">
           Смотреть больше матчей
         </a>
