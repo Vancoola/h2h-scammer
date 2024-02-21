@@ -359,10 +359,10 @@
                         <div class="matches-upcomingMatches-block-container-left-parent__index">
                             <div class="matches-upcomingMatches-block-container-left__index">
                                 <div class="matches-upcomingMatches-block-container-left-part__index">
-                                    {{ league.league_top.first.place }}
+                                    {{ league.games.first.home.place }}
 {#                                    <span>{% top_list league=league team=league.games.first.home.team_id %}</span>#}
-                                    <img src="{{league.games.first.home.logo}}" alt="">
-                                    <p>{{league.games.first.home.name}}</p>
+                                    <img src="{{league.games.first.home.team.logo}}" alt="">
+                                    <p>{{league.games.first.home.team.name}}</p>
                                 </div>
                                 <div class="matches-upcomingMatches-block-container-left-part__index matches-upcomingMatches-block-container-left-part__index-mini">
                                     <p>Form</p>
@@ -373,10 +373,10 @@
                             </div>
                             <div class="matches-upcomingMatches-block-container-left__index">
                                 <div class="matches-upcomingMatches-block-container-left-part__index">
-                                    {{ league.league_top.first.place }}
+                                    {{ league.games.first.away.place }}
 {#                                    <span>{% top_list league=league team=league.games.first.away.team_id %}</span>#}
-                                    <img src="{{league.games.first.away.logo}}" alt="">
-                                    <p>{{league.games.first.away.name}}</p>
+                                    <img src="{{league.games.first.away.team.logo}}" alt="">
+                                    <p>{{league.games.first.away.team.name}}</p>
                                 </div>
                                 <div class="matches-upcomingMatches-block-container-left-part__index matches-upcomingMatches-block-container-left-part__index-mini">
                                     <p>Form</p>

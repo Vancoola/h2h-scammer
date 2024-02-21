@@ -16,7 +16,7 @@ class TopListViewSet(viewsets.ViewSet):
         serializers = TopListSerializer(data=request.data)
         if serializers.is_valid():
             serializers.save()
-            return Response({'message': 'Top list successfully'})
+            return Response(serializers.data['id'])
         else:
             return Response(serializers.errors)
 

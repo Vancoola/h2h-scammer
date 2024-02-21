@@ -30,10 +30,10 @@
     <div class="section1-top-block__in-person-meeting-template">
       <div class="section1-top-block-part__in-person-meeting-template">
         <div class="section1-top-block-part-img__in-person-meeting-template">
-          <img src="{{object.games.first.home.logo}}" alt="">
+          <img src="{{object.games.first.home.team.logo}}" alt="">
         </div>
         <div class="section1-top-block-part-text__in-person-meeting-template">
-          <p>{{object.games.first.home.name}}</p>
+          <p>{{object.games.first.home.team.name}}</p>
           <div class="matches-upcomingMatches-block-container-left-info__index">
             10 место
             <img src="{% static 'main/img/tooltip circle.svg' %}" alt="">
@@ -64,10 +64,10 @@
       </div>
       <div class="section1-top-block-part__in-person-meeting-template matches-upcomingMatches-block-container-right__index">
         <div class="section1-top-block-part-img__in-person-meeting-template">
-          <img src="{{object.games.first.away.logo}}" alt="">
+          <img src="{{object.games.first.away.team.logo}}" alt="">
         </div>
         <div class="section1-top-block-part-text__in-person-meeting-template section1-top-block-part-text-reverse__in-person-meeting-template">
-          <p>{{object.games.first.away.name}}</p>
+          <p>{{object.games.first.away.team.name}}</p>
           <div class="matches-upcomingMatches-block-container-left-info__index">
             10 место
             <img src="/img/tooltip circle.svg" alt="">
@@ -264,30 +264,30 @@
               {{ game.game_date|date:"d M Y" }}
             </div>
             <div class="section1-table1-part-city__in-person-meeting-template">
-              <img src="{{ game.winner.logo }}" alt="">
-              {{ game.winner.name }}
+              <img src="{{ game.winner.team.logo }}" alt="">
+              {{ game.winner.team.name }}
             </div>
             <div class="section1-table1-part-teams__in-person-meeting-template">
               <div class="section1-table1-teams-part__in-person-meeting-template">
                 <div class="section1-table1-teams-part-left__in-person-meeting-template">
-                  <img src="{{ game.home.logo }}" alt="">
+                  <img src="{{ game.home.team.logo }}" alt="">
                   <p>
-                    {{ game.home.name }}
+                    {{ game.home.team.name }}
                   </p>
                 </div>
                 <div class="count">
-                  {{ game.home_goals }}
+                  {{ game.home.goals }}
                 </div>
               </div>
               <div class="section1-table1-teams-part__in-person-meeting-template">
                 <div class="section1-table1-teams-part-left__in-person-meeting-template">
-                  <img src="{{ game.away.logo }}" alt="">
+                  <img src="{{ game.away.team.logo }}" alt="">
                   <p>
-                    {{ game.away.name }}
+                    {{ game.away.team.name }}
                   </p>
                 </div>
                 <div class="count">
-                  {{ game.away_goals }}
+                  {{ game.away.goals }}
                 </div>
               </div>
             </div>

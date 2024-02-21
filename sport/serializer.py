@@ -37,4 +37,5 @@ class TeamSerializer(serializers.ModelSerializer):
 class TopListSerializer(serializers.ModelSerializer):
     class Meta:
         model = TopListModel
-        fields = '__all__'
+        fields = ('id', 'league', 'team', 'place', 'win', 'draw', 'lose', 'matches_played', 'point', 'goalsDiff',
+                  'is_home', 'is_away')

@@ -117,21 +117,14 @@ class GameModel(models.Model):
     elapsed = models.IntegerField(null=True, blank=True)
     seconds = models.CharField(max_length=10, null=True, blank=True)
     league = models.ForeignKey("LeagueModel", verbose_name="Лига", on_delete=models.CASCADE, related_name='games')
-    home = models.ForeignKey(TeamModel, verbose_name="Дома", on_delete=models.CASCADE, related_name='home_team')
-    away = models.ForeignKey(TeamModel, verbose_name="Гости", on_delete=models.CASCADE, related_name='away_team')
-    home_goals = models.IntegerField('Гол (Дома)', default=0, blank=True)
-    away_goals = models.IntegerField('Гол (Гости)', default=0, blank=True)
-    # stopped = models.BooleanField()
-    # blocked = models.BooleanField()
-    # finished = models.BooleanField()
+    home = models.ForeignKey("TopListModel", verbose_name="Дома", on_delete=models.CASCADE, related_name='home_team')
+    away = models.ForeignKey("TopListModel", verbose_name="Гости", on_delete=models.CASCADE, related_name='away_team')
     update = models.DateTimeField(auto_now=True, editable=False)
     date = models.DateField(null=True, blank=True)
-    winner = models.ForeignKey(TeamModel, verbose_name='Победители', on_delete=models.CASCADE,
+    winner = models.ForeignKey("TopListModel", verbose_name='Победители', on_delete=models.CASCADE,
                                related_name='winner_team', null=True, blank=True)
     referee = models.CharField(max_length=255, null=True, blank=True)
     round = models.CharField(max_length=255, null=True, blank=True)
-
-    # slug = models.SlugField(max_length=255, unique=True)
 
     def __str__(self):
         return self.league.name
@@ -149,6 +142,7 @@ class TopListModel(models.Model):
     goalsDiff = models.IntegerField('GD', default=0)
     is_home = models.BooleanField(default=False)
     is_away = models.BooleanField(default=False)
+    goals = models.IntegerField('Голы', default=0)
 
     def __str__(self):
         return self.team.name + self.league.name

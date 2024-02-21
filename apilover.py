@@ -170,13 +170,15 @@ def standings(league_id: str, team_id: str, season: str):
     try:
         object = response.json()['response'][0]['league']['standings'][0][0]
     except IndexError:
-        return {}
+        return {'message': 'NOT'}
     resp['point'] = object['points']
     resp['goalsDiff'] = object['goalsDiff']
+    resp['place'] = object['rank']
     resp['win'] = object['all']['win']
     resp['draw'] = object['all']['draw']
     resp['lose'] = object['all']['lose']
     resp['matches_played'] = object['all']['played']
+    resp['goals'] = object['all']['goals']['for']
     # print(object)
     print('\n\n', resp, '\n\n')
     return resp
@@ -218,22 +220,12 @@ def updater():
         print(requests.post('http://localhost:8000/api/teams/', json=json.dumps(i['home_teams'])).json(), end='\n\n')
         print(requests.post('http://localhost:8000/api/teams/', json=json.dumps(i['away_teams'])).json(), end='\n\n')
         # print(i, end='\n\n')
-        if i['teams']['home']['winner']:
-            games['winner'] = i['home']
-        elif i['teams']['away']['winner']:
-            games['winner'] = i['away']
-        games['game_id'] = i['fixture']['id']
-        games["home"] = i["home"]
-        games["away"] = i["away"]
-        games["date"] = i['fixture']['date'][:10]
-        games["round"] = rounds
-        print(games)
-        print(requests.post('http://localhost:8000/api/games/', json=json.dumps(games)).json(), 'zx', end='\n\n')
         toplist['team'] = i['home']
         toplist['is_home'] = True
         toplist = dict(
             list(toplist.items()) + list(standings(league['league_id'], i['home'], league['season']).items()))
-        print(requests.post('http://localhost:8000/api/toplist/', json=toplist).json(), end='\n\n')
+        games['home'] = requests.post('http://localhost:8000/api/toplist/', json=toplist).json()
+        print(games['home'], 'THIS', end='\n\n')
         # toplist = {}
         toplist['league'] = league['league_id']
         toplist['team'] = i['away']
@@ -241,7 +233,17 @@ def updater():
         toplist['is_away'] = True
         toplist = dict(
             list(toplist.items()) + list(standings(league['league_id'], i['away'], league['season']).items()))
-        print(requests.post('http://localhost:8000/api/toplist/', json=toplist).json(), end='\n\n')
+        games['away'] = requests.post('http://localhost:8000/api/toplist/', json=toplist).json()
+        print(games['away'], 'THIS', end='\n\n')
+        if i['teams']['home']['winner']:
+            games['winner'] = games['home']
+        elif i['teams']['away']['winner']:
+            games['winner'] = games['away']
+        games['game_id'] = i['fixture']['id']
+        games["date"] = i['fixture']['date'][:10]
+        games["round"] = rounds
+        print(games)
+        print(requests.post('http://localhost:8000/api/games/', json=json.dumps(games)).json(), 'zx', end='\n\n')
         time.sleep(1)
 
 
