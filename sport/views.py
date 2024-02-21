@@ -1,9 +1,98 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import TemplateView, DetailView
 from sport.forms import QuestionForms
-from sport.models import NewsModel, GameModel, TopListModel, LeagueModel
+from sport.models import NewsModel, GameModel, TopListModel, LeagueModel, MainColumnModel, InfoModel
 from django.utils.safestring import mark_safe
 from django.http import HttpResponseNotFound, HttpResponseRedirect
+from django.db.models import Q
+from rest_framework import viewsets
+from .serializer import *
+from rest_framework.response import Response
+
+
+class TopListViewSet(viewsets.ViewSet):
+    def create(self, request, *args, **kwargs):
+        print(request.data)
+        serializers = TopListSerializer(data=request.data)
+        if serializers.is_valid():
+            serializers.save()
+            return Response({'message': 'Top list successfully'})
+        else:
+            return Response(serializers.errors)
+
+
+class GameViewSet(viewsets.ViewSet):
+    def create(self, request):
+        print(request.data)
+        serializer = GameSerializer(data=json.loads(request.data))
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'message': 'Game'})
+        else:
+            return Response(serializer.errors)
+
+
+class LeagueViewSet(viewsets.ViewSet):
+    def list(self, *args, **kwargs):
+        print('000000000000000')
+        serializer = LeagueSerializer(instance=LeagueModel.objects.all(), many=True)
+        # print(serializer.data)
+        # print(serializer.data)
+        return Response(serializer.data)
+    def create(self, request, *args, **kwargs):
+        serializer = LeagueSerializer(data=request.data)
+        print(request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'message': 'Country'})
+        else:
+            return Response(serializer.errors)
+
+import json
+class SeasonViewSet(viewsets.ViewSet):
+    def create(self, request, *args, **kwargs):
+        print(json.loads(request.data))
+        serializer = SeasonSerializer(data=json.loads(request.data))
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'message': 'Season'})
+        else:
+            return Response(serializer.errors)
+
+
+class TeamViewSet(viewsets.ViewSet):
+    def create(self, request, *args, **kwargs):
+        print(json.loads(request.data))
+        serializer = TeamSerializer(data=json.loads(request.data))
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'message': 'Team'})
+        else:
+            return Response(serializer.errors)
+
+
+class CountryViewSet(viewsets.ViewSet):
+
+    def create(self, request, *args, **kwargs):
+        print(request.data['name'])
+        serializers = CountrySerializer(CountryModel.objects.filter(name__contains=str(request.data['name'])).first())
+        print(serializers.data)
+        return Response(serializers.data)
+
+    def update(self, request):
+        serializer = CountrySerializer(data=request.data, many=True)
+        print(request.data)
+        if serializer.is_valid():
+            print(serializer.data)
+            serializer.save()
+            return Response({'message': 'Country'})
+        else:
+            return Response(serializer.errors)
+
+
+# class CountryViewSet(viewsets.ModelViewSet):
+#     queryset = CountryModel.objects.all()
+#     serializer_class = CountrySerializer
 
 
 class PersonalVS(DetailView):
@@ -18,6 +107,12 @@ class PersonalVS(DetailView):
         context['games'] = context['object'].games.all
         context['lang_code'] = str(self.request.LANGUAGE_CODE).upper()
         # print(context['object'].games.first)
+        context['columns'] = MainColumnModel.objects.filter(Q(country__code=str(self.request.LANGUAGE_CODE).upper()) |
+                                                            Q(country__code='WL'))
+        context['info'] = InfoModel.objects.filter(Q(country__code=str(self.request.LANGUAGE_CODE).upper()) |
+                                                   Q(country__code='WL')).first()
+        context['seo_text'] = mark_safe(InfoModel.objects.filter(Q(country__code=str(self.request.LANGUAGE_CODE).upper()) |
+                                     Q(country__code='WL')).first().text)
         return context
 
 
@@ -36,7 +131,13 @@ class IndexTV(TemplateView):
         context = super().get_context_data(**kwargs)
         context['form'] = QuestionForms(self.request.POST)
         context['lang_code'] = str(self.request.LANGUAGE_CODE).upper()
-        context['leagues'] = LeagueModel.objects.all()
+        context['leagues'] = LeagueModel.objects.all().order_by('-games__update')
+        context['columns'] = MainColumnModel.objects.filter(Q(country__code=str(self.request.LANGUAGE_CODE).upper()) |
+                                                            Q(country__code='WL'))
+        context['info'] = InfoModel.objects.filter(Q(country__code=str(self.request.LANGUAGE_CODE).upper()) |
+                                                            Q(country__code='WL')).first()
+        context['seo_text'] = mark_safe(InfoModel.objects.filter(Q(country__code=str(self.request.LANGUAGE_CODE).upper()) |
+                                                            Q(country__code='WL')).first().text)
         return context
 
 
@@ -54,7 +155,11 @@ def SearchTV(request, search):
     form = QuestionForms()
 
     return render(request, 'main/search-page.html',
-                  {'lang_code': str(request.LANGUAGE_CODE).upper(), 'form': form, 'search': search, 'leagues': obj})
+                  {'lang_code': str(request.LANGUAGE_CODE).upper(), 'form': form, 'search': search, 'leagues': obj,
+                   'columns': MainColumnModel.objects.filter(Q(country__code=str(request.LANGUAGE_CODE).upper()) |
+                                                            Q(country__code='WL')), 'info': InfoModel.objects.filter(Q(country__code=str(request.LANGUAGE_CODE).upper()) |
+                                                   Q(country__code='WL')).first(), 'seo_text': mark_safe(InfoModel.objects.filter(Q(country__code=str(request.LANGUAGE_CODE).upper()) |
+                                                            Q(country__code='WL')).first().text)})
 
 
 def News(request):
@@ -66,8 +171,11 @@ def News(request):
     form = QuestionForms()
     return render(request, 'main/news.html', {'news':
         NewsModel.objects.filter(
-            local__code_country=str(request.LANGUAGE_CODE)),
-        'lang_code': str(request.LANGUAGE_CODE).upper(), 'form': form})
+            Q(local__code=str(request.LANGUAGE_CODE).upper()) | Q(local__code='wl')),
+        'lang_code': str(request.LANGUAGE_CODE).upper(), 'form': form, 'columns': MainColumnModel.objects.filter(Q(country__code=str(request.LANGUAGE_CODE).upper()) |
+                                                            Q(country__code='WL')), 'info': InfoModel.objects.filter(Q(country__code=str(request.LANGUAGE_CODE).upper()) |
+                                                   Q(country__code='WL')).first(), 'seo_text': mark_safe(InfoModel.objects.filter(Q(country__code=str(request.LANGUAGE_CODE).upper()) |
+                                                            Q(country__code='WL')).first().text)})
 
 
 def NewsPage(request, slug):
@@ -80,4 +188,7 @@ def NewsPage(request, slug):
     obj = get_object_or_404(NewsModel, slug=slug)
     return render(request, 'main/news-page.html', {'logo': obj.logo, 'text': mark_safe(obj.text),
                                                    'title': obj.title, 'lang_code': str(request.LANGUAGE_CODE).upper(),
-                                                   'form': form})
+                                                   'form': form, 'columns': MainColumnModel.objects.filter(Q(country__code=str(request.LANGUAGE_CODE).upper()) |
+                                                            Q(country__code='WL')), 'info': InfoModel.objects.filter(Q(country__code=str(request.LANGUAGE_CODE).upper()) |
+                                                   Q(country__code='WL')).first(), 'seo_text': mark_safe(InfoModel.objects.filter(Q(country__code=str(request.LANGUAGE_CODE).upper()) |
+                                                            Q(country__code='WL')).first().text)})

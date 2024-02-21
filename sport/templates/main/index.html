@@ -345,10 +345,10 @@
                     <a href="{{ league.get_absolute_url }}">
                     <div class="matches-upcomingMatches-block-top__index">
                         <div class="matches-upcomingMatches-block-top-left__index">
-                            <img src="https://flagsapi.com/{{league.country}}/flat/64.png" alt="" width="14px" height="11px">
-                            {{league.country.code_country}}: {{league.name}}
+                            <img src="{{league.country.flag}}" alt="" width="14px" height="11px">
+                            {{league.country.code}}: {{league.name}}
                         </div>
-                        <p>{{league.games.first.update}}</p>
+                        <p>{{league.games.first.date}}</p>
                         <div class="matches-upcomingMatches-block-top-right__index">
                             <span>1</span>
                             <span>X</span>
@@ -359,8 +359,8 @@
                         <div class="matches-upcomingMatches-block-container-left-parent__index">
                             <div class="matches-upcomingMatches-block-container-left__index">
                                 <div class="matches-upcomingMatches-block-container-left-part__index">
-{#                                    {{ league.league_top.first }}#}
-                                    <span>{% top_list league=league team=league.games.first.home.team_id %}</span>
+                                    {{ league.league_top.first.place }}
+{#                                    <span>{% top_list league=league team=league.games.first.home.team_id %}</span>#}
                                     <img src="{{league.games.first.home.logo}}" alt="">
                                     <p>{{league.games.first.home.name}}</p>
                                 </div>
@@ -373,7 +373,8 @@
                             </div>
                             <div class="matches-upcomingMatches-block-container-left__index">
                                 <div class="matches-upcomingMatches-block-container-left-part__index">
-                                    <span>{% top_list league=league team=league.games.first.away.team_id %}</span>
+                                    {{ league.league_top.first.place }}
+{#                                    <span>{% top_list league=league team=league.games.first.away.team_id %}</span>#}
                                     <img src="{{league.games.first.away.logo}}" alt="">
                                     <p>{{league.games.first.away.name}}</p>
                                 </div>
@@ -411,6 +412,7 @@
                     </div>
                 </a>
                 </div>
+                {% endfor %}
                 <!-- <div class="rating-container__index">
                     <div class="rating-container-part__index">
                         <span>123</span>
@@ -433,7 +435,7 @@
                         <p>1xBet</p>
                     </div>
                 </div> -->
-                {% endfor %}
+
             </div>
         </div>
     </div>
@@ -541,48 +543,16 @@
 <section class="seo-section__index">
     <div class="container">
         <div class="seo-section-block__index">
-            <h3>Блок для SEO текста</h3>
-            <p>
-                Равным образом постоянное информационно- пропагандистское обеспечение нашей деятельности позволяет выполнять важные задания по разработке направлений прогрессивного развития. Разнообразный и богатый опыт постоянный количественный рост и сфера нашей активности позволяет выполнять важные задания. Идейные соображения высшего порядка, а также реализация намеченных плановых заданий позволяет оценить значение дальнейших направлений развития. Таким образом реализация намеченных плановых заданий позволяет оценить. Таким образом постоянный количественный рост и сфера нашей активности позволяет выполнять важные задания по разработке направлений прогрессивного развития. С другой стороны начало повседневной работы по формированию позиции.
-            </p>
-            <div class="seo-section-container__index">
-                <div class="seo-section-container-block__index">
-                    <span>1</span>
-                    <p>
-                        Равным образом постоянное информационно- пропагандистское обеспечение нашей деятельности позволяет выполнять важные задания.
-                    </p>
-                </div>
-                <div class="seo-section-container-block__index">
-                    <span>1</span>
-                    <p>
-                        Равным образом постоянное информационно- пропагандистское обеспечение нашей деятельности позволяет выполнять важные задания.
-                    </p>
-                </div>
-                <div class="seo-section-container-block__index">
-                    <span>1</span>
-                    <p>
-                        Равным образом постоянное информационно- пропагандистское обеспечение нашей деятельности позволяет выполнять важные задания.
-                    </p>
-                </div>
-                <div class="seo-section-container-block__index">
-                    <span>1</span>
-                    <p>
-                        Равным образом постоянное информационно- пропагандистское обеспечение нашей деятельности позволяет выполнять важные задания.
-                    </p>
-                </div>
-                <div class="seo-section-container-block__index">
-                    <span>1</span>
-                    <p>
-                        Равным образом постоянное информационно- пропагандистское обеспечение нашей деятельности позволяет выполнять важные задания.
-                    </p>
-                </div>
-                <div class="seo-section-container-block__index">
-                    <span>1</span>
-                    <p>
-                        Равным образом постоянное информационно- пропагандистское обеспечение нашей деятельности позволяет выполнять важные задания.
-                    </p>
-                </div>
-            </div>
+            <h3>{{ info.name }}</h3>
+            <p>{{ seo_text }}</p>
+{#            <div class="seo-section-container__index">#}
+{#                <div class="seo-section-container-block__index">#}
+{#                    <span>1</span>#}
+{#                    <p>#}
+{#                        Равным образом постоянное информационно- пропагандистское обеспечение нашей деятельности позволяет выполнять важные задания.#}
+{#                    </p>#}
+{#                </div>#}
+{#            </div>#}
             <a href="#!">Читать подробнее</a>
         </div>
     </div>

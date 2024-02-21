@@ -20,7 +20,7 @@
       </a>
     </div>
     <div class="section1-top__in-person-meeting-template">
-      <h1>{{country_code}}: {{league_name}}</h1>
+      <h1>{{country_code}}: {{object.games.first.round}}</h1>
       <div class="section1-top-container__in-person-meeting-template">
         <span class="section1-top-container-active__in-person-meeting-template">Статистика</span>
         <span>Таблица турнира</span>
@@ -96,7 +96,7 @@
         <table class="table">
           <thead>
           <tr>
-            <!-- <th class="table-title-number">#</th> -->
+             <th class="table-title-number">#</th>
             <th class="table-title-team">Team</th>
             <th class="table-middle">MP</th>
             <th class="table-middle">W</th>
@@ -111,22 +111,23 @@
           <tbody>
             {% for team in object.league_top.all %}
           <tr>
-            <!-- <td class="table-title-number">
+             <td class="table-title-number">
               {{ forloop.counter }}.
-            </td> -->
+            </td>
             <td class="table-title-team">
               <div class="table-name-team">
+{#                  {{ team }}#}
                 <img src="{{ team.team.logo }}" alt="">
                 {{team.team.name}}
               </div>
             </td>
-            <td class="table-middle">5</td>
-            <td class="table-middle">2</td>
-            <td class="table-middle">4</td>
-            <td class="table-middle">1</td>
+            <td class="table-middle">{{ team.matches_played }}</td>
+            <td class="table-middle">{{ team.win }}</td>
+            <td class="table-middle">{{ team.draw }}</td>
+            <td class="table-middle">{{ team.lose }}</td>
             <td class="table-middle">13:2</td>
-            <td class="table-middle">10</td>
-            <td class="table-middle">15</td>
+            <td class="table-middle">{{ team.goalsDiff }}</td>
+            <td class="table-middle">{{ team.point }}</td>
             <td class="table-form-td">
               <div class="table-form">
                 <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>
@@ -159,24 +160,25 @@
           </tr>
           </thead>
           <tbody>
-            {% for home_team in object.games.all %}
+          {% for home_team in object.league_top.all %}
+              {% if home_team.is_home %}
             <tr>
               <td class="table-title-number">
                 {{ forloop.counter }}.
               </td>
               <td class="table-title-team">
                 <div class="table-name-team">
-                  <img src="{{ home_team.home.logo }}" alt="">
-                  {{home_team.home.name}}
+                  <img src="{{ home_team.team.logo }}" alt="">
+                  {{home_team.team.name}}
                 </div>
               </td>
-              <td class="table-middle">5</td>
-              <td class="table-middle">2</td>
-              <td class="table-middle">4</td>
-              <td class="table-middle">1</td>
-              <td class="table-middle">13:2</td>
-              <td class="table-middle">10</td>
-              <td class="table-middle">15</td>
+                <td class="table-middle">{{ home_team.matches_played }}</td>
+                <td class="table-middle">{{ home_team.win }}</td>
+                <td class="table-middle">{{ home_team.draw }}</td>
+                <td class="table-middle">{{ home_team.lose }}</td>
+                <td class="table-middle">13:2</td>
+                <td class="table-middle">{{ home_team.goalsDiff }}</td>
+                <td class="table-middle">{{ home_team.point }}</td>
               <td class="table-form-td">
                 <div class="table-form">
                   <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>
@@ -188,6 +190,7 @@
                 </div>
               </td>
             </tr>
+              {% endif %}
             {% endfor %}
           </tbody>
         </table>
@@ -209,24 +212,25 @@
           </tr>
           </thead>
           <tbody>
-            {% for away_team in object.games.all %}
+            {% for away_team in object.league_top.all %}
+                {% if away_team.is_away %}
             <tr>
               <td class="table-title-number">
                 {{ forloop.counter }}.
               </td>
               <td class="table-title-team">
                 <div class="table-name-team">
-                  <img src="{{ away_team.away.logo }}" alt="">
-                  {{ away_team.away.name }}
+                  <img src="{{ away_team.team.logo }}" alt="">
+                  {{ away_team.team.name }}
                 </div>
               </td>
-              <td class="table-middle">5</td>
-              <td class="table-middle">2</td>
-              <td class="table-middle">4</td>
-              <td class="table-middle">1</td>
-              <td class="table-middle">13:2</td>
-              <td class="table-middle">10</td>
-              <td class="table-middle">15</td>
+                <td class="table-middle">{{ away_team.matches_played }}</td>
+                <td class="table-middle">{{ away_team.win }}</td>
+                <td class="table-middle">{{ away_team.draw }}</td>
+                <td class="table-middle">{{ away_team.lose }}</td>
+                <td class="table-middle">13:2</td>
+                <td class="table-middle">{{ away_team.goalsDiff }}</td>
+                <td class="table-middle">{{ away_team.point }}</td>
               <td class="table-form-td">
                 <div class="table-form">
                   <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>
@@ -238,6 +242,7 @@
                 </div>
               </td>
             </tr>
+                {% endif %}
             {% endfor %}
           </tbody>
         </table>
@@ -1097,53 +1102,21 @@
   </div>
 </section>
 <section class="seo-section__index">
-  <div class="container">
-    <div class="seo-section-block__index">
-      <h3>Блок для SEO текста</h3>
-      <p>
-        Равным образом постоянное информационно- пропагандистское обеспечение нашей деятельности позволяет выполнять важные задания по разработке направлений прогрессивного развития. Разнообразный и богатый опыт постоянный количественный рост и сфера нашей активности позволяет выполнять важные задания. Идейные соображения высшего порядка, а также реализация намеченных плановых заданий позволяет оценить значение дальнейших направлений развития. Таким образом реализация намеченных плановых заданий позволяет оценить. Таким образом постоянный количественный рост и сфера нашей активности позволяет выполнять важные задания по разработке направлений прогрессивного развития. С другой стороны начало повседневной работы по формированию позиции.
-      </p>
-      <div class="seo-section-container__index">
-        <div class="seo-section-container-block__index">
-          <span>1</span>
-          <p>
-            Равным образом постоянное информационно- пропагандистское обеспечение нашей деятельности позволяет выполнять важные задания.
-          </p>
+    <div class="container">
+        <div class="seo-section-block__index">
+            <h3>{{ info.name }}</h3>
+            <p>{{ seo_text }}</p>
+{#            <div class="seo-section-container__index">#}
+{#                <div class="seo-section-container-block__index">#}
+{#                    <span>1</span>#}
+{#                    <p>#}
+{#                        Равным образом постоянное информационно- пропагандистское обеспечение нашей деятельности позволяет выполнять важные задания.#}
+{#                    </p>#}
+{#                </div>#}
+{#            </div>#}
+            <a href="#!">Читать подробнее</a>
         </div>
-        <div class="seo-section-container-block__index">
-          <span>1</span>
-          <p>
-            Равным образом постоянное информационно- пропагандистское обеспечение нашей деятельности позволяет выполнять важные задания.
-          </p>
-        </div>
-        <div class="seo-section-container-block__index">
-          <span>1</span>
-          <p>
-            Равным образом постоянное информационно- пропагандистское обеспечение нашей деятельности позволяет выполнять важные задания.
-          </p>
-        </div>
-        <div class="seo-section-container-block__index">
-          <span>1</span>
-          <p>
-            Равным образом постоянное информационно- пропагандистское обеспечение нашей деятельности позволяет выполнять важные задания.
-          </p>
-        </div>
-        <div class="seo-section-container-block__index">
-          <span>1</span>
-          <p>
-            Равным образом постоянное информационно- пропагандистское обеспечение нашей деятельности позволяет выполнять важные задания.
-          </p>
-        </div>
-        <div class="seo-section-container-block__index">
-          <span>1</span>
-          <p>
-            Равным образом постоянное информационно- пропагандистское обеспечение нашей деятельности позволяет выполнять важные задания.
-          </p>
-        </div>
-      </div>
-      <a href="#!">Читать подробнее</a>
     </div>
-  </div>
 </section>
 
 <script>
