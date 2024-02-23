@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'django_ckeditor_5',
-    # 'main'
     'django_cleanup.apps.CleanupConfig',
     'sport',
 
@@ -133,8 +132,8 @@ CKEDITOR_5_CONFIGS = {
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
+# LANGUAGE_CODE = 'en-US'
 LANGUAGE_CODE = 'ru'
-
 TIME_ZONE = 'UTC'
 
 USE_I18N = True

@@ -184,7 +184,7 @@ header{
     border: 1px solid #0A40AA;
     background: #FFF;
     padding-right: 12px;
-    background: url("/img/search__icon.svg") left center;
+    background: url("../main/img/search__icon.svg") left center;
     background-repeat: no-repeat;
     background-position: 12px;
     height: 48px;
@@ -375,12 +375,12 @@ header{
     justify-content: space-between;
 }
 .accordion:after {
-    content: url("/img/chevron down.svg");
+    content: url("../main/img/chevron down.svg");
     transition: .3s;
 }
 
 .active:after {
-    content: url("/img/chevron down2.svg");
+    content: url("../main/img/chevron down2.svg");
     transition: .3s;
 }
 .panel {
@@ -1479,6 +1479,7 @@ footer{
 }
 header{
     z-index: 99999999999;
+    background: #FFFFFF;
 }
 .section1-top-block-middle__search-page p{
     color: #0A40AA;
@@ -1703,4 +1704,39 @@ header{
 }
 .section3__in-person-meeting-template{
     margin-top: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.btn-filter{
+    color: #0A40AA;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 24px */
+    border-radius: 7px;
+    border: 1px solid #0A40AA;
+    background: #FFF;
+    width: 250px;
+    height: 56px;
+    margin-top: 30px;
+}
+.section-catalog-container-filters__wrap > *:first-child .accordion {
+    margin-top: 0;
+    border-color: transparent;
 }

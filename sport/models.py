@@ -83,7 +83,6 @@ class SeasonModel(models.Model):
     predictions = models.BooleanField()
     odds = models.BooleanField()
 
-
     def __str__(self):
         return self.league.name
 
@@ -125,6 +124,41 @@ class GameModel(models.Model):
                                related_name='winner_team', null=True, blank=True)
     referee = models.CharField(max_length=255, null=True, blank=True)
     round = models.CharField(max_length=255, null=True, blank=True)
+    home_odds = models.FloatField(default=0)
+    away_odds = models.FloatField(default=0)
+    draw_odds = models.FloatField(default=0)
+    home_odds_old = models.FloatField(default=-1, editable=False)
+    draw_odds_old = models.FloatField(default=-1, editable=False)
+    away_odds_old = models.FloatField(default=-1, editable=False)
+    home_odds_upper = models.BooleanField(default=1, editable=False)
+    away_odds_upper = models.BooleanField(default=1, editable=False)
+    draw_odds_upper = models.BooleanField(default=1, editable=False)
+
+    def save(self, *args, **kwargs):
+        if self.home_odds > self.home_odds_old:
+            self.home_odds_upper = True
+        elif self.home_odds == self.home_odds_old:
+            pass
+        else:
+            self.home_odds_upper = False
+
+        if self.away_odds > self.away_odds_old:
+            self.away_odds_upper = True
+        elif self.away_odds == self.away_odds_old:
+            pass
+        else:
+            self.away_odds_upper = False
+
+        if self.draw_odds > self.draw_odds_old:
+            self.draw_odds_upper = True
+        elif self.draw_odds == self.draw_odds_old:
+            pass
+        else:
+            self.draw_odds_upper = False
+        self.draw_odds_old = self.draw_odds
+        self.home_odds_old = self.home_odds
+        self.away_odds_old = self.away_odds
+        super(GameModel, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.league.name
@@ -143,6 +177,7 @@ class TopListModel(models.Model):
     is_home = models.BooleanField(default=False)
     is_away = models.BooleanField(default=False)
     goals = models.IntegerField('Голы', default=0)
+    form = models.CharField(default='?', max_length=6)
 
     def __str__(self):
         return self.team.name + self.league.name
@@ -221,7 +256,6 @@ class InfoModel(models.Model):
     class Meta:
         verbose_name = 'Инфо'
         verbose_name_plural = 'Инфо'
-
 
     def __str__(self):
         return self.country.name

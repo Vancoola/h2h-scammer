@@ -59,10 +59,10 @@ class TeamModelAdmin(admin.ModelAdmin):
 @admin.register(GameModel)
 class GameAdmin(admin.ModelAdmin):
     list_display = ('league',)
-    search_fields = ('game_id',)
+    search_fields = ('game_id', 'league__name')
 
 # admin.site.register(TopListModel)
 
 @admin.register(TopListModel)
 class TopListModelAdmin(admin.ModelAdmin):
-    search_fields = ('team__name',)
+    search_fields = ('team__name', 'team__team_id')

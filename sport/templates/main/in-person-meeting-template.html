@@ -58,7 +58,7 @@
   <path d="M7.6032 12.5584H7.61143" stroke="#7F8596" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
   <path d="M7.6032 15.3084H7.61143" stroke="#7F8596" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
-          {{object.games.first.update}}
+          {{object.games.first.date}}
         </span>
         <p>VS</p>
       </div>
@@ -125,17 +125,22 @@
             <td class="table-middle">{{ team.win }}</td>
             <td class="table-middle">{{ team.draw }}</td>
             <td class="table-middle">{{ team.lose }}</td>
-            <td class="table-middle">13:2</td>
+            <td class="table-middle">{{ team.goals }}</td>
             <td class="table-middle">{{ team.goalsDiff }}</td>
             <td class="table-middle">{{ team.point }}</td>
             <td class="table-form-td">
               <div class="table-form">
-                <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-lose__index">L</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-d__index">D</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
+                  {% for form in team.form %}
+                      {% if form == '?' %}
+                            <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>
+                      {% elif form == 'W' %}
+                          <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
+                      {% elif form == 'D' %}
+                          <div class="table-form-block matches-upcomingMatches-mini-block-d__index">D</div>
+                      {% elif form == 'L' %}
+                          <div class="table-form-block matches-upcomingMatches-mini-block-lose__index">L</div>
+                      {% endif %}
+                      {% endfor %}
               </div>
             </td>
           </tr>
@@ -176,17 +181,22 @@
                 <td class="table-middle">{{ home_team.win }}</td>
                 <td class="table-middle">{{ home_team.draw }}</td>
                 <td class="table-middle">{{ home_team.lose }}</td>
-                <td class="table-middle">13:2</td>
+                <td class="table-middle">{{ home_team.goals }}</td>
                 <td class="table-middle">{{ home_team.goalsDiff }}</td>
                 <td class="table-middle">{{ home_team.point }}</td>
               <td class="table-form-td">
                 <div class="table-form">
-                  <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>
-                  <div class="table-form-block matches-upcomingMatches-mini-block-lose__index">L</div>
-                  <div class="table-form-block matches-upcomingMatches-mini-block-d__index">D</div>
-                  <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                  <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                  <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
+                  {% for form in home_team.form %}
+                      {% if form == '?' %}
+                            <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>
+                      {% elif form == 'W' %}
+                          <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
+                      {% elif form == 'D' %}
+                          <div class="table-form-block matches-upcomingMatches-mini-block-d__index">D</div>
+                      {% elif form == 'L' %}
+                          <div class="table-form-block matches-upcomingMatches-mini-block-lose__index">L</div>
+                      {% endif %}
+                      {% endfor %}
                 </div>
               </td>
             </tr>
@@ -228,17 +238,22 @@
                 <td class="table-middle">{{ away_team.win }}</td>
                 <td class="table-middle">{{ away_team.draw }}</td>
                 <td class="table-middle">{{ away_team.lose }}</td>
-                <td class="table-middle">13:2</td>
+                <td class="table-middle">{{ away_team.goals }}</td>
                 <td class="table-middle">{{ away_team.goalsDiff }}</td>
                 <td class="table-middle">{{ away_team.point }}</td>
               <td class="table-form-td">
                 <div class="table-form">
-                  <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>
-                  <div class="table-form-block matches-upcomingMatches-mini-block-lose__index">L</div>
-                  <div class="table-form-block matches-upcomingMatches-mini-block-d__index">D</div>
-                  <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                  <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                  <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
+                  {% for form in away_team.form %}
+                      {% if form == '?' %}
+                            <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>
+                      {% elif form == 'W' %}
+                          <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
+                      {% elif form == 'D' %}
+                          <div class="table-form-block matches-upcomingMatches-mini-block-d__index">D</div>
+                      {% elif form == 'L' %}
+                          <div class="table-form-block matches-upcomingMatches-mini-block-lose__index">L</div>
+                      {% endif %}
+                      {% endfor %}
                 </div>
               </td>
             </tr>
@@ -264,8 +279,8 @@
               {{ game.game_date|date:"d M Y" }}
             </div>
             <div class="section1-table1-part-city__in-person-meeting-template">
-              <img src="{{ game.winner.team.logo }}" alt="">
-              {{ game.winner.team.name }}
+              <img src="{{ game.league.country.flag }}" alt="">
+              {{ game.league.country.name }}
             </div>
             <div class="section1-table1-part-teams__in-person-meeting-template">
               <div class="section1-table1-teams-part__in-person-meeting-template">

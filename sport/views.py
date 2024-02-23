@@ -100,9 +100,20 @@ class PersonalVS(DetailView):
     template_name = 'main/in-person-meeting-template.html'
     slug_url_kwarg = 'game_slug'
 
+    def post(self, req, *args, **kwargs):
+        self.object = self.get_object()
+        context = self.get_context_data()
+        if self.request.POST['search'] != '':
+            return HttpResponseRedirect('search/' + self.request.POST['search'])
+        if context["form"].is_valid():
+            context["form"].save()
+        return super(PersonalVS, self).render_to_response(context)
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['country_code'] = context['object'].country.name
+        context['form'] = QuestionForms(self.request.POST)
+        print(context['form'])
         context['league_name'] = context['object'].name
         context['games'] = context['object'].games.all
         context['lang_code'] = str(self.request.LANGUAGE_CODE).upper()
@@ -121,7 +132,8 @@ class IndexTV(TemplateView):
 
     def post(self, req, *args, **kwargs):
         context = self.get_context_data()
-        if self.request.POST['search'] != '':
+        print(self.request.POST)
+        if 'search' in self.request.POST and self.request.POST['search'] != '':
             return HttpResponseRedirect('search/' + self.request.POST['search'])
         if context["form"].is_valid():
             context["form"].save()
@@ -131,7 +143,7 @@ class IndexTV(TemplateView):
         context = super().get_context_data(**kwargs)
         context['form'] = QuestionForms(self.request.POST)
         context['lang_code'] = str(self.request.LANGUAGE_CODE).upper()
-        context['leagues'] = LeagueModel.objects.all().order_by('-games__update')
+        context['leagues'] = LeagueModel.objects.filter(games__isnull=False)
         context['columns'] = MainColumnModel.objects.filter(Q(country__code=str(self.request.LANGUAGE_CODE).upper()) |
                                                             Q(country__code='WL'))
         context['info'] = InfoModel.objects.filter(Q(country__code=str(self.request.LANGUAGE_CODE).upper()) |

@@ -179,11 +179,31 @@ def standings(league_id: str, team_id: str, season: str):
     resp['lose'] = object['all']['lose']
     resp['matches_played'] = object['all']['played']
     resp['goals'] = object['all']['goals']['for']
-    # print(object)
+    resp['form'] = object['form']
     print('\n\n', resp, '\n\n')
     return resp
 
-def updater():
+
+def odds_getter(league_id: str, game_id: str, season: str):
+    url = "https://api-football-v1.p.rapidapi.com/v3/odds"
+    querystring = {"fixture": game_id, "league": league_id, "season": season}
+    headers = {
+        "X-RapidAPI-Key": "952272c7d3mshfc9fb6eb226c0c4p1ac5a6jsn1c31d9936615",
+        "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
+    }
+    response = requests.get(url, headers=headers, params=querystring)
+    try:
+        i = response.json()['response'][0]['bookmakers'][12]['bets'][0]['values']
+    except IndexError:
+        return {}
+    return {'home_odds': float(i[0]['odd']), 'draw_odds': float(i[1]['odd']), 'away_odds': float(i[2]['odd'])}
+
+
+
+# def forms_getter()
+
+
+def creater():
     url = "https://api-football-v1.p.rapidapi.com/v3/fixtures"
 
     headers = {
@@ -198,11 +218,12 @@ def updater():
         games = {"league": league['league_id']}
         toplist['league'] = league['league_id']
         print(league['league_id'])
-        querystring = {"league": str(league['league_id']), "season": league['season'], "last": "1"}
+        querystring = {"league": str(league['league_id']), "season": league['season'], "next": 1}
 
         response = requests.get(url, headers=headers, params=querystring)
         # print(response.json()['response'])
         try:
+            print(response.json())
             i = response.json()['response'][0]
         except IndexError:
             continue
@@ -234,6 +255,7 @@ def updater():
         toplist = dict(
             list(toplist.items()) + list(standings(league['league_id'], i['away'], league['season']).items()))
         games['away'] = requests.post('http://localhost:8000/api/toplist/', json=toplist).json()
+        print(toplist, 'TOPLIST')
         print(games['away'], 'THIS', end='\n\n')
         if i['teams']['home']['winner']:
             games['winner'] = games['home']
@@ -242,11 +264,15 @@ def updater():
         games['game_id'] = i['fixture']['id']
         games["date"] = i['fixture']['date'][:10]
         games["round"] = rounds
+        games = dict(list(games.items()) + list(odds_getter(league['league_id'], str(i['fixture']['id']),
+                                                            league['season']).items()))
         print(games)
         print(requests.post('http://localhost:8000/api/games/', json=json.dumps(games)).json(), 'zx', end='\n\n')
         time.sleep(1)
+        # break
 
 
-updater()
+creater()
+
 
 # standings(43, 1828, 2023)
