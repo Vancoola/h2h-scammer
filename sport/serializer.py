@@ -23,9 +23,13 @@ class CountrySerializer(serializers.ModelSerializer):
 
 
 class GameSerializer(serializers.ModelSerializer):
+    season = serializers.IntegerField(source='league.season_league.first.year', read_only=True)
+
     class Meta:
         model = GameModel
-        fields = '__all__'
+        fields = ('game_id', 'long', 'short', 'season', 'update', 'referee', 'round', 'date', 'home_odds',
+                  'away_odds', 'draw_odds', 'league', 'winner', 'home', 'away')
+        # fields = '__all__'
 
 
 class TeamSerializer(serializers.ModelSerializer):

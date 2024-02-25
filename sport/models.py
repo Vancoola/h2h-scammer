@@ -163,6 +163,10 @@ class GameModel(models.Model):
     def __str__(self):
         return self.league.name
 
+    class Meta:
+        verbose_name = 'Игра'
+        verbose_name_plural = 'Игры'
+
 
 class TopListModel(models.Model):
     league = models.ForeignKey("LeagueModel", on_delete=models.CASCADE, related_name='league_top')
@@ -177,7 +181,7 @@ class TopListModel(models.Model):
     is_home = models.BooleanField(default=False)
     is_away = models.BooleanField(default=False)
     goals = models.IntegerField('Голы', default=0)
-    form = models.CharField(default='?', max_length=6)
+    form = models.CharField(default='?', max_length=6, blank=True, null=True)
 
     def __str__(self):
         return self.team.name + self.league.name
@@ -185,6 +189,8 @@ class TopListModel(models.Model):
     class Meta:
         unique_together = ('league', 'team')
         ordering = ('-point',)
+        verbose_name = 'Статистика'
+        verbose_name_plural = 'Статистика'
 
 
 class LeagueModel(models.Model):
@@ -193,7 +199,7 @@ class LeagueModel(models.Model):
     name = models.CharField('Название', max_length=255)
     type = models.CharField('Тип', max_length=255)
     logo = models.URLField('Лого')
-    country = models.ForeignKey('CountryModel', on_delete=models.CASCADE, verbose_name='Страна')
+    country = models.ForeignKey('CountryModel', on_delete=models.CASCADE, verbose_name='Страна', default=167)
     slug = models.SlugField('Слаг', unique=True, null=True, blank=True, max_length=255)
 
     def __str__(self):
@@ -209,7 +215,7 @@ class LeagueModel(models.Model):
     class Meta:
         verbose_name = 'Лига'
         verbose_name_plural = 'Лиги'
-        ordering = ('-games__date',)
+        ordering = ('games__date',)
 
 
 class MainColumnModel(models.Model):
@@ -225,6 +231,10 @@ class MainColumnModel(models.Model):
             if self.url[-1] != '/':
                 self.url = self.url + '/'
 
+    class Meta:
+        verbose_name = 'Подвал'
+        verbose_name_plural = 'Подвал'
+
 
 class ColumnModel(models.Model):
     name = models.CharField('Имя', max_length=255)
@@ -238,6 +248,10 @@ class ColumnModel(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name = 'Пункт'
+        verbose_name_plural = 'Пункты'
 
 
 class InfoModel(models.Model):

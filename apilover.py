@@ -199,7 +199,6 @@ def odds_getter(league_id: str, game_id: str, season: str):
     return {'home_odds': float(i[0]['odd']), 'draw_odds': float(i[1]['odd']), 'away_odds': float(i[2]['odd'])}
 
 
-
 # def forms_getter()
 
 
@@ -268,11 +267,41 @@ def creater():
                                                             league['season']).items()))
         print(games)
         print(requests.post('http://localhost:8000/api/games/', json=json.dumps(games)).json(), 'zx', end='\n\n')
-        time.sleep(1)
+        # time.sleep(1)
         # break
 
 
-creater()
+def updater():
+    url = "https://api-football-v1.p.rapidapi.com/v3/fixtures"
 
+    headers = {
+        "X-RapidAPI-Key": "952272c7d3mshfc9fb6eb226c0c4p1ac5a6jsn1c31d9936615",
+        "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
+    }
+
+    games = requests.get('http://localhost:8000/api/games/').json()
+
+    for game in games:
+        print(game)
+        obj = dict(list(game.items()) + list(odds_getter(game['league'], game['game_id'], game['season']).items()))
+        print('\n\n', obj, '\n\n')
+        top = dict(list({'team': int(obj['home']), 'league': obj['league']}.items()) + list(standings(obj['league'],
+                                                                                                      obj['home'],
+                                                                                                      game[
+                                                                                                          'season']).items()))
+        print(requests.put('http://localhost:8000/api/toplist/', json=top).json())
+        top = dict(list({'team': int(obj['away']), 'league': obj['league']}.items()) + list(standings(obj['league'],
+                                                                                                      obj['away'],
+                                                                                                      game[
+                                                                                                          'season']).items()))
+        print(requests.put('http://localhost:8000/api/toplist/', json=top).json())
+        # print(requests.put('http://localhost:8000/api/games/', json=obj).json())
+
+        break
+
+
+# creater()
+updater()
+# league_def()
 
 # standings(43, 1828, 2023)

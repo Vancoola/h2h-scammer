@@ -88,9 +88,11 @@
                 <a href="#!" class="openModalHeader openModal">
                     {% translate 'Ask a question' %}
                 </a>
-                <a href="#!" class="languageHeader">
+                <form method="post">
+                    {% csrf_token %}
+                <button href="#!" class="languageHeader" name="switch" value="{{ lang_code|lower }}" type="submit">
                     {{lang_code}}
-                </a>
+                </button></form>
             </div>
             <div class="hamburger-menu">
                 <input id="menu__toggle" type="checkbox" />
@@ -272,10 +274,10 @@
       </div>
       <div class="footer-container-bottom">
         <div class="footer-container-bottom-left">
-          <p>© 2023 Relume. All rights reserved.</p>
-          <a href="#!">Privacy Policy</a>
-          <a href="#!">Terms of Service</a>
-          <a href="#!">Cookies Settings</a>
+          <p>© 2023 {% translate 'Relume. All rights reserved.' %}</p>
+          <a href="#!">{% translate 'Privacy Policy' %}</a>
+          <a href="#!">{% translate 'Terms of Service' %}</a>
+          <a href="#!">{% translate 'Cookies Settings' %}</a>
         </div>
         <div class="footer-container-bottom-social">
           <a href="{{ info.facebook }}">

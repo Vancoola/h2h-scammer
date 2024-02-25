@@ -22,9 +22,9 @@
     <div class="section1-top__in-person-meeting-template">
       <h1>{{country_code}}: {{object.games.first.round}}</h1>
       <div class="section1-top-container__in-person-meeting-template">
-        <span class="section1-top-container-active__in-person-meeting-template">Статистика</span>
-        <span>Таблица турнира</span>
-        <span>Текущая форма</span>
+        <span class="section1-top-container-active__in-person-meeting-template">{% translate 'Statistics' %}</span>
+        <span>{% translate 'Tournament table' %}</span>
+        <span>{% translate 'Current form' %}</span>
       </div>
     </div>
     <div class="section1-top-block__in-person-meeting-template">
@@ -83,193 +83,193 @@
   </div>
 </section>
 
-<section class="section2__in-person-meeting-template">
-  <div class="container">
-    <h2 class="section2-title__in-person-meeting-template">Upcoming matches</h2>
-    <div class="section2-container__in-person-meeting-template">
-      <div class="section2-container-top__in-person-meeting-template">
-        <button type="button" data-tab="#table1" class="section2-container-top-block__in-person-meeting-template section2-container-top-block__in-person-meeting-template1 section2-container-top-active__in-person-meeting-template">Overall</button>
-        <button type="button" data-tab="#table2" class="section2-container-top-block__in-person-meeting-template section2-container-top-block__in-person-meeting-template1">Home</button>
-        <button type="button" data-tab="#table3" class="section2-container-top-block__in-person-meeting-template section2-container-top-block__in-person-meeting-template1">Away</button>
-      </div>
-      <div class="table-parent table1 table-active" id="table1">
-        <table class="table">
-          <thead>
-          <tr>
-             <th class="table-title-number">#</th>
-            <th class="table-title-team">Team</th>
-            <th class="table-middle">MP</th>
-            <th class="table-middle">W</th>
-            <th class="table-middle">D</th>
-            <th class="table-middle">L</th>
-            <th class="table-middle">G</th>
-            <th class="table-middle">GD</th>
-            <th class="table-middle">PTS</th>
-            <th class="table-form-td">Form</th>
-          </tr>
-          </thead>
-          <tbody>
-            {% for team in object.league_top.all %}
-          <tr>
-             <td class="table-title-number">
-              {{ forloop.counter }}.
-            </td>
-            <td class="table-title-team">
-              <div class="table-name-team">
+{#<section class="section2__in-person-meeting-template">#}
+{#  <div class="container">#}
+{#    <h2 class="section2-title__in-person-meeting-template">{% translate 'Upcoming matches' %}</h2>#}
+{#    <div class="section2-container__in-person-meeting-template">#}
+{#      <div class="section2-container-top__in-person-meeting-template">#}
+{#        <button type="button" data-tab="#table1" class="section2-container-top-block__in-person-meeting-template section2-container-top-block__in-person-meeting-template1 section2-container-top-active__in-person-meeting-template">{% translate 'Overall' %}</button>#}
+{#        <button type="button" data-tab="#table2" class="section2-container-top-block__in-person-meeting-template section2-container-top-block__in-person-meeting-template1">{% translate 'Home' %}</button>#}
+{#        <button type="button" data-tab="#table3" class="section2-container-top-block__in-person-meeting-template section2-container-top-block__in-person-meeting-template1">{% translate 'Away' %}</button>#}
+{#      </div>#}
+{#      <div class="table-parent table1 table-active" id="table1">#}
+{#        <table class="table">#}
+{#          <thead>#}
+{#          <tr>#}
+{#             <th class="table-title-number">#</th>#}
+{#            <th class="table-title-team">Team</th>#}
+{#            <th class="table-middle">MP</th>#}
+{#            <th class="table-middle">W</th>#}
+{#            <th class="table-middle">D</th>#}
+{#            <th class="table-middle">L</th>#}
+{#            <th class="table-middle">G</th>#}
+{#            <th class="table-middle">GD</th>#}
+{#            <th class="table-middle">PTS</th>#}
+{#            <th class="table-form-td">Form</th>#}
+{#          </tr>#}
+{#          </thead>#}
+{#          <tbody>#}
+{#            {% for team in object.league_top.all %}#}
+{#          <tr>#}
+{#             <td class="table-title-number">#}
+{#              {{ forloop.counter }}.#}
+{#            </td>#}
+{#            <td class="table-title-team">#}
+{#              <div class="table-name-team">#}
 {#                  {{ team }}#}
-                <img src="{{ team.team.logo }}" alt="">
-                {{team.team.name}}
-              </div>
-            </td>
-            <td class="table-middle">{{ team.matches_played }}</td>
-            <td class="table-middle">{{ team.win }}</td>
-            <td class="table-middle">{{ team.draw }}</td>
-            <td class="table-middle">{{ team.lose }}</td>
-            <td class="table-middle">{{ team.goals }}</td>
-            <td class="table-middle">{{ team.goalsDiff }}</td>
-            <td class="table-middle">{{ team.point }}</td>
-            <td class="table-form-td">
-              <div class="table-form">
-                  {% for form in team.form %}
-                      {% if form == '?' %}
-                            <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>
-                      {% elif form == 'W' %}
-                          <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                      {% elif form == 'D' %}
-                          <div class="table-form-block matches-upcomingMatches-mini-block-d__index">D</div>
-                      {% elif form == 'L' %}
-                          <div class="table-form-block matches-upcomingMatches-mini-block-lose__index">L</div>
-                      {% endif %}
-                      {% endfor %}
-              </div>
-            </td>
-          </tr>
-          {% endfor %}
-          </tbody>
-        </table>
-      </div>
-      <div class="table-parent table1" id="table2">
-        <table class="table">
-          <thead>
-          <tr>
-            <th class="table-title-number">#</th>
-            <th class="table-title-team">Team</th>
-            <th class="table-middle">MP</th>
-            <th class="table-middle">W</th>
-            <th class="table-middle">D</th>
-            <th class="table-middle">L</th>
-            <th class="table-middle">G</th>
-            <th class="table-middle">GD</th>
-            <th class="table-middle">PTS</th>
-            <th class="table-form-td">Form</th>
-          </tr>
-          </thead>
-          <tbody>
-          {% for home_team in object.league_top.all %}
-              {% if home_team.is_home %}
-            <tr>
-              <td class="table-title-number">
-                {{ forloop.counter }}.
-              </td>
-              <td class="table-title-team">
-                <div class="table-name-team">
-                  <img src="{{ home_team.team.logo }}" alt="">
-                  {{home_team.team.name}}
-                </div>
-              </td>
-                <td class="table-middle">{{ home_team.matches_played }}</td>
-                <td class="table-middle">{{ home_team.win }}</td>
-                <td class="table-middle">{{ home_team.draw }}</td>
-                <td class="table-middle">{{ home_team.lose }}</td>
-                <td class="table-middle">{{ home_team.goals }}</td>
-                <td class="table-middle">{{ home_team.goalsDiff }}</td>
-                <td class="table-middle">{{ home_team.point }}</td>
-              <td class="table-form-td">
-                <div class="table-form">
-                  {% for form in home_team.form %}
-                      {% if form == '?' %}
-                            <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>
-                      {% elif form == 'W' %}
-                          <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                      {% elif form == 'D' %}
-                          <div class="table-form-block matches-upcomingMatches-mini-block-d__index">D</div>
-                      {% elif form == 'L' %}
-                          <div class="table-form-block matches-upcomingMatches-mini-block-lose__index">L</div>
-                      {% endif %}
-                      {% endfor %}
-                </div>
-              </td>
-            </tr>
-              {% endif %}
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
-      <div class="table-parent table1" id="table3">
-        <table class="table">
-          <thead>
-          <tr>
-            <th class="table-title-number">#</th>
-            <th class="table-title-team">Team</th>
-            <th class="table-middle">MP</th>
-            <th class="table-middle">W</th>
-            <th class="table-middle">D</th>
-            <th class="table-middle">L</th>
-            <th class="table-middle">G</th>
-            <th class="table-middle">GD</th>
-            <th class="table-middle">PTS</th>
-            <th class="table-form-td">Form</th>
-          </tr>
-          </thead>
-          <tbody>
-            {% for away_team in object.league_top.all %}
-                {% if away_team.is_away %}
-            <tr>
-              <td class="table-title-number">
-                {{ forloop.counter }}.
-              </td>
-              <td class="table-title-team">
-                <div class="table-name-team">
-                  <img src="{{ away_team.team.logo }}" alt="">
-                  {{ away_team.team.name }}
-                </div>
-              </td>
-                <td class="table-middle">{{ away_team.matches_played }}</td>
-                <td class="table-middle">{{ away_team.win }}</td>
-                <td class="table-middle">{{ away_team.draw }}</td>
-                <td class="table-middle">{{ away_team.lose }}</td>
-                <td class="table-middle">{{ away_team.goals }}</td>
-                <td class="table-middle">{{ away_team.goalsDiff }}</td>
-                <td class="table-middle">{{ away_team.point }}</td>
-              <td class="table-form-td">
-                <div class="table-form">
-                  {% for form in away_team.form %}
-                      {% if form == '?' %}
-                            <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>
-                      {% elif form == 'W' %}
-                          <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                      {% elif form == 'D' %}
-                          <div class="table-form-block matches-upcomingMatches-mini-block-d__index">D</div>
-                      {% elif form == 'L' %}
-                          <div class="table-form-block matches-upcomingMatches-mini-block-lose__index">L</div>
-                      {% endif %}
-                      {% endfor %}
-                </div>
-              </td>
-            </tr>
-                {% endif %}
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</section>
+{#                <img src="{{ team.team.logo }}" alt="">#}
+{#                {{team.team.name}}#}
+{#              </div>#}
+{#            </td>#}
+{#            <td class="table-middle">{{ team.matches_played }}</td>#}
+{#            <td class="table-middle">{{ team.win }}</td>#}
+{#            <td class="table-middle">{{ team.draw }}</td>#}
+{#            <td class="table-middle">{{ team.lose }}</td>#}
+{#            <td class="table-middle">{{ team.goals }}</td>#}
+{#            <td class="table-middle">{{ team.goalsDiff }}</td>#}
+{#            <td class="table-middle">{{ team.point }}</td>#}
+{#            <td class="table-form-td">#}
+{#              <div class="table-form">#}
+{#                  {% for form in team.form %}#}
+{#                      {% if form == '?' %}#}
+{#                            <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>#}
+{#                      {% elif form == 'W' %}#}
+{#                          <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>#}
+{#                      {% elif form == 'D' %}#}
+{#                          <div class="table-form-block matches-upcomingMatches-mini-block-d__index">D</div>#}
+{#                      {% elif form == 'L' %}#}
+{#                          <div class="table-form-block matches-upcomingMatches-mini-block-lose__index">L</div>#}
+{#                      {% endif %}#}
+{#                      {% endfor %}#}
+{#              </div>#}
+{#            </td>#}
+{#          </tr>#}
+{#          {% endfor %}#}
+{#          </tbody>#}
+{#        </table>#}
+{#      </div>#}
+{#      <div class="table-parent table1" id="table2">#}
+{#        <table class="table">#}
+{#          <thead>#}
+{#          <tr>#}
+{#            <th class="table-title-number">#</th>#}
+{#            <th class="table-title-team">Team</th>#}
+{#            <th class="table-middle">MP</th>#}
+{#            <th class="table-middle">W</th>#}
+{#            <th class="table-middle">D</th>#}
+{#            <th class="table-middle">L</th>#}
+{#            <th class="table-middle">G</th>#}
+{#            <th class="table-middle">GD</th>#}
+{#            <th class="table-middle">PTS</th>#}
+{#            <th class="table-form-td">Form</th>#}
+{#          </tr>#}
+{#          </thead>#}
+{#          <tbody>#}
+{#          {% for home_team in object.league_top.all %}#}
+{#              {% if home_team.is_home %}#}
+{#            <tr>#}
+{#              <td class="table-title-number">#}
+{#                {{ forloop.counter }}.#}
+{#              </td>#}
+{#              <td class="table-title-team">#}
+{#                <div class="table-name-team">#}
+{#                  <img src="{{ home_team.team.logo }}" alt="">#}
+{#                  {{home_team.team.name}}#}
+{#                </div>#}
+{#              </td>#}
+{#                <td class="table-middle">{{ home_team.matches_played }}</td>#}
+{#                <td class="table-middle">{{ home_team.win }}</td>#}
+{#                <td class="table-middle">{{ home_team.draw }}</td>#}
+{#                <td class="table-middle">{{ home_team.lose }}</td>#}
+{#                <td class="table-middle">{{ home_team.goals }}</td>#}
+{#                <td class="table-middle">{{ home_team.goalsDiff }}</td>#}
+{#                <td class="table-middle">{{ home_team.point }}</td>#}
+{#              <td class="table-form-td">#}
+{#                <div class="table-form">#}
+{#                  {% for form in home_team.form %}#}
+{#                      {% if form == '?' %}#}
+{#                            <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>#}
+{#                      {% elif form == 'W' %}#}
+{#                          <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>#}
+{#                      {% elif form == 'D' %}#}
+{#                          <div class="table-form-block matches-upcomingMatches-mini-block-d__index">D</div>#}
+{#                      {% elif form == 'L' %}#}
+{#                          <div class="table-form-block matches-upcomingMatches-mini-block-lose__index">L</div>#}
+{#                      {% endif %}#}
+{#                      {% endfor %}#}
+{#                </div>#}
+{#              </td>#}
+{#            </tr>#}
+{#              {% endif %}#}
+{#            {% endfor %}#}
+{#          </tbody>#}
+{#        </table>#}
+{#      </div>#}
+{#      <div class="table-parent table1" id="table3">#}
+{#        <table class="table">#}
+{#          <thead>#}
+{#          <tr>#}
+{#            <th class="table-title-number">#</th>#}
+{#            <th class="table-title-team">Team</th>#}
+{#            <th class="table-middle">MP</th>#}
+{#            <th class="table-middle">W</th>#}
+{#            <th class="table-middle">D</th>#}
+{#            <th class="table-middle">L</th>#}
+{#            <th class="table-middle">G</th>#}
+{#            <th class="table-middle">GD</th>#}
+{#            <th class="table-middle">PTS</th>#}
+{#            <th class="table-form-td">Form</th>#}
+{#          </tr>#}
+{#          </thead>#}
+{#          <tbody>#}
+{#            {% for away_team in object.league_top.all %}#}
+{#                {% if away_team.is_away %}#}
+{#            <tr>#}
+{#              <td class="table-title-number">#}
+{#                {{ forloop.counter }}.#}
+{#              </td>#}
+{#              <td class="table-title-team">#}
+{#                <div class="table-name-team">#}
+{#                  <img src="{{ away_team.team.logo }}" alt="">#}
+{#                  {{ away_team.team.name }}#}
+{#                </div>#}
+{#              </td>#}
+{#                <td class="table-middle">{{ away_team.matches_played }}</td>#}
+{#                <td class="table-middle">{{ away_team.win }}</td>#}
+{#                <td class="table-middle">{{ away_team.draw }}</td>#}
+{#                <td class="table-middle">{{ away_team.lose }}</td>#}
+{#                <td class="table-middle">{{ away_team.goals }}</td>#}
+{#                <td class="table-middle">{{ away_team.goalsDiff }}</td>#}
+{#                <td class="table-middle">{{ away_team.point }}</td>#}
+{#              <td class="table-form-td">#}
+{#                <div class="table-form">#}
+{#                  {% for form in away_team.form %}#}
+{#                      {% if form == '?' %}#}
+{#                            <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>#}
+{#                      {% elif form == 'W' %}#}
+{#                          <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>#}
+{#                      {% elif form == 'D' %}#}
+{#                          <div class="table-form-block matches-upcomingMatches-mini-block-d__index">D</div>#}
+{#                      {% elif form == 'L' %}#}
+{#                          <div class="table-form-block matches-upcomingMatches-mini-block-lose__index">L</div>#}
+{#                      {% endif %}#}
+{#                      {% endfor %}#}
+{#                </div>#}
+{#              </td>#}
+{#            </tr>#}
+{#                {% endif %}#}
+{#            {% endfor %}#}
+{#          </tbody>#}
+{#        </table>#}
+{#      </div>#}
+{#    </div>#}
+{#  </div>#}
+{#</section>#}
 <section class="section3__in-person-meeting-template">
   <div class="container">
     <div class="section1-table1__in-person-meeting-template">
       <div class="section1-table1-top__in-person-meeting-template">
-        Head - To - Head Matches
+        {% translate 'Head - To - Head Matches' %}
       </div>
     {% for game in games %}
       <div class="section1-table1-content__in-person-meeting-template">
@@ -450,7 +450,7 @@
 {#          </div>#}
 {#        </div>#}
         <a href="" class="btn-look-more-matches">
-          Смотреть больше матчей
+          {% translate 'Watch more matches' %}
         </a>
       </div>
     </div>
@@ -458,18 +458,18 @@
 </section>
 <section class="section2__in-person-meeting-template">
   <div class="container">
-    <h2 class="section2-title__in-person-meeting-template">Forms</h2>
+    <h2 class="section2-title__in-person-meeting-template">{% translate 'Upcoming matches' %}</h2>
     <div class="section2-container__in-person-meeting-template">
       <div class="section2-container-top__in-person-meeting-template">
-        <button type="button" data-tab-table="#table4" class="section2-container-top-block__in-person-meeting-template section2-container-top-block__in-person-meeting-template2 section2-container-top-active__in-person-meeting-template">Overall</button>
-        <button type="button" data-tab-table="#table5" class="section2-container-top-block__in-person-meeting-template section2-container-top-block__in-person-meeting-template2">Home</button>
-        <button type="button" data-tab-table="#table6" class="section2-container-top-block__in-person-meeting-template section2-container-top-block__in-person-meeting-template2">Away</button>
+        <button type="button" data-tab="#table1" class="section2-container-top-block__in-person-meeting-template section2-container-top-block__in-person-meeting-template1 section2-container-top-active__in-person-meeting-template">{% translate 'Overall' %}</button>
+        <button type="button" data-tab="#table2" class="section2-container-top-block__in-person-meeting-template section2-container-top-block__in-person-meeting-template1">{% translate 'Home' %}</button>
+        <button type="button" data-tab="#table3" class="section2-container-top-block__in-person-meeting-template section2-container-top-block__in-person-meeting-template1">{% translate 'Away' %}</button>
       </div>
-      <div class="table-parent table2 table-active" id="table4">
-        <table class="table table2">
+      <div class="table-parent table1 table-active" id="table1">
+        <table class="table">
           <thead>
           <tr>
-            <th class="table-title-number">#</th>
+             <th class="table-title-number">#</th>
             <th class="table-title-team">Team</th>
             <th class="table-middle">MP</th>
             <th class="table-middle">W</th>
@@ -482,338 +482,46 @@
           </tr>
           </thead>
           <tbody>
+            {% for team in object.league_top.all %}
           <tr>
-            <td class="table-title-number">
-              1.
+             <td class="table-title-number">
+              {{ forloop.counter }}.
             </td>
             <td class="table-title-team">
               <div class="table-name-team">
-                <img src="/img/image 1.png" alt="">
-                <!-- Marcus Maraunder {{game.home}} член -->
+{#                  {{ team }}#}
+                <img src="{{ team.team.logo }}" alt="">
+                {{team.team.name}}
               </div>
             </td>
-            <td class="table-middle">5</td>
-            <td class="table-middle">2</td>
-            <td class="table-middle">4</td>
-            <td class="table-middle">1</td>
-            <td class="table-middle">13:2</td>
-            <td class="table-middle">10</td>
-            <td class="table-middle">15</td>
+            <td class="table-middle">{{ team.matches_played }}</td>
+            <td class="table-middle">{{ team.win }}</td>
+            <td class="table-middle">{{ team.draw }}</td>
+            <td class="table-middle">{{ team.lose }}</td>
+            <td class="table-middle">{{ team.goals }}</td>
+            <td class="table-middle">{{ team.goalsDiff }}</td>
+            <td class="table-middle">{{ team.point }}</td>
             <td class="table-form-td">
               <div class="table-form">
-                <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-lose__index">L</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-d__index">D</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
+                  {% for form in team.form %}
+                      {% if form == '?' %}
+                            <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>
+                      {% elif form == 'W' %}
+                          <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
+                      {% elif form == 'D' %}
+                          <div class="table-form-block matches-upcomingMatches-mini-block-d__index">D</div>
+                      {% elif form == 'L' %}
+                          <div class="table-form-block matches-upcomingMatches-mini-block-lose__index">L</div>
+                      {% endif %}
+                      {% endfor %}
               </div>
             </td>
           </tr>
+          {% endfor %}
           </tbody>
         </table>
       </div>
-      <div class="table-parent table2" id="table5">
-        <table class="table table2">
-          <thead>
-          <tr>
-            <th class="table-title-number">#</th>
-            <th class="table-title-team">Team</th>
-            <th class="table-middle">MP</th>
-            <th class="table-middle">W</th>
-            <th class="table-middle">D</th>
-            <th class="table-middle">L</th>
-            <th class="table-middle">G</th>
-            <th class="table-middle">GD</th>
-            <th class="table-middle">PTS</th>
-            <th class="table-form-td">Form</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-            <td class="table-title-number">
-              1121212.
-            </td>
-            <td class="table-title-team">
-              <div class="table-name-team">
-                <img src="/img/image 1.png" alt="">
-                Marcus Maraunder
-              </div>
-            </td>
-            <td class="table-middle">5</td>
-            <td class="table-middle">2</td>
-            <td class="table-middle">4</td>
-            <td class="table-middle">1</td>
-            <td class="table-middle">13:2</td>
-            <td class="table-middle">10</td>
-            <td class="table-middle">15</td>
-            <td class="table-form-td">
-              <div class="table-form">
-                <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-lose__index">L</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-d__index">D</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="table-title-number">
-              2.
-            </td>
-            <td class="table-title-team">
-              <div class="table-name-team">
-                <img src="/img/image 1.png" alt="">
-                Marcus Maraunder
-              </div>
-            </td>
-            <td class="table-middle">5</td>
-            <td class="table-middle">2</td>
-            <td class="table-middle">4</td>
-            <td class="table-middle">1</td>
-            <td class="table-middle">13:2</td>
-            <td class="table-middle">10</td>
-            <td class="table-middle">15</td>
-            <td class="table-form-td">
-              <div class="table-form">
-                <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-lose__index">L</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-d__index">D</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="table-title-number">
-              1.
-            </td>
-            <td class="table-title-team">
-              <div class="table-name-team">
-                <img src="/img/image 1.png" alt="">
-                Marcus Maraunder
-              </div>
-            </td>
-            <td class="table-middle">5</td>
-            <td class="table-middle">2</td>
-            <td class="table-middle">4</td>
-            <td class="table-middle">1</td>
-            <td class="table-middle">13:2</td>
-            <td class="table-middle">10</td>
-            <td class="table-middle">15</td>
-            <td class="table-form-td">
-              <div class="table-form">
-                <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-lose__index">L</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-d__index">D</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="table-title-number">
-              1.
-            </td>
-            <td class="table-title-team">
-              <div class="table-name-team">
-                <img src="/img/image 1.png" alt="">
-                Marcus Maraunder
-              </div>
-            </td>
-            <td class="table-middle">5</td>
-            <td class="table-middle">2</td>
-            <td class="table-middle">4</td>
-            <td class="table-middle">1</td>
-            <td class="table-middle">13:2</td>
-            <td class="table-middle">10</td>
-            <td class="table-middle">15</td>
-            <td class="table-form-td">
-              <div class="table-form">
-                <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-lose__index">L</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-d__index">D</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="table-title-number">
-              1.
-            </td>
-            <td class="table-title-team">
-              <div class="table-name-team">
-                <img src="/img/image 1.png" alt="">
-                Marcus Maraunder
-              </div>
-            </td>
-            <td class="table-middle">5</td>
-            <td class="table-middle">2</td>
-            <td class="table-middle">4</td>
-            <td class="table-middle">1</td>
-            <td class="table-middle">13:2</td>
-            <td class="table-middle">10</td>
-            <td class="table-middle">15</td>
-            <td class="table-form-td">
-              <div class="table-form">
-                <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-lose__index">L</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-d__index">D</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="table-title-number">
-              1.
-            </td>
-            <td class="table-title-team">
-              <div class="table-name-team">
-                <img src="/img/image 1.png" alt="">
-                Marcus Maraunder
-              </div>
-            </td>
-            <td class="table-middle">5</td>
-            <td class="table-middle">2</td>
-            <td class="table-middle">4</td>
-            <td class="table-middle">1</td>
-            <td class="table-middle">13:2</td>
-            <td class="table-middle">10</td>
-            <td class="table-middle">15</td>
-            <td class="table-form-td">
-              <div class="table-form">
-                <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-lose__index">L</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-d__index">D</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="table-title-number">
-              1.
-            </td>
-            <td class="table-title-team">
-              <div class="table-name-team">
-                <img src="/img/image 1.png" alt="">
-                Marcus Maraunder
-              </div>
-            </td>
-            <td class="table-middle">5</td>
-            <td class="table-middle">2</td>
-            <td class="table-middle">4</td>
-            <td class="table-middle">1</td>
-            <td class="table-middle">13:2</td>
-            <td class="table-middle">10</td>
-            <td class="table-middle">15</td>
-            <td class="table-form-td">
-              <div class="table-form">
-                <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-lose__index">L</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-d__index">D</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="table-title-number">
-              1.
-            </td>
-            <td class="table-title-team">
-              <div class="table-name-team">
-                <img src="/img/image 1.png" alt="">
-                Marcus Maraunder
-              </div>
-            </td>
-            <td class="table-middle">5</td>
-            <td class="table-middle">2</td>
-            <td class="table-middle">4</td>
-            <td class="table-middle">1</td>
-            <td class="table-middle">13:2</td>
-            <td class="table-middle">10</td>
-            <td class="table-middle">15</td>
-            <td class="table-form-td">
-              <div class="table-form">
-                <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-lose__index">L</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-d__index">D</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="table-title-number">
-              1.
-            </td>
-            <td class="table-title-team">
-              <div class="table-name-team">
-                <img src="/img/image 1.png" alt="">
-                Marcus Maraunder
-              </div>
-            </td>
-            <td class="table-middle">5</td>
-            <td class="table-middle">2</td>
-            <td class="table-middle">4</td>
-            <td class="table-middle">1</td>
-            <td class="table-middle">13:2</td>
-            <td class="table-middle">10</td>
-            <td class="table-middle">15</td>
-            <td class="table-form-td">
-              <div class="table-form">
-                <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-lose__index">L</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-d__index">D</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="table-title-number">
-              1.
-            </td>
-            <td class="table-title-team">
-              <div class="table-name-team">
-                <img src="/img/image 1.png" alt="">
-                Marcus Maraunder
-              </div>
-            </td>
-            <td class="table-middle">5</td>
-            <td class="table-middle">2</td>
-            <td class="table-middle">4</td>
-            <td class="table-middle">1</td>
-            <td class="table-middle">13:2</td>
-            <td class="table-middle">10</td>
-            <td class="table-middle">15</td>
-            <td class="table-form-td">
-              <div class="table-form">
-                <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-lose__index">L</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-d__index">D</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-              </div>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="table-parent table2" id="table6">
+      <div class="table-parent table1" id="table2">
         <table class="table">
           <thead>
           <tr>
@@ -830,286 +538,100 @@
           </tr>
           </thead>
           <tbody>
+          {% for home_team in object.league_top.all %}
+              {% if home_team.is_home %}
+            <tr>
+              <td class="table-title-number">
+                {{ forloop.counter }}.
+              </td>
+              <td class="table-title-team">
+                <div class="table-name-team">
+                  <img src="{{ home_team.team.logo }}" alt="">
+                  {{home_team.team.name}}
+                </div>
+              </td>
+                <td class="table-middle">{{ home_team.matches_played }}</td>
+                <td class="table-middle">{{ home_team.win }}</td>
+                <td class="table-middle">{{ home_team.draw }}</td>
+                <td class="table-middle">{{ home_team.lose }}</td>
+                <td class="table-middle">{{ home_team.goals }}</td>
+                <td class="table-middle">{{ home_team.goalsDiff }}</td>
+                <td class="table-middle">{{ home_team.point }}</td>
+              <td class="table-form-td">
+                <div class="table-form">
+                  {% for form in home_team.form %}
+                      {% if form == '?' %}
+                            <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>
+                      {% elif form == 'W' %}
+                          <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
+                      {% elif form == 'D' %}
+                          <div class="table-form-block matches-upcomingMatches-mini-block-d__index">D</div>
+                      {% elif form == 'L' %}
+                          <div class="table-form-block matches-upcomingMatches-mini-block-lose__index">L</div>
+                      {% endif %}
+                      {% endfor %}
+                </div>
+              </td>
+            </tr>
+              {% endif %}
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div class="table-parent table1" id="table3">
+        <table class="table">
+          <thead>
           <tr>
-            <td class="table-title-number">
-              1.
-            </td>
-            <td class="table-title-team">
-              <div class="table-name-team">
-                <img src="/img/image 1.png" alt="">
-                Marcus Maraunder
-              </div>
-            </td>
-            <td class="table-middle">5</td>
-            <td class="table-middle">2</td>
-            <td class="table-middle">4</td>
-            <td class="table-middle">1</td>
-            <td class="table-middle">13:2</td>
-            <td class="table-middle">10</td>
-            <td class="table-middle">15</td>
-            <td class="table-form-td">
-              <div class="table-form">
-                <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-lose__index">L</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-d__index">D</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-              </div>
-            </td>
+            <th class="table-title-number">#</th>
+            <th class="table-title-team">Team</th>
+            <th class="table-middle">MP</th>
+            <th class="table-middle">W</th>
+            <th class="table-middle">D</th>
+            <th class="table-middle">L</th>
+            <th class="table-middle">G</th>
+            <th class="table-middle">GD</th>
+            <th class="table-middle">PTS</th>
+            <th class="table-form-td">Form</th>
           </tr>
-          <tr>
-            <td class="table-title-number">
-              2.
-            </td>
-            <td class="table-title-team">
-              <div class="table-name-team">
-                <img src="/img/image 1.png" alt="">
-                Marcus Maraunder
-              </div>
-            </td>
-            <td class="table-middle">5</td>
-            <td class="table-middle">2</td>
-            <td class="table-middle">4</td>
-            <td class="table-middle">1</td>
-            <td class="table-middle">13:2</td>
-            <td class="table-middle">10</td>
-            <td class="table-middle">15</td>
-            <td class="table-form-td">
-              <div class="table-form">
-                <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-lose__index">L</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-d__index">D</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="table-title-number">
-              1.
-            </td>
-            <td class="table-title-team">
-              <div class="table-name-team">
-                <img src="/img/image 1.png" alt="">
-                Marcus Maraunder
-              </div>
-            </td>
-            <td class="table-middle">5</td>
-            <td class="table-middle">2</td>
-            <td class="table-middle">4</td>
-            <td class="table-middle">1</td>
-            <td class="table-middle">13:2</td>
-            <td class="table-middle">10</td>
-            <td class="table-middle">15</td>
-            <td class="table-form-td">
-              <div class="table-form">
-                <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-lose__index">L</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-d__index">D</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="table-title-number">
-              1.
-            </td>
-            <td class="table-title-team">
-              <div class="table-name-team">
-                <img src="/img/image 1.png" alt="">
-                Marcus Maraunder
-              </div>
-            </td>
-            <td class="table-middle">5</td>
-            <td class="table-middle">2</td>
-            <td class="table-middle">4</td>
-            <td class="table-middle">1</td>
-            <td class="table-middle">13:2</td>
-            <td class="table-middle">10</td>
-            <td class="table-middle">15</td>
-            <td class="table-form-td">
-              <div class="table-form">
-                <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-lose__index">L</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-d__index">D</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="table-title-number">
-              1.
-            </td>
-            <td class="table-title-team">
-              <div class="table-name-team">
-                <img src="/img/image 1.png" alt="">
-                Marcus Maraunder
-              </div>
-            </td>
-            <td class="table-middle">5</td>
-            <td class="table-middle">2</td>
-            <td class="table-middle">4</td>
-            <td class="table-middle">1</td>
-            <td class="table-middle">13:2</td>
-            <td class="table-middle">10</td>
-            <td class="table-middle">15</td>
-            <td class="table-form-td">
-              <div class="table-form">
-                <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-lose__index">L</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-d__index">D</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="table-title-number">
-              1.
-            </td>
-            <td class="table-title-team">
-              <div class="table-name-team">
-                <img src="/img/image 1.png" alt="">
-                Marcus Maraunder
-              </div>
-            </td>
-            <td class="table-middle">5</td>
-            <td class="table-middle">2</td>
-            <td class="table-middle">4</td>
-            <td class="table-middle">1</td>
-            <td class="table-middle">13:2</td>
-            <td class="table-middle">10</td>
-            <td class="table-middle">15</td>
-            <td class="table-form-td">
-              <div class="table-form">
-                <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-lose__index">L</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-d__index">D</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="table-title-number">
-              1.
-            </td>
-            <td class="table-title-team">
-              <div class="table-name-team">
-                <img src="/img/image 1.png" alt="">
-                Marcus Maraunder
-              </div>
-            </td>
-            <td class="table-middle">5</td>
-            <td class="table-middle">2</td>
-            <td class="table-middle">4</td>
-            <td class="table-middle">1</td>
-            <td class="table-middle">13:2</td>
-            <td class="table-middle">10</td>
-            <td class="table-middle">15</td>
-            <td class="table-form-td">
-              <div class="table-form">
-                <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-lose__index">L</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-d__index">D</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="table-title-number">
-              1.
-            </td>
-            <td class="table-title-team">
-              <div class="table-name-team">
-                <img src="/img/image 1.png" alt="">
-                Marcus Maraunder
-              </div>
-            </td>
-            <td class="table-middle">5</td>
-            <td class="table-middle">2</td>
-            <td class="table-middle">4</td>
-            <td class="table-middle">1</td>
-            <td class="table-middle">13:2</td>
-            <td class="table-middle">10</td>
-            <td class="table-middle">15</td>
-            <td class="table-form-td">
-              <div class="table-form">
-                <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-lose__index">L</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-d__index">D</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="table-title-number">
-              1.
-            </td>
-            <td class="table-title-team">
-              <div class="table-name-team">
-                <img src="/img/image 1.png" alt="">
-                Marcus Maraunder
-              </div>
-            </td>
-            <td class="table-middle">5</td>
-            <td class="table-middle">2</td>
-            <td class="table-middle">4</td>
-            <td class="table-middle">1</td>
-            <td class="table-middle">13:2</td>
-            <td class="table-middle">10</td>
-            <td class="table-middle">15</td>
-            <td class="table-form-td">
-              <div class="table-form">
-                <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-lose__index">L</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-d__index">D</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="table-title-number">
-              1.
-            </td>
-            <td class="table-title-team">
-              <div class="table-name-team">
-                <img src="/img/image 1.png" alt="">
-                Marcus Maraunder
-              </div>
-            </td>
-            <td class="table-middle">5</td>
-            <td class="table-middle">2</td>
-            <td class="table-middle">4</td>
-            <td class="table-middle">1</td>
-            <td class="table-middle">13:2</td>
-            <td class="table-middle">10</td>
-            <td class="table-middle">15</td>
-            <td class="table-form-td">
-              <div class="table-form">
-                <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-lose__index">L</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-d__index">D</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-                <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
-              </div>
-            </td>
-          </tr>
+          </thead>
+          <tbody>
+            {% for away_team in object.league_top.all %}
+                {% if away_team.is_away %}
+            <tr>
+              <td class="table-title-number">
+                {{ forloop.counter }}.
+              </td>
+              <td class="table-title-team">
+                <div class="table-name-team">
+                  <img src="{{ away_team.team.logo }}" alt="">
+                  {{ away_team.team.name }}
+                </div>
+              </td>
+                <td class="table-middle">{{ away_team.matches_played }}</td>
+                <td class="table-middle">{{ away_team.win }}</td>
+                <td class="table-middle">{{ away_team.draw }}</td>
+                <td class="table-middle">{{ away_team.lose }}</td>
+                <td class="table-middle">{{ away_team.goals }}</td>
+                <td class="table-middle">{{ away_team.goalsDiff }}</td>
+                <td class="table-middle">{{ away_team.point }}</td>
+              <td class="table-form-td">
+                <div class="table-form">
+                  {% for form in away_team.form %}
+                      {% if form == '?' %}
+                            <div class="table-form-block matches-upcomingMatches-mini-block-ques__index">?</div>
+                      {% elif form == 'W' %}
+                          <div class="table-form-block matches-upcomingMatches-mini-block-win__index">W</div>
+                      {% elif form == 'D' %}
+                          <div class="table-form-block matches-upcomingMatches-mini-block-d__index">D</div>
+                      {% elif form == 'L' %}
+                          <div class="table-form-block matches-upcomingMatches-mini-block-lose__index">L</div>
+                      {% endif %}
+                      {% endfor %}
+                </div>
+              </td>
+            </tr>
+                {% endif %}
+            {% endfor %}
           </tbody>
         </table>
       </div>
@@ -1129,7 +651,7 @@
 {#                    </p>#}
 {#                </div>#}
 {#            </div>#}
-            <a href="#!">Читать подробнее</a>
+            <a href="#!">{% translate 'Read more' %}</a>
         </div>
     </div>
 </section>

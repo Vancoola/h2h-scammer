@@ -1,10 +1,639 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'main/header.html' %}
+{% load static %}
+{% load i18n %}
+{% load filter %}
+{% block content%}
 
-</body>
-</html>
+<section class="indexTop-section">
+    <div class="container">
+        <div class="indexTop">
+            <h1 class="indexTop-title">
+                {% translate  'Upcoming_matches' %}
+            </h1>
+            <h2 class="subtitle-indexTop">
+                Виды спорта
+            </h2>
+            <div class="indexTop-container">
+                <div class="indexTop-container-block">
+                    Футбол
+                    <img src="{% static 'main/img/Football.png' %}" alt="">
+                </div>
+                <div class="indexTop-container-block">
+                    Бокс
+                    <img src="{% static 'main/img/Boxing.png' %}" alt="">
+                </div>
+                <div class="indexTop-container-block">
+                    Баскетбол
+                    <img src="{%static 'main/img/Basketball.png' %}" alt="">
+                </div>
+                <div class="indexTop-container-block">
+                    Теннис
+                    <img src="{% static 'main/img/Tennis.png' %}" alt="">
+                </div>
+                <div class="indexTop-container-block">
+                    Плавание
+                    <img src="{% static 'main/img/Swimming.png' %}" alt="">
+                </div>
+                <div class="indexTop-container-block">
+                    Бег
+                    <img src="{% static 'main/img/Stopwatch.png' %}" alt="">
+                </div>
+                <div class="indexTop-container-block">
+                    ...
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="bannerIndex">
+    <div class="container">
+        <div class="swiper mySwiper mySwiperBanner">
+            <div class="swiper-wrapper swiper-wrapperBanner">
+                <div class="swiper-slide swiper-slideBanner">
+                    <div class="textSlideBanner">
+                        <h1>
+                            Lorem ipsum dolor sit amet, 1:0 consectetur adipiscing elit.
+                        </h1>
+                        <p>
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                        <a href="#!" class="bntBanner">
+                            Смотреть таблицу
+                            <svg class="arrow__btn" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_77_49)">
+                                    <path d="M10 17L15 12L10 7" stroke="#0A40AA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_77_49">
+                                        <rect width="24" height="24" fill="white"/>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </a>
+                    </div>
+                    <img src="{% static 'main/img/Messi-600x708.png' %}" alt="" class="photoBanner">
+                </div>
+                <div class="swiper-slide swiper-slideBanner">
+                    <div class="textSlideBanner">
+                        <h1>
+                            Lorem ipsum dolor sit amet, 1:0 consectetur adipiscing elit.
+                        </h1>
+                        <p>
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                        <a href="#!" class="bntBanner">
+                            Смотреть таблицу
+                            <svg class="arrow__btn" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_77_49)">
+                                    <path d="M10 17L15 12L10 7" stroke="#0A40AA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_77_49">
+                                        <rect width="24" height="24" fill="white"/>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </a>
+                    </div>
+                    <img src="{% static 'main/img/Messi-600x708.png' %}" alt="" class="photoBanner">
+                </div>
+                <div class="swiper-slide swiper-slideBanner">
+                    <div class="textSlideBanner">
+                        <h1>
+                            Lorem ipsum dolor sit amet, 1:0 consectetur adipiscing elit.
+                        </h1>
+                        <p>
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                        <a href="#!" class="bntBanner">
+                            Смотреть таблицу
+                            <svg class="arrow__btn" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_77_49)">
+                                    <path d="M10 17L15 12L10 7" stroke="#0A40AA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_77_49">
+                                        <rect width="24" height="24" fill="white"/>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </a>
+                    </div>
+                    <img src="{% static 'main/img/Messi-600x708.png' %}" alt="" class="photoBanner">
+                </div>
+            </div>
+            <div class="swiper-pagination swiper-paginationBanner"></div>
+        </div>
+    </div>
+</section>
+<section class="upcomingMatches__index">
+    <div class="container">
+        <h1 class="titlePageSection">
+            {% translate 'Upcoming matches' %}
+        </h1>
+        <div class="flex-upcomingMatches__index">
+            <form class="section-catalog-container-filters" method="post">
+                {% csrf_token %}
+                <h2>{% translate 'Filters' %}</h2>
+                <div class="section-catalog-container-filters__wrap">
+                    <div class="section-catalog-container-filters-block-accordion">
+                        <div class="accordion">{% translate 'Victories' %}</div>
+                        <div class="panel">
+                            <div class="panel-checkboxes">
+                                <div class="checkbox">
+                                    <input class="custom-checkbox" type="checkbox" id="color-2" name="color-1" value="indigo">
+                                    <label for="color-2">{% translate 'From 2' %}</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input class="custom-checkbox" type="checkbox" id="color-3" name="color-1" value="indigo">
+                                    <label for="color-3">{% translate 'From 3' %}</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input class="custom-checkbox" type="checkbox" id="color-4" name="color-1" value="indigo">
+                                    <label for="color-4">{% translate 'From 4' %}</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input class="custom-checkbox" type="checkbox" id="color-5" name="color-1" value="indigo">
+                                    <label for="color-5">{% translate 'From 5' %}</label>
+                                </div>
+                                <!-- <div class="checkbox">
+                                    <input class="custom-checkbox" type="checkbox" id="color-6" name="color-1" value="indigo">
+                                    <label for="color-6">Pauper</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input class="custom-checkbox" type="checkbox" id="color-7" name="color-1" value="indigo">
+                                    <label for="color-7">EDH</label>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-catalog-container-filters-block-accordion">
+                        <div class="accordion">{% translate 'Time period (in years)' %}</div>
+                        <div class="panel">
+                            <div class="panel-checkboxes">
+                                <div class="checkbox">
+                                    <input class="custom-checkbox" type="checkbox" id="color-8" name="color-1" value="indigo">
+                                    <label for="color-8">{% translate 'The last 1' %}</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input class="custom-checkbox" type="checkbox" id="color-9" name="color-1" value="indigo">
+                                    <label for="color-9">{% translate 'The last 2' %}</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input class="custom-checkbox" type="checkbox" id="color-10" name="color-1" value="indigo">
+                                    <label for="color-10">{% translate 'The last 3' %}</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input class="custom-checkbox" type="checkbox" id="color-10" name="color-1" value="indigo">
+                                    <label for="color-10">{% translate 'The last 4' %}</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input class="custom-checkbox" type="checkbox" id="color-10" name="color-1" value="indigo">
+                                    <label for="color-10">{% translate 'The last 5' %}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-catalog-container-filters-block-accordion">
+                        <div class="accordion">{% translate 'The location of the game' %}</div>
+                        <div class="panel">
+                            <div class="panel-checkboxes">
+                                <div class="checkbox">
+                                    <input class="custom-checkbox" type="checkbox" id="color-11" name="color-1" value="indigo">
+                                    <label for="color-11">{% translate 'At home' %}</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input class="custom-checkbox" type="checkbox" id="color-12" name="color-1" value="indigo">
+                                    <label for="color-12">{% translate 'On the road' %}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- тут будет календарь -->
+                    <!-- конец календаря -->
+                    <div class="section-catalog-container-filters-block-accordion">
+                        <div class="accordion">{% translate 'Matches played' %}</div>
+                        <div class="panel">
+                            <div class="panel-checkboxes">
+                                <div class="checkbox">
+                                    <input class="custom-checkbox" type="checkbox" id="color-14" name="color-1" value="indigo">
+                                    <label for="color-14">{% translate 'From 5' %}</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input class="custom-checkbox" type="checkbox" id="color-15" name="color-1" value="indigo">
+                                    <label for="color-15">{% translate 'From 10' %}</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input class="custom-checkbox" type="checkbox" id="color-16" name="color-1" value="indigo">
+                                    <label for="color-16">{% translate 'From 15' %}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-filter">
+                  {% translate 'Apply' %}
+                </button>
+            </form>
+            <div class="matches-upcomingMatches__index">
+                {% for league in leagues %}
+                <div class="matches-upcomingMatches-block__index">
+                    <a href="{{ league.get_absolute_url }}">
+                    <div class="matches-upcomingMatches-block-top__index">
+                        <div class="matches-upcomingMatches-block-top-left__index">
+                            <img src="{{league.country.flag}}" alt="" width="14px" height="11px">
+                            {{league.country.code}}: {{league.name}}
+                        </div>
+                        <p>{{league.games.first.date|date:'d.m.y'}}</p>
+                        <div class="matches-upcomingMatches-block-top-right__index">
+                            <span>H</span>
+                            <span>D</span>
+                            <span>A</span>
+                        </div>
+                    </div>
+                    <div class="matches-upcomingMatches-block-container__index">
+                        <div class="matches-upcomingMatches-block-container-left-parent__index">
+                            <div class="matches-upcomingMatches-block-container-left__index">
+                                <div class="matches-upcomingMatches-block-container-left-part__index">
+                                    {% if league.games.first.home.place == 1 %}
+                                    {{ league.games.first.home.place }}st
+                                    {% elif league.games.first.home.place == 2 %}
+                                    	{{ league.games.first.home.place }}nd
+                                    {% else %}
+                                    	{{ league.games.first.home.place }}th
+                                    {% endif %}
+                                    <img src="{{league.games.first.home.team.logo}}" alt="">
+                                    <p>{{league.games.first.home.team.name}}</p>
+                                </div>
+                                <div class="matches-upcomingMatches-block-container-left-part__index matches-upcomingMatches-block-container-left-part__index-mini">
+                                    <p>{% translate 'Points' %}</p>
+                                    <span>
+                                        {{ league.games.first.home.point }}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="matches-upcomingMatches-block-container-left__index">
+                                <div class="matches-upcomingMatches-block-container-left-part__index">
+                                    {% if league.games.first.away.place == 1 %}
+                                    {{ league.games.first.away.place }}st
+                                    {% elif league.games.first.away.place == 2 %}
+                                    	{{ league.games.first.away.place }}nd
+                                    {% else %}
+                                    	{{ league.games.first.away.place }}th
+                                    {% endif %}
+{#                                    <span>{% top_list league=league team=league.games.first.away.team_id %}</span>#}
+                                    <img src="{{league.games.first.away.team.logo}}" alt="">
+                                    <p>{{league.games.first.away.team.name}}</p>
+                                </div>
+                                <div class="matches-upcomingMatches-block-container-left-part__index matches-upcomingMatches-block-container-left-part__index-mini">
+                                    <p>{% translate 'Points' %}</p>
+                                    <span>
+                                        {{ league.games.first.away.point }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="matches-upcomingMatches-block-container-right__index">
+                        {% if league.games.first.away_odds_upper %}
+                            <div class="matches-upcomingMatches-block-container-right-block__index matches-upcomingMatches-block-container-right-block-green__index">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M11.7938 9.51874L8 13.3125L4.20625 9.51874" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M8 2.6875V13.2062" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                {{ league.games.first.away_odds }}</div>
+                            {% else %}
+                                <div class="matches-upcomingMatches-block-container-right-block__index matches-upcomingMatches-block-container-right-block-red__index">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M11.7938 9.51874L8 13.3125L4.20625 9.51874" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M8 2.6875V13.2062" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                {{ league.games.first.away_odds }}</div>
+                            {% endif %}
+                            {% if league.games.first.draw_odds_upper %}
+                            <div class="matches-upcomingMatches-block-container-right-block__index matches-upcomingMatches-block-container-right-block-green__index">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M11.7938 9.51874L8 13.3125L4.20625 9.51874" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M8 2.6875V13.2062" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                {{ league.games.first.draw_odds }}</div>
+                            {% else %}
+                                <div class="matches-upcomingMatches-block-container-right-block__index matches-upcomingMatches-block-container-right-block-red__index">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M11.7938 9.51874L8 13.3125L4.20625 9.51874" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M8 2.6875V13.2062" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                {{ league.games.first.draw_odds }}</div>
+                            {% endif %}
+                            {% if league.games.first.home_odds_upper %}
+                            <div class="matches-upcomingMatches-block-container-right-block__index matches-upcomingMatches-block-container-right-block-green__index">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M11.7938 9.51874L8 13.3125L4.20625 9.51874" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M8 2.6875V13.2062" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                {{ league.games.first.home_odds }}</div>
+                            {% else %}
+                                <div class="matches-upcomingMatches-block-container-right-block__index matches-upcomingMatches-block-container-right-block-red__index">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M11.7938 9.51874L8 13.3125L4.20625 9.51874" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M8 2.6875V13.2062" stroke="#EC1616" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                {{ league.games.first.home_odds }}</div>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </a>
+                </div>
+                    {% if forloop.counter == 2 %}
+                <div class="rating-container__index">
+                    <div class="rating-container-part__index">
+                        <span>123</span>
+                        <img src="{% static 'main/img/image121.png' %}" alt="">
+                        <p>1xBet</p>
+                    </div>
+                    <div class="rating-container-part__index">
+                        <span>123</span>
+                        <img src="{% static 'main/img/image121.png' %}" alt="">
+                        <p>1xBet</p>
+                    </div>
+                    <div class="rating-container-part__index">
+                        <span>123</span>
+                        <img src="{% static 'main/img/image121.png' %}" alt="">
+                        <p>1xBet</p>
+                    </div>
+                    <div class="rating-container-part__index">
+                        <span>123</span>
+                        <img src="{% static 'main/img/image121.png' %}" alt="">
+                        <p>1xBet</p>
+                    </div>
+                </div>
+                    {% endif %}
+                {% endfor %}
+
+
+                <div class="pagination-container">
+                    {% if num_page != 1 %}
+                    <div class="pagination-arr">
+
+                        <a href="{% url 'page' page_pk=num_page|add:'-1' %}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="7" height="10" viewBox="0 0 7 10" fill="none">
+                            <path d="M5.5 9L1.5 5L5.5 1" stroke="#0A40AA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        </a></div>
+                {% else %}
+                        <div class="pagination-arr">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="7" height="10" viewBox="0 0 7 10" fill="none">
+                            <path d="M5.5 9L1.5 5L5.5 1" stroke="#0A40AA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg></div>
+                    {% endif %}
+
+                    <div class="pagination-container-content">
+                        {% if num_page == 2 %}
+                            <a href="{% url 'page' page_pk=num_page|add:'-1' %}">{{ num_page|add:'-1' }}</a>
+                            <a class="pagination-container-content-active">{{ num_page }}</a>
+                            <a href="{% url 'page' page_pk=num_page|add:'+1' %}">{{ num_page|add:'+1' }}</a>
+                            <a href="{% url 'page' page_pk=num_page|add:'+2' %}">{{ num_page|add:'+2' }}</a>
+                            <a>...</a>
+                            <a href="{% url 'page' page_pk=all_num_pages %}">{{ all_num_pages }}</a>
+                        {% elif num_page == 1 %}
+                            <a class="pagination-container-content-active">{{ num_page }}</a>
+                            <a href="{% url 'page' page_pk=num_page|add:'+1' %}">{{ num_page|add:'+1' }}</a>
+                            <a href="{% url 'page' page_pk=num_page|add:'+2' %}">{{ num_page|add:'+2' }}</a>
+                            <a>...</a>
+                            <a href="{% url 'page' page_pk=all_num_pages %}">{{ all_num_pages }}</a>
+                        {% elif num_page >= 3 and num_page != all_num_pages %}
+                            <a href="{% url 'page' page_pk=1 %}">1</a>
+                            <a>...</a>
+                            <a class="pagination-container-content-active">{{ num_page }}</a>
+                            <a href="{% url 'page' page_pk=num_page|add:'+1' %}">{{ num_page|add:'+1' }}</a>
+                            <a href="{% url 'page' page_pk=num_page|add:'+2' %}">{{ num_page|add:'+2' }}</a>
+                            <a>...</a>
+                            <a href="{% url 'page' page_pk=all_num_pages %}">{{ all_num_pages }}</a>
+                        {% else %}
+                            <a href="{% url 'page' page_pk=1 %}">1</a>
+                            <a>...</a>
+                            <a href="{% url 'page' page_pk=num_page|add:'-2' %}">{{ num_page|add:'-2' }}</a>
+                            <a href="{% url 'page' page_pk=num_page|add:'-1' %}">{{ num_page|add:'-1' }}</a>
+                            <a class="pagination-container-content-active">{{ all_num_pages }}</a>
+                        {% endif %}
+                    </div>
+                {% if num_page != all_num_pages %}
+                    <a href="{% url 'page' page_pk=num_page|add:'+1' %}">
+                    <div class="pagination-arr">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="7" height="10" viewBox="0 0 7 10" fill="none">
+                            <path d="M1.5 9L5.5 5L1.5 1" stroke="#0A40AA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        </div></a>
+                        {% else %}
+                    <div class="pagination-arr">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="7" height="10" viewBox="0 0 7 10" fill="none">
+                            <path d="M1.5 9L5.5 5L1.5 1" stroke="#0A40AA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                {% endif %}
+                </div>
+                
+
+            </div>
+        </div>
+    </div>
+</section>
+<section class="news__index">
+    <div class="container">
+        <div class="news-top__index">
+            <h3>Our News</h3>
+            <a href="#!">Все новости</a>
+        </div>
+        <div class="news-container__index">
+            <div class="news-container-block__index news-container-block-big__index">
+                <img src="{% static 'main/img/1_Garrett-Rowland1.png' %}" alt="" class="news-container-block-img__index">
+                <div class="news-container-block-bg__index"></div>
+                <div class="news-container-block-text__index">
+                    <span>Название категории</span>
+                    <p>
+                        Как достичь успеха и построить карьеру в футболе?
+                    </p>
+                </div>
+            </div>
+            <div class="news-container-block__index news-container-block-small__index">
+                <img src="{% static 'main/img/1_Garrett-Rowland2.png' %}" alt="" class="news-container-block-img__index">
+                <div class="news-container-block-bg2__index"></div>
+                <div class="news-container-block-text2__index">
+                    <span>Название категории</span>
+                    <p>
+                        Как достичь успеха и построить карьеру в футболе?
+                    </p>
+                </div>
+            </div>
+            <div class="news-container-block__index news-container-block-small__index">
+                <img src="{% static 'main/img/1_Garrett-Rowland2.png' %}" alt="" class="news-container-block-img__index">
+                <div class="news-container-block-bg2__index"></div>
+                <div class="news-container-block-text2__index">
+                    <span>Название категории</span>
+                    <p>
+                        Как достичь успеха и построить карьеру в футболе?
+                    </p>
+                </div>
+            </div>
+            <div class="news-container-block__index news-container-block-big__index">
+                <img src="{% static 'main/img/1_Garrett-Rowland1.png' %}" alt="" class="news-container-block-img__index">
+                <div class="news-container-block-bg__index"></div>
+                <div class="news-container-block-text__index">
+                    <span>Название категории</span>
+                    <p>
+                        Как достичь успеха и построить карьеру в футболе?
+                    </p>
+                </div>
+            </div>
+            <div class="news-container-block__index news-container-block-big__index">
+                <img src="{% static 'main/img/1_Garrett-Rowland1.png' %}" alt="" class="news-container-block-img__index">
+                <div class="news-container-block-bg__index"></div>
+                <div class="news-container-block-text__index">
+                    <span>Название категории</span>
+                    <p>
+                        Как достичь успеха и построить карьеру в футболе?
+                    </p>
+                </div>
+            </div>
+            <div class="news-container-block__index news-container-block-small__index">
+                <img src="{% static 'main/img/1_Garrett-Rowland2.png' %}" alt="" class="news-container-block-img__index">
+                <div class="news-container-block-bg2__index"></div>
+                <div class="news-container-block-text2__index">
+                    <span>Название категории</span>
+                    <p>
+                        Как достичь успеха и построить карьеру в футболе?
+                    </p>
+                </div>
+            </div>
+            <div class="news-container-block__index news-container-block-small__index">
+                <img src="{% static 'main/img/1_Garrett-Rowland2.png' %}" alt="" class="news-container-block-img__index">
+                <div class="news-container-block-bg2__index"></div>
+                <div class="news-container-block-text2__index">
+                    <span>Название категории</span>
+                    <p>
+                        Как достичь успеха и построить карьеру в футболе?
+                    </p>
+                </div>
+            </div>
+            <div class="news-container-block__index news-container-block-small__index">
+                <img src="{% static 'main/img/1_Garrett-Rowland2.png' %}" alt="" class="news-container-block-img__index">
+                <div class="news-container-block-bg2__index"></div>
+                <div class="news-container-block-text2__index">
+                    <span>Название категории</span>
+                    <p>
+                        Как достичь успеха и построить карьеру в футболе?
+                    </p>
+                </div>
+            </div>
+            <div class="news-container-block__index news-container-block-small__index">
+                <img src="{% static 'main/img/1_Garrett-Rowland2.png' %}" alt="" class="news-container-block-img__index">
+                <div class="news-container-block-bg2__index"></div>
+                <div class="news-container-block-text2__index">
+                    <span>Название категории</span>
+                    <p>
+                        Как достичь успеха и построить карьеру в футболе?
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="seo-section__index">
+    <div class="container">
+        <div class="seo-section-block__index">
+            <h3>{{ info.name }}</h3>
+            <p>{{ seo_text }}</p>
+{#            <div class="seo-section-container__index">#}
+{#                <div class="seo-section-container-block__index">#}
+{#                    <span>1</span>#}
+{#                    <p>#}
+{#                        Равным образом постоянное информационно- пропагандистское обеспечение нашей деятельности позволяет выполнять важные задания.#}
+{#                    </p>#}
+{#                </div>#}
+{#            </div>#}
+            <a href="#!">{% trans 'Read more' %}</a>
+        </div>
+    </div>
+</section>
+
+
+<div  id="modal__project" class="modal" data-modal="one">
+    <div class="modal-content">
+        <div class="close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+  <path d="M1 13L13 1" stroke="#FCFCF9" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M13 13L1 1" stroke="#FCFCF9" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+        </div>
+        <p class="titleModal">
+            {% translate 'Ask a question' %}
+            
+        </p>
+        <p class="subtitleModal">
+            {% translate 'Fill in all the necessary fields to send the question you are interested in.' %}
+        </p>
+        <form action="#!" method="post">
+            {% csrf_token %}
+            {{form.name}}
+            <!-- <input type="text" name="name" required placeholder="Ваше имя"> -->
+            <!-- <input type="tel" class="telInput" name="tel" required placeholder="Номер телефона" > -->
+            {{form.telenumber}}
+            <!-- <input type="email" placeholder="Ваша почта"> -->
+            {{form.email}}
+            <!-- <textarea name="text" style="resize: none" required placeholder="Сообщение"></textarea> -->
+            {{form.msg}}
+            <button type="submit">
+                {% translate 'Send' %}
+            </button>
+        </form>
+    </div>
+    <script>
+        let modal = document.getElementById("modal__project");
+        // Get the button that opens the modal
+        let btn = document.getElementsByClassName("openModal");
+        console.log()
+        // Get the <span> element that closes the modal
+        let span = document.getElementsByClassName("close")[0];
+        // When the user clicks the button, open the modal
+        for(let i = 0;i < btn.length; i++)
+        {
+            let v = btn[i]
+            v.onclick = function() {
+                modal.style.display = "flex";
+            }
+        }
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</div>
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="{% static 'main/scripts/scriptFilters.js' %}"></script>
+<script src="{% static 'main/scripts/app.js' %}"></script>
+{% endblock %}

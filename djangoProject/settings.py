@@ -69,6 +69,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.i18n',
             ],
         },
     },
@@ -135,9 +136,9 @@ CKEDITOR_5_CONFIGS = {
 # LANGUAGE_CODE = 'en-US'
 LANGUAGE_CODE = 'ru'
 TIME_ZONE = 'UTC'
-
+LOCALE_PATHS = (BASE_DIR / 'locale', )
 USE_I18N = True
-
+USE_L10N = True
 USE_TZ = True
 
 

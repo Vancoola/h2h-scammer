@@ -129,33 +129,32 @@
 <section class="upcomingMatches__index">
     <div class="container">
         <h1 class="titlePageSection">
-            Upcoming matches
+            {% translate 'Upcoming matches' %}
         </h1>
         <div class="flex-upcomingMatches__index">
             <form class="section-catalog-container-filters" method="post">
                 {% csrf_token %}
                 <h2>{% translate 'Filters' %}</h2>
-                
                 <div class="section-catalog-container-filters__wrap">
                     <div class="section-catalog-container-filters-block-accordion">
-                        <div class="accordion">Победы</div>
+                        <div class="accordion">{% translate 'Victories' %}</div>
                         <div class="panel">
                             <div class="panel-checkboxes">
                                 <div class="checkbox">
                                     <input class="custom-checkbox" type="checkbox" id="color-2" name="color-1" value="indigo">
-                                    <label for="color-2">От 2</label>
+                                    <label for="color-2">{% translate 'From 2' %}</label>
                                 </div>
                                 <div class="checkbox">
                                     <input class="custom-checkbox" type="checkbox" id="color-3" name="color-1" value="indigo">
-                                    <label for="color-3">От 3</label>
+                                    <label for="color-3">{% translate 'From 3' %}</label>
                                 </div>
                                 <div class="checkbox">
                                     <input class="custom-checkbox" type="checkbox" id="color-4" name="color-1" value="indigo">
-                                    <label for="color-4">От 4</label>
+                                    <label for="color-4">{% translate 'From 4' %}</label>
                                 </div>
                                 <div class="checkbox">
                                     <input class="custom-checkbox" type="checkbox" id="color-5" name="color-1" value="indigo">
-                                    <label for="color-5">От 5</label>
+                                    <label for="color-5">{% translate 'From 5' %}</label>
                                 </div>
                                 <!-- <div class="checkbox">
                                     <input class="custom-checkbox" type="checkbox" id="color-6" name="color-1" value="indigo">
@@ -169,43 +168,43 @@
                         </div>
                     </div>
                     <div class="section-catalog-container-filters-block-accordion">
-                        <div class="accordion">Период времени (в годах)</div>
+                        <div class="accordion">{% translate 'Time period (in years)' %}</div>
                         <div class="panel">
                             <div class="panel-checkboxes">
                                 <div class="checkbox">
                                     <input class="custom-checkbox" type="checkbox" id="color-8" name="color-1" value="indigo">
-                                    <label for="color-8">Последний 1</label>
+                                    <label for="color-8">{% translate 'The last 1' %}</label>
                                 </div>
                                 <div class="checkbox">
                                     <input class="custom-checkbox" type="checkbox" id="color-9" name="color-1" value="indigo">
-                                    <label for="color-9">Последние 2</label>
+                                    <label for="color-9">{% translate 'The last 2' %}</label>
                                 </div>
                                 <div class="checkbox">
                                     <input class="custom-checkbox" type="checkbox" id="color-10" name="color-1" value="indigo">
-                                    <label for="color-10">Последние 3</label>
+                                    <label for="color-10">{% translate 'The last 3' %}</label>
                                 </div>
                                 <div class="checkbox">
                                     <input class="custom-checkbox" type="checkbox" id="color-10" name="color-1" value="indigo">
-                                    <label for="color-10">Последние 4</label>
+                                    <label for="color-10">{% translate 'The last 4' %}</label>
                                 </div>
                                 <div class="checkbox">
                                     <input class="custom-checkbox" type="checkbox" id="color-10" name="color-1" value="indigo">
-                                    <label for="color-10">Последние 5</label>
+                                    <label for="color-10">{% translate 'The last 5' %}</label>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="section-catalog-container-filters-block-accordion">
-                        <div class="accordion">Локация игры</div>
+                        <div class="accordion">{% translate 'The location of the game' %}</div>
                         <div class="panel">
                             <div class="panel-checkboxes">
                                 <div class="checkbox">
                                     <input class="custom-checkbox" type="checkbox" id="color-11" name="color-1" value="indigo">
-                                    <label for="color-11">Дома</label>
+                                    <label for="color-11">{% translate 'At home' %}</label>
                                 </div>
                                 <div class="checkbox">
                                     <input class="custom-checkbox" type="checkbox" id="color-12" name="color-1" value="indigo">
-                                    <label for="color-12">На выезде</label>
+                                    <label for="color-12">{% translate 'On the road' %}</label>
                                 </div>
                             </div>
                         </div>
@@ -213,20 +212,20 @@
                     <!-- тут будет календарь -->
                     <!-- конец календаря -->
                     <div class="section-catalog-container-filters-block-accordion">
-                        <div class="accordion">Сыгранные матчи</div>
+                        <div class="accordion">{% translate 'Matches played' %}</div>
                         <div class="panel">
                             <div class="panel-checkboxes">
                                 <div class="checkbox">
                                     <input class="custom-checkbox" type="checkbox" id="color-14" name="color-1" value="indigo">
-                                    <label for="color-14">От 5</label>
+                                    <label for="color-14">{% translate 'From 5' %}</label>
                                 </div>
                                 <div class="checkbox">
                                     <input class="custom-checkbox" type="checkbox" id="color-15" name="color-1" value="indigo">
-                                    <label for="color-15">От 10</label>
+                                    <label for="color-15">{% translate 'From 10' %}</label>
                                 </div>
                                 <div class="checkbox">
                                     <input class="custom-checkbox" type="checkbox" id="color-16" name="color-1" value="indigo">
-                                    <label for="color-16">От 15</label>
+                                    <label for="color-16">{% translate 'From 15' %}</label>
                                 </div>
                             </div>
                         </div>
@@ -234,7 +233,7 @@
                 </div>
 
                 <button type="submit" class="btn-filter">
-                  Применить
+                  {% translate 'Apply' %}
                 </button>
             </form>
             <div class="matches-upcomingMatches__index">
@@ -246,7 +245,7 @@
                             <img src="{{league.country.flag}}" alt="" width="14px" height="11px">
                             {{league.country.code}}: {{league.name}}
                         </div>
-                        <p>{{league.games.first.date}}</p>
+                        <p>{{league.games.first.date|date:'d.m.y'}}</p>
                         <div class="matches-upcomingMatches-block-top-right__index">
                             <span>H</span>
                             <span>D</span>
@@ -346,29 +345,67 @@
                     </div>
                 </a>
                 </div>
+                    {% if forloop.counter == 2 %}
+                <div class="rating-container__index">
+                    <div class="rating-container-part__index">
+                        <span>123</span>
+                        <img src="{% static 'main/img/image121.png' %}" alt="">
+                        <p>1xBet</p>
+                    </div>
+                    <div class="rating-container-part__index">
+                        <span>123</span>
+                        <img src="{% static 'main/img/image121.png' %}" alt="">
+                        <p>1xBet</p>
+                    </div>
+                    <div class="rating-container-part__index">
+                        <span>123</span>
+                        <img src="{% static 'main/img/image121.png' %}" alt="">
+                        <p>1xBet</p>
+                    </div>
+                    <div class="rating-container-part__index">
+                        <span>123</span>
+                        <img src="{% static 'main/img/image121.png' %}" alt="">
+                        <p>1xBet</p>
+                    </div>
+                </div>
+                    {% endif %}
                 {% endfor %}
-                <!-- <div class="rating-container__index">
-                    <div class="rating-container-part__index">
-                        <span>123</span>
-                        <img src="{% static 'main/img/image121.png' %}" alt="">
-                        <p>1xBet</p>
+
+
+                <div class="pagination-container">
+                    <div class="pagination-arr">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="7" height="10" viewBox="0 0 7 10" fill="none">
+                            <path d="M5.5 9L1.5 5L5.5 1" stroke="#0A40AA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
                     </div>
-                    <div class="rating-container-part__index">
-                        <span>123</span>
-                        <img src="{% static 'main/img/image121.png' %}" alt="">
-                        <p>1xBet</p>
+                    <div class="pagination-container-content">
+                        {% if num_pages >= 6 %}
+                            <a class="pagination-container-content-active">1</a>
+                            <a href="{% url 'page' page_pk=2 %}">2</a>
+                            <a href="{% url 'page' page_pk=3 %}">3</a>
+                            <a href="{% url 'page' page_pk=4 %}">4</a>
+                            <a>...</a>
+                            <a href="{% url 'page' page_pk=num_pages %}">{{ num_pages }}</a>
+                        {% else %}
+
+                            {% for i in num_pages_range %}
+                                {% if forloop.counter == 1 %}<a class="pagination-container-content-active">1</a>
+                                    {% else %}
+                                    <a href="{% url 'page' page_pk=i %}">{{ i }}</a>
+                                {% endif %}
+
+                            {% endfor %}
+                        {% endif %}
                     </div>
-                    <div class="rating-container-part__index">
-                        <span>123</span>
-                        <img src="{% static 'main/img/image121.png' %}" alt="">
-                        <p>1xBet</p>
+                    <div class="pagination-arr">
+                        <a href="{% url 'page' page_pk=2 %}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="7" height="10" viewBox="0 0 7 10" fill="none">
+                            <path d="M1.5 9L5.5 5L1.5 1" stroke="#0A40AA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        </a>
                     </div>
-                    <div class="rating-container-part__index">
-                        <span>123</span>
-                        <img src="{% static 'main/img/image121.png' %}" alt="">
-                        <p>1xBet</p>
-                    </div>
-                </div> -->
+                </div>
+                
 
             </div>
         </div>
@@ -487,7 +524,7 @@
 {#                    </p>#}
 {#                </div>#}
 {#            </div>#}
-            <a href="#!">Читать подробнее</a>
+            <a href="#!">{% trans 'Read more' %}</a>
         </div>
     </div>
 </section>

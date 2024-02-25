@@ -40,13 +40,13 @@ class CountryAdmin(admin.ModelAdmin):
 @admin.register(LeagueModel)
 class LeagueModelAdmin(admin.ModelAdmin):
     list_display = ('name', 'league_id')
-    search_fields = ('name',)
+    search_fields = ('name', 'league_id')
 
 # admin.site.register(SeasonModel)
 @admin.register(SeasonModel)
 class SeasonModelAdmin(admin.ModelAdmin):
     list_display = ('year', '__str__')
-    search_fields = ( 'year', 'league__name')
+    search_fields = ('year', 'league__name', 'league__league_id')
 
 @admin.register(TeamModel)
 class TeamModelAdmin(admin.ModelAdmin):
